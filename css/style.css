@@ -959,8 +959,6 @@ input[type="range"]::-moz-range-thumb {
   inset: -10% 0 0;
 
   z-index: -1;
-
-  will-change: transform;
 }
 
 .blob {
@@ -1103,18 +1101,9 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .js .curve-card {
-  opacity: 0;
-
-  transform:
-    translateY(30px)
-    scale(0.98);
-
-  animation:
-    word-in
-    0.9s
-    cubic-bezier(0.2, 0.8, 0.2, 1)
-    0.45s
-    forwards;
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .btn-primary {
@@ -1708,23 +1697,6 @@ html[data-theme="dark"] .site-footer {
   border-radius: 28px;
   overflow: hidden;
   isolation: isolate;
-  box-shadow:
-    0 24px 60px rgba(40, 25, 100, 0.16),
-    0 8px 24px rgba(40, 25, 100, 0.10);
-}
-
-.hero-image::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    rgba(90, 61, 240, 0.35),
-    rgba(90, 61, 240, 0.05),
-    rgba(130, 90, 255, 0.25)
-  );
 }
 
 .hero-image img {
