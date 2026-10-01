@@ -1019,12 +1019,7 @@ input[type="range"]::-moz-range-thumb {
     transparent 66%
   );
 
-  animation:
-    drift-a
-    22s
-    ease-in-out
-    infinite
-    alternate-reverse;
+  animation: none;
 }
 
 @keyframes drift-a {
