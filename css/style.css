@@ -1732,7 +1732,6 @@ html[data-theme="dark"] .site-footer {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: inherit;
 }
@@ -1786,7 +1785,4 @@ html[data-theme="dark"] .site-footer {
       0 6px 18px rgba(40, 25, 100, 0.08);
   }
 
-  .hero-image img {
-    aspect-ratio: 3 / 2;
-  }
 }
