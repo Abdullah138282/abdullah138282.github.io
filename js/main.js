@@ -577,17 +577,9 @@ thinkoraAfterFirstPaint(function () {
 
       /* ---------- Hero parallax ---------- */
 
-      if (
-        heroBg &&
-        !reduce &&
-        y <
-          window.innerHeight * 1.2
-      ) {
-        heroBg.style.transform =
-          "translate3d(0," +
-          (y * 0.18).toFixed(1) +
-          "px,0)";
-      }
+      if (heroBg) {
+  heroBg.style.transform = "none";
+}
 
       /* ---------- How It Works progress ---------- */
 
