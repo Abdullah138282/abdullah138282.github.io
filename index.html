@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -35,9 +36,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
+    rel="preload"
+    as="style"
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet"
+    onload="this.onload=null;this.rel='stylesheet'"
   >
+
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap"
+    >
+  </noscript>
 
   <!-- Prevent flash while JavaScript loads -->
   <script>
@@ -461,9 +471,13 @@
         <div class="hero-image">
 
           <img
-            src="/images/thinkora-homepage.png"
-            alt="Thinkora brain and cognitive testing illustration"
-          >
+  src="/images/thinkora-homepage.webp"
+  alt="Thinkora brain and cognitive testing illustration"
+  width="333"
+  height="333"
+  fetchpriority="high"
+  decoding="async"
+>
 
         </div>
 
@@ -1400,3 +1414,8 @@
 
 </body>
 </html>
+```
+
+**Ab abhi:** isko `E:\Thinkora\index.html` mein replace → save → GitHub par upload/commit.
+
+Uske baad **PageSpeed dobara run karo**. Abhi aur koi optimization mat karna.
