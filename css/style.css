@@ -384,12 +384,7 @@ a:hover {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
 
-  animation:
-    draw
-    1.6s
-    cubic-bezier(0.6, 0, 0.2, 1)
-    0.2s
-    forwards;
+  animation: none;
 }
 
 .curve-axis {
