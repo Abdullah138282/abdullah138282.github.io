@@ -1,3 +1,4 @@
+
 /* Thinkora — main.js */
 window.__thinkoraReady = true;
 
@@ -117,17 +118,10 @@ window.__thinkoraReady = true;
   }
 
   function make(tag, attrs) {
-    var el =
-      document.createElementNS(
-        NS,
-        tag
-      );
+    var el = document.createElementNS(NS, tag);
 
     for (var k in attrs) {
-      el.setAttribute(
-        k,
-        attrs[k]
-      );
+      el.setAttribute(k, attrs[k]);
     }
 
     return el;
@@ -166,22 +160,16 @@ window.__thinkoraReady = true;
 
   var defs = make("defs", {});
 
-  var clip = make(
-    "clipPath",
-    {
-      id: "fill-clip"
-    }
-  );
+  var clip = make("clipPath", {
+    id: "fill-clip"
+  });
 
-  var clipRect = make(
-    "rect",
-    {
-      x: 0,
-      y: 0,
-      width: 0,
-      height: H
-    }
-  );
+  var clipRect = make("rect", {
+    x: 0,
+    y: 0,
+    width: 0,
+    height: H
+  });
 
   clip.appendChild(clipRect);
   defs.appendChild(clip);
@@ -200,8 +188,7 @@ window.__thinkoraReady = true;
     make("path", {
       d: area,
       "class": "curve-fill",
-      "clip-path":
-        "url(#fill-clip)"
+      "clip-path": "url(#fill-clip)"
     })
   );
 
@@ -231,99 +218,59 @@ window.__thinkoraReady = true;
 
   [70, 85, 100, 115, 130].forEach(
     function (t) {
-      var tick = make(
-        "text",
-        {
-          x: xOf(t),
-          y: BASE + 28,
-          "class": "curve-tick"
-        }
-      );
+      var tick = make("text", {
+        x: xOf(t),
+        y: BASE + 28,
+        "class": "curve-tick"
+      });
 
       tick.textContent = t;
-
       svg.appendChild(tick);
     }
   );
 
   /* ---------- Marker ---------- */
 
-  var markerLine = make(
-    "line",
-    {
-      "class":
-        "curve-marker-line",
-      y2: BASE
-    }
-  );
+  var markerLine = make("line", {
+    "class": "curve-marker-line",
+    y2: BASE
+  });
 
-  var markerDot = make(
-    "circle",
-    {
-      r: 9,
-      "class":
-        "curve-marker-dot"
-    }
-  );
+  var markerDot = make("circle", {
+    r: 9,
+    "class": "curve-marker-dot"
+  });
 
   svg.appendChild(markerLine);
   svg.appendChild(markerDot);
 
   /* ---------- Readout ---------- */
 
-  var scoreEl =
-    document.getElementById(
-      "readout-score"
-    );
+  var scoreEl = document.getElementById(
+    "readout-score"
+  );
 
-  var textEl =
-    document.getElementById(
-      "readout-text"
-    );
+  var textEl = document.getElementById(
+    "readout-text"
+  );
 
   function update() {
-    var v = parseInt(
-      slider.value,
-      10
-    );
+    var v = parseInt(slider.value, 10);
 
     var x = xOf(v);
     var y = yOf(v);
 
-    clipRect.setAttribute(
-      "width",
-      x
-    );
+    clipRect.setAttribute("width", x);
 
-    markerLine.setAttribute(
-      "x1",
-      x
-    );
+    markerLine.setAttribute("x1", x);
+    markerLine.setAttribute("x2", x);
+    markerLine.setAttribute("y1", y);
 
-    markerLine.setAttribute(
-      "x2",
-      x
-    );
-
-    markerLine.setAttribute(
-      "y1",
-      y
-    );
-
-    markerDot.setAttribute(
-      "cx",
-      x
-    );
-
-    markerDot.setAttribute(
-      "cy",
-      y
-    );
+    markerDot.setAttribute("cx", x);
+    markerDot.setAttribute("cy", y);
 
     var pct =
-      cdf(
-        (v - MEAN) / SD
-      ) * 100;
+      cdf((v - MEAN) / SD) * 100;
 
     var pctText =
       pct > 99.9
@@ -354,10 +301,7 @@ window.__thinkoraReady = true;
     );
   }
 
-  slider.addEventListener(
-    "input",
-    update
-  );
+  slider.addEventListener("input", update);
 
   update();
 })();
@@ -368,11 +312,9 @@ window.__thinkoraReady = true;
 
 (function () {
   var reduce =
-    window
-      .matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      )
-      .matches;
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
   /* ---------- Split hero headline into words ---------- */
 
@@ -406,13 +348,10 @@ window.__thinkoraReady = true;
   /* ---------- Animated counters ---------- */
 
   function runCounter(el) {
-    var target =
-      parseInt(
-        el.getAttribute(
-          "data-count"
-        ),
-        10
-      );
+    var target = parseInt(
+      el.getAttribute("data-count"),
+      10
+    );
 
     if (reduce) {
       el.textContent = target;
@@ -434,10 +373,7 @@ window.__thinkoraReady = true;
 
       var eased =
         1 -
-        Math.pow(
-          1 - p,
-          3
-        );
+        Math.pow(1 - p, 3);
 
       el.textContent =
         Math.round(
@@ -445,9 +381,7 @@ window.__thinkoraReady = true;
         );
 
       if (p < 1) {
-        requestAnimationFrame(
-          tick
-        );
+        requestAnimationFrame(tick);
       }
     }
 
@@ -462,67 +396,46 @@ window.__thinkoraReady = true;
     );
 
   if (
-    !(
-      "IntersectionObserver" in
-      window
-    )
+    !("IntersectionObserver" in window)
   ) {
-    items.forEach(
-      function (el) {
-        el.classList.add(
-          "is-visible"
-        );
-      }
-    );
+    items.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
 
     document
-      .querySelectorAll(
-        "[data-count]"
-      )
+      .querySelectorAll("[data-count]")
       .forEach(runCounter);
-
   } else {
     var io =
       new IntersectionObserver(
         function (entries) {
-          entries.forEach(
-            function (entry) {
-              if (
-                !entry.isIntersecting
-              ) {
-                return;
-              }
-
-              entry.target.classList.add(
-                "is-visible"
-              );
-
-              entry.target
-                .querySelectorAll(
-                  "[data-count]"
-                )
-                .forEach(
-                  runCounter
-                );
-
-              io.unobserve(
-                entry.target
-              );
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              return;
             }
-          );
+
+            entry.target.classList.add(
+              "is-visible"
+            );
+
+            entry.target
+              .querySelectorAll(
+                "[data-count]"
+              )
+              .forEach(runCounter);
+
+            io.unobserve(entry.target);
+          });
         },
         {
           threshold: 0.15,
-          rootMargin:
-            "0px 0px -6% 0px"
+          rootMargin: "0px 0px -6% 0px"
         }
       );
 
-    items.forEach(
-      function (el) {
-        io.observe(el);
-      }
-    );
+    items.forEach(function (el) {
+      io.observe(el);
+    });
   }
 
   /* ---------- Scroll-linked effects ---------- */
@@ -547,11 +460,76 @@ window.__thinkoraReady = true;
       ".steps"
     );
 
+  var stepItems = steps
+    ? steps.querySelectorAll(".step")
+    : null;
+
+  /*
+   * Cache layout values instead of repeatedly
+   * reading getBoundingClientRect() during
+   * every scroll frame.
+   */
+  var stepsStart = 0;
+  var stepsEnd = 0;
+  var lineHeight = 0;
+
+  function updateStepMetrics() {
+    if (!steps || !stepItems || !stepItems.length) {
+      return;
+    }
+
+    /*
+     * Layout measurements are performed only
+     * when the layout can actually change:
+     * initial load and resize.
+     */
+    var stepsRect =
+      steps.getBoundingClientRect();
+
+    var firstRect =
+      stepItems[0].getBoundingClientRect();
+
+    var lastRect =
+      stepItems[
+        stepItems.length - 1
+      ].getBoundingClientRect();
+
+    var lineStart =
+      firstRect.top -
+      stepsRect.top +
+      26;
+
+    var lineEnd =
+      lastRect.top -
+      stepsRect.top +
+      26;
+
+    lineHeight =
+      Math.max(
+        0,
+        lineEnd - lineStart
+      );
+
+    stepsStart =
+      stepsRect.top +
+      lineStart +
+      window.pageYOffset;
+
+    stepsEnd =
+      stepsRect.top +
+      lineEnd +
+      window.pageYOffset;
+
+    steps.style.setProperty(
+      "--line-height",
+      lineHeight.toFixed(2) + "px"
+    );
+  }
+
   var ticking = false;
 
   function onScroll() {
-    var y =
-      window.pageYOffset;
+    var y = window.pageYOffset;
 
     var max =
       document.documentElement
@@ -565,18 +543,13 @@ window.__thinkoraReady = true;
         max > 0
           ? Math.max(
               0,
-              Math.min(
-                1,
-                y / max
-              )
+              Math.min(1, y / max)
             )
           : 0;
 
       bar.style.transform =
         "scaleX(" +
-        pageProgress.toFixed(
-          4
-        ) +
+        pageProgress.toFixed(4) +
         ")";
     }
 
@@ -595,135 +568,39 @@ window.__thinkoraReady = true;
       heroBg &&
       !reduce &&
       y <
-        window.innerHeight *
-          1.2
+        window.innerHeight * 1.2
     ) {
       heroBg.style.transform =
         "translate3d(0," +
-        (
-          y * 0.18
-        ).toFixed(1) +
+        (y * 0.18).toFixed(1) +
         "px,0)";
     }
 
-    /* ======================================================
-       HOW IT WORKS PROGRESS LINE
+    /* ---------- How It Works progress ---------- */
 
-       The line now follows the actual positions
-       of Step 1 and Step 3.
+    if (
+      steps &&
+      stepItems &&
+      stepItems.length &&
+      stepsEnd > stepsStart
+    ) {
+      var triggerPoint =
+        y +
+        window.innerHeight * 0.65;
 
-       This prevents the line from extending below
-       the third step, especially on mobile screens.
-       ====================================================== */
+      var p =
+        (triggerPoint - stepsStart) /
+        (stepsEnd - stepsStart);
 
-    if (steps) {
-      var stepsRect =
-        steps.getBoundingClientRect();
+      p = Math.max(
+        0,
+        Math.min(1, p)
+      );
 
-      var stepItems =
-        steps.querySelectorAll(
-          ".step"
-        );
-
-      if (stepItems.length) {
-        /*
-         * Get the actual positions of
-         * the first and last step.
-         */
-        var firstRect =
-          stepItems[0].getBoundingClientRect();
-
-        var lastRect =
-          stepItems[
-            stepItems.length - 1
-          ].getBoundingClientRect();
-
-        /*
-         * Each numbered circle is 26px
-         * from the top of its step.
-         */
-        var lineStart =
-          firstRect.top -
-          stepsRect.top +
-          26;
-
-        var lineEnd =
-          lastRect.top -
-          stepsRect.top +
-          26;
-
-        /*
-         * Exact distance between the
-         * first and last circle centers.
-         */
-        var lineHeight =
-          Math.max(
-            0,
-            lineEnd - lineStart
-          );
-
-        /*
-         * Tell CSS exactly how long
-         * the line should be.
-         */
-        steps.style.setProperty(
-          "--line-height",
-          lineHeight.toFixed(2) +
-            "px"
-        );
-
-        /*
-         * Animation trigger point.
-         */
-        var triggerPoint =
-          window.innerHeight *
-          0.65;
-
-        /*
-         * Convert the start/end positions
-         * into viewport coordinates.
-         */
-        var absoluteStart =
-          stepsRect.top +
-          lineStart;
-
-        var absoluteEnd =
-          stepsRect.top +
-          lineEnd;
-
-        /*
-         * Calculate progress from
-         * Step 1 → Step 3.
-         */
-        var p =
-          (
-            triggerPoint -
-            absoluteStart
-          ) /
-          Math.max(
-            1,
-            absoluteEnd -
-              absoluteStart
-          );
-
-        /*
-         * Hard clamp.
-         *
-         * 0 = Step 1
-         * 1 = Step 3
-         *
-         * It can NEVER go beyond Step 3.
-         */
-        p = Math.max(
-          0,
-          Math.min(1, p)
-        );
-
-        steps.style.setProperty(
-          "--p",
-          p.toFixed(4)
-        );
-      }
+      steps.style.setProperty(
+        "--p",
+        p.toFixed(4)
+      );
     }
 
     ticking = false;
@@ -737,9 +614,7 @@ window.__thinkoraReady = true;
       if (!ticking) {
         ticking = true;
 
-        requestAnimationFrame(
-          onScroll
-        );
+        requestAnimationFrame(onScroll);
       }
     },
     {
@@ -751,10 +626,15 @@ window.__thinkoraReady = true;
 
   window.addEventListener(
     "resize",
-    onScroll
+    function () {
+      updateStepMetrics();
+      onScroll();
+    }
   );
 
   /* ---------- Initial calculation ---------- */
 
+  updateStepMetrics();
   onScroll();
 })();
+
