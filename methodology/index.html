@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Methodology: How Thinkora Calculates IQ and Percentiles</title>
+  <meta name="description" content="How Thinkora estimates IQ, converts scores to percentiles on the normal curve, and what limits apply to online tests and brain games.">
+  <link rel="canonical" href="https://abdullah138282.github.io/methodology/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#5a3df0">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Methodology: How Thinkora Calculates IQ and Percentiles">
+  <meta property="og:description" content="How Thinkora estimates IQ, converts scores to percentiles on the normal curve, and what limits apply to online tests and brain games.">
+  <meta property="og:url" content="https://abdullah138282.github.io/methodology/">
+  <meta property="og:site_name" content="Thinkora">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235a3df0'/%3E%3Cpath d='M4 25 C11 25 11 7 16 7 S21 25 28 25' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    document.documentElement.classList.add("js");
+    setTimeout(function () {
+      if (!window.__thinkoraReady) {
+        document.documentElement.classList.remove("js");
+      }
+    }, 2500);
+  </script>
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("thinkora-theme");
+
+        if (saved === "dark" || saved === "light") {
+          document.documentElement.setAttribute("data-theme", saved);
+        } else if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/pages.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://abdullah138282.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Methodology",
+          "item": "https://abdullah138282.github.io/methodology/"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Thinkora Methodology",
+      "url": "https://abdullah138282.github.io/methodology/"
+    }
+  ]
+}
+  </script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+
+      <a class="logo" href="/" aria-label="Thinkora home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#5a3df0"/>
+          <path d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+                fill="none"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"/>
+        </svg>
+        Thinkora
+      </a>
+
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+
+          <li>
+            <a href="/iq-test/">IQ test</a>
+          </li>
+
+          <li class="has-sub">
+            <a href="/brain-games/">Brain games</a>
+
+            <button
+              type="button"
+              class="sub-toggle"
+              aria-expanded="false"
+              aria-label="Show brain games links">
+            </button>
+
+            <ul class="submenu">
+              <li><a href="/reaction-time-test/">Reaction time test</a></li>
+              <li><a href="/number-memory-test/">Number memory test</a></li>
+              <li><a href="/pattern-memory-game/">Pattern memory game</a></li>
+              <li><a href="/color-difference-test/">Color difference test</a></li>
+              <li><a href="/mental-math-test/">Mental math test</a></li>
+              <li><a href="/brain-games/">All brain games</a></li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/iq-percentile-calculator/">Calculator</a>
+
+            <button
+              type="button"
+              class="sub-toggle"
+              aria-expanded="false"
+              aria-label="Show calculator links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/iq-percentile-calculator/">IQ percentile calculator</a>
+              </li>
+              <li>
+                <a href="/iq-scores/">IQ score guide</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/blog/">Articles</a>
+
+            <button
+              type="button"
+              class="sub-toggle"
+              aria-expanded="false"
+              aria-label="Show articles links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/blog/">All articles</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/about/">About</a>
+
+            <button
+              type="button"
+              class="sub-toggle"
+              aria-expanded="false"
+              aria-label="Show about links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/about/">About Thinkora</a>
+              </li>
+              <li>
+                <a href="/methodology/" aria-current="page">Methodology</a>
+              </li>
+              <li>
+                <a href="/contact/">Contact</a>
+              </li>
+              <li>
+                <a href="/privacy-policy/">Privacy policy</a>
+              </li>
+              <li>
+                <a href="/terms/">Terms of service</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Theme Toggle -->
+          <li class="theme-item">
+            <button
+              type="button"
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Switch to dark mode"
+              aria-pressed="false">
+              <span class="theme-icon" aria-hidden="true">☾</span>
+              <span class="theme-text">Dark</span>
+            </button>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="pg-hero">
+      <div class="wrap">
+
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a> / Methodology
+        </nav>
+
+        <h1>Methodology</h1>
+
+        <p class="lead">
+          How scores, percentiles and classifications are worked out,
+          and where the limits are.
+        </p>
+
+        <p class="meta">Last updated October 1, 2026</p>
+
+      </div>
+    </section>
+
+    <section class="pg-body">
+      <div class="wrap">
+
+        <div class="prose">
+
+          <h2>The IQ scale we use</h2>
+
+          <p>
+            Thinkora reports IQ on the standard deviation IQ scale.
+            Scores are set so that the average is 100 and the standard
+            deviation is 15, which is the scale used by the Wechsler
+            tests and most modern IQ tests. About 68% of people fall
+            between 85 and 115, and about 95% fall between 70 and 130.
+          </p>
+
+          <h2>How we turn a score into a percentile</h2>
+
+          <p>
+            We assume scores follow a normal distribution. A score is
+            converted to a z-score, which is how many standard
+            deviations it sits from 100:
+          </p>
+
+          <p>
+            <code>z = (IQ &minus; 100) &divide; SD</code>
+          </p>
+
+          <p>
+            The percentile is the area under the standard normal curve
+            to the left of that z-score. For a score of 130 on the SD 15
+            scale, z is 2 and the percentile is about 97.7. The
+            &ldquo;1 in N&rdquo; figures use the area in the tail beyond
+            the same z-score.
+          </p>
+
+          <p>
+            The
+            <a href="/iq-percentile-calculator/">percentile calculator</a>
+            also supports SD 16 and SD 24, because some older and
+            culture-fair tests use those scales. Changing the SD changes
+            the z-score for the same number, so the same IQ can mean a
+            different rank depending on the test.
+          </p>
+
+          <h2>Classification bands</h2>
+
+          <p>
+            We use the familiar ranges from the Wechsler scales: 130 and
+            above is very superior, 120 to 129 superior, 110 to 119 high
+            average, 90 to 109 average, 80 to 89 low average, 70 to 79
+            borderline, and below 70 extremely low. These are descriptive
+            labels for a position on the curve. They are not diagnoses.
+            See the <a href="/iq-scores/">IQ score guide</a> for the
+            share of people in each band.
+          </p>
+
+          <h2>The Thinkora IQ test</h2>
+
+          <p>
+            The IQ test gives you an <em>estimated</em> IQ. Your number
+            of correct answers is converted to the standard scale, and
+            the percentile is then worked out with the method above.
+            Because we do not norm the test against a large, stratified
+            sample the way a clinical test is, the result carries a wider
+            margin of error than a professional assessment.
+          </p>
+
+          <h2>Brain games</h2>
+
+          <p>
+            Games such as the reaction time test report results in their
+            own units, for example milliseconds or the number of digits
+            remembered. These are not converted into IQ points. They show
+            how you perform on one narrow task, and they are best used to
+            compare yourself with your own earlier results. Screen refresh
+            rate, input device and browser all add a small delay, as
+            explained in
+            <a href="/blog/reaction-time-test-results-explained/">
+              our reaction time article
+            </a>.
+          </p>
+
+          <h2>Limits you should know about</h2>
+
+          <ul>
+            <li>
+              Online tests cannot control the test environment, the
+              device or the person taking the test.
+            </li>
+            <li>
+              Percentiles assume a perfect bell curve. Real score
+              distributions are close to it in the middle but less
+              certain at the extremes.
+            </li>
+            <li>
+              Very high and very low scores are the hardest to measure,
+              so treat them with the most caution.
+            </li>
+            <li>
+              No Thinkora result is a clinical assessment or a basis for
+              medical, educational or employment decisions.
+            </li>
+          </ul>
+
+          <h2>Editorial standards and corrections</h2>
+
+          <p>
+            We write articles for a general reader and base statistics on
+            the normal distribution or on published research. When new
+            evidence changes the picture, we update the article and
+            change its &ldquo;last updated&rdquo; date. If you find an
+            error, please <a href="/contact/">contact us</a> and we will
+            check it.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+
+      <div class="footer-grid">
+
+        <div>
+          <a class="logo" href="/">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="9" fill="#5a3df0"/>
+              <path d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="3"
+                    stroke-linecap="round"/>
+            </svg>
+            Thinkora
+          </a>
+
+          <p style="margin-top:12px">
+            Free IQ test, brain games and calculators.
+          </p>
+        </div>
+
+        <div>
+          <h3>Test</h3>
+
+          <ul>
+            <li><a href="/iq-test/">IQ test</a></li>
+            <li>
+              <a href="/iq-percentile-calculator/">
+                Percentile calculator
+              </a>
+            </li>
+            <li>
+              <a href="/iq-scores/">IQ score guide</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Play</h3>
+
+          <ul>
+            <li>
+              <a href="/reaction-time-test/">Reaction time</a>
+            </li>
+            <li>
+              <a href="/number-memory-test/">Number memory</a>
+            </li>
+            <li>
+              <a href="/pattern-memory-game/">Pattern memory</a>
+            </li>
+            <li>
+              <a href="/color-difference-test/">Color difference</a>
+            </li>
+            <li>
+              <a href="/mental-math-test/">Mental math</a>
+            </li>
+            <li>
+              <a href="/brain-games/">All games</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Company</h3>
+
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/methodology/">Methodology</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li>
+              <a href="/privacy-policy/">Privacy policy</a>
+            </li>
+            <li>
+              <a href="/terms/">Terms of service</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="disclaimer">
+        <strong>Disclaimer:</strong> Thinkora provides estimated IQ scores
+        for information and entertainment. Results are not clinically
+        validated and should not be used for medical, educational or
+        professional decisions. &copy; 2026 Thinkora.
+      </p>
+
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+
+</body>
+</html>

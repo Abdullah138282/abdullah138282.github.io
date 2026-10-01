@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Number Memory Test: How Many Digits Can You Remember? | Thinkora</title>
+  <meta name="description" content="Free number memory test. Remember a growing string of digits and find out how many you can hold at once. No sign-up.">
+  <link rel="canonical" href="https://abdullah138282.github.io/number-memory-test/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#5a3df0">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Number Memory Test | Thinkora">
+  <meta property="og:description" content="How many digits can you remember? Free number memory test.">
+  <meta property="og:url" content="https://abdullah138282.github.io/number-memory-test/">
+  <meta property="og:site_name" content="Thinkora">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235a3df0'/%3E%3Cpath d='M4 25 C11 25 11 7 16 7 S21 25 28 25' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    document.documentElement.classList.add("js");
+    setTimeout(function () {
+      if (!window.__thinkoraReady) {
+        document.documentElement.classList.remove("js");
+      }
+    }, 2500);
+  </script>
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("thinkora-theme");
+
+        if (saved === "dark" || saved === "light") {
+          document.documentElement.setAttribute("data-theme", saved);
+        } else if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/test.css">
+  <link rel="stylesheet" href="/css/game.css">
+
+  <style>
+    .n-stage {
+      min-height: 320px;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+      background: var(--violet);
+      color: #fff;
+    }
+
+    .n-stage[data-state="input"] {
+      background: var(--bg);
+      color: var(--ink);
+      border: 2px solid var(--line);
+    }
+
+    .n-stage[data-state="right"] {
+      background: var(--mint);
+    }
+
+    .n-num {
+      font: 800 clamp(2.2rem, 10vw, 4.5rem)/1.1 var(--font-display);
+      letter-spacing: 0.08em;
+      word-break: break-all;
+      font-variant-numeric: tabular-nums;
+      margin: 0;
+    }
+
+    .n-hint {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .n-bar {
+      width: min(100%, 360px);
+      height: 8px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.3);
+      overflow: hidden;
+    }
+
+    .n-bar span {
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: #fff;
+    }
+
+    .n-field {
+      width: min(100%, 360px);
+      min-height: 56px;
+      padding: 0 16px;
+      border: 2px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      color: var(--ink);
+      font: 700 1.6rem var(--font-display);
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+    .n-field:focus {
+      outline: 3px solid var(--coral);
+      border-color: transparent;
+    }
+
+    .n-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--violet-deep);
+    }
+
+    .btn-light:hover {
+      background: var(--violet-tint);
+      color: var(--violet-deep);
+    }
+
+    .n-compare {
+      display: grid;
+      gap: 10px;
+      max-width: 420px;
+      margin: 18px auto 22px;
+      text-align: left;
+    }
+
+    .n-compare div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      word-break: break-all;
+    }
+
+    .n-compare span:first-child {
+      color: var(--ink-soft);
+      flex: none;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Thinkora Number Memory Test",
+        "url": "https://abdullah138282.github.io/number-memory-test/",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "description": "A free number memory test that shows a growing string of digits and measures how many you can recall.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://abdullah138282.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Brain games",
+            "item": "https://abdullah138282.github.io/brain-games/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Number memory test",
+            "item": "https://abdullah138282.github.io/number-memory-test/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+
+      <a class="logo" href="/" aria-label="Thinkora home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#5a3df0"/>
+          <path
+            d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+            fill="none"
+            stroke="#fff"
+            stroke-width="3"
+            stroke-linecap="round"/>
+        </svg>
+        Thinkora
+      </a>
+
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+
+          <li>
+            <a href="/iq-test/">IQ test</a>
+          </li>
+
+          <li class="has-sub">
+            <a href="/brain-games/">Brain games</a>
+
+            <button
+              type="button"
+              class="sub-toggle"
+              aria-expanded="false"
+              aria-label="Show brain games links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/reaction-time-test/">Reaction time test</a>
+              </li>
+              <li>
+                <a href="/number-memory-test/" aria-current="page">
+                  Number memory test
+                </a>
+              </li>
+              <li>
+                <a href="/pattern-memory-game/">Pattern memory game</a>
+              </li>
+              <li>
+                <a href="/color-difference-test/">Color difference test</a>
+              </li>
+              <li>
+                <a href="/mental-math-test/">Mental math test</a>
+              </li>
+              <li>
+                <a href="/brain-games/">All brain games</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/iq-percentile-calculator/">Calculator</a>
+
+            <button
+              type="button"
+              class="sub-toggle"
+              aria-expanded="false"
+              aria-label="Show calculator links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/iq-percentile-calculator/">
+                  IQ percentile calculator
+                </a>
+              </li>
+              <li>
+                <a href="/iq-scores/">IQ score guide</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/blog/">Articles</a>
+
+            <button
+              type="button"
+              class="sub-toggle"
+              aria-expanded="false"
+              aria-label="Show articles links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/blog/">All articles</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/about/">About</a>
+
+            <button
+              type="button"
+              class="sub-toggle"
+              aria-expanded="false"
+              aria-label="Show about links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/about/">About Thinkora</a>
+              </li>
+              <li>
+                <a href="/methodology/">Methodology</a>
+              </li>
+              <li>
+                <a href="/contact/">Contact</a>
+              </li>
+              <li>
+                <a href="/privacy-policy/">Privacy policy</a>
+              </li>
+              <li>
+                <a href="/terms/">Terms of service</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="theme-item">
+            <button
+              type="button"
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Switch to dark mode"
+              aria-pressed="false">
+              <span class="theme-icon" aria-hidden="true">☾</span>
+              <span class="theme-text">Dark</span>
+            </button>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="test-shell">
+      <div class="wrap">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a> /
+          <a href="/brain-games/">Brain games</a> /
+          Number memory test
+        </nav>
+
+        <div class="t-panel">
+
+          <h1 style="font-size:clamp(2rem,6vw,3.2rem)">
+            Number memory test
+          </h1>
+
+          <p style="color:var(--ink-soft)">
+            A number appears for a few seconds, then disappears. Type it
+            back. Each level adds one digit, and the test ends at your
+            first mistake.
+          </p>
+
+          <div id="n-play">
+
+            <div class="g-status">
+              <span id="n-level">Level 1</span>
+              <span id="n-best"></span>
+            </div>
+
+            <div
+              class="n-stage"
+              id="n-stage"
+              data-state="show"
+              role="status">
+
+              <p class="n-num" id="n-num" hidden></p>
+
+              <p class="n-hint" id="n-hint">
+                Ready when you are.
+              </p>
+
+              <div class="n-bar" id="n-bar" hidden>
+                <span></span>
+              </div>
+
+              <form
+                class="n-form"
+                id="n-form"
+                hidden
+                autocomplete="off">
+
+                <label class="sr-only" for="n-field">
+                  Type the number you saw
+                </label>
+
+                <input
+                  class="n-field"
+                  id="n-field"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  autocomplete="off"
+                  enterkeyhint="done">
+
+                <button type="submit" class="btn btn-primary">
+                  Submit
+                </button>
+              </form>
+
+              <button
+                type="button"
+                class="btn btn-light"
+                id="n-start">
+                Start the test
+              </button>
+
+            </div>
+          </div>
+
+          <div class="g-result" id="n-result" hidden>
+
+            <h2 style="font-size:1.15rem;color:var(--ink-soft)">
+              You remembered
+            </h2>
+
+            <div class="r-score">
+              <span id="n-score">0</span>
+            </div>
+
+            <p class="r-label">
+              <span id="n-digits">digits</span>
+            </p>
+
+            <div class="n-compare">
+              <div>
+                <span>The number was</span>
+                <span id="n-was"></span>
+              </div>
+
+              <div>
+                <span>You typed</span>
+                <span id="n-typed"></span>
+              </div>
+            </div>
+
+            <div class="r-actions">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="n-again">
+                Try again
+              </button>
+
+              <a
+                class="btn btn-ghost"
+                href="/brain-games/">
+                More brain games
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section seo-content">
+      <div class="wrap">
+
+        <h2>How many digits can most people remember?</h2>
+
+        <p>
+          Many people can hold about seven digits at once, and memory
+          research often describes the usual range as five to nine. Your
+          result changes with sleep, stress and distractions, so treat it
+          as a fun snapshot rather than a measure of how good your memory
+          is overall.
+        </p>
+
+        <h2 style="margin-top:48px">
+          How the test works
+        </h2>
+
+        <p>
+          The test starts with a single digit. After each correct answer
+          the number gets one digit longer, and it stays on screen a
+          little longer too. You can see a bar showing how much time is
+          left. The test ends the first time you type a number wrong, and
+          your score is the longest number you got right.
+        </p>
+
+        <h2 style="margin-top:48px">
+          Tips to remember more digits
+        </h2>
+
+        <ul>
+          <li>
+            Split the number into small groups, like a phone number,
+            instead of memorising each digit alone.
+          </li>
+          <li>
+            Repeat the groups quietly to yourself while the number is
+            on screen.
+          </li>
+          <li>
+            Look at the whole number once, then focus, rather than
+            reading it again and again.
+          </li>
+          <li>
+            Play when you are rested. Distractions cost more digits
+            than you would expect.
+          </li>
+        </ul>
+
+        <h2 style="margin-top:48px">
+          Common questions
+        </h2>
+
+        <div class="faq">
+
+          <details>
+            <summary>Is a higher score always better?</summary>
+            <p>
+              A higher score means you held a longer number this time.
+              It is not a medical or intelligence test, so use it to
+              compare yourself with your own earlier tries.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I get better with practice?</summary>
+            <p>
+              Yes, mostly by using tricks like grouping digits and
+              repeating the groups to yourself.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you save my score?</summary>
+            <p>
+              No. Your best score for the current visit is kept on the
+              page only and disappears when you leave or refresh.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+
+      <div class="footer-grid">
+
+        <div>
+          <a class="logo" href="/">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="9" fill="#5a3df0"/>
+              <path
+                d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+                fill="none"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"/>
+            </svg>
+            Thinkora
+          </a>
+
+          <p style="margin-top:12px">
+            Free IQ test, brain games and calculators.
+          </p>
+        </div>
+
+        <div>
+          <h3>Test</h3>
+
+          <ul>
+            <li>
+              <a href="/iq-test/">IQ test</a>
+            </li>
+            <li>
+              <a href="/iq-percentile-calculator/">
+                Percentile calculator
+              </a>
+            </li>
+            <li>
+              <a href="/iq-scores/">IQ score guide</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Play</h3>
+
+          <ul>
+            <li>
+              <a href="/reaction-time-test/">Reaction time</a>
+            </li>
+            <li>
+              <a href="/number-memory-test/">Number memory</a>
+            </li>
+            <li>
+              <a href="/pattern-memory-game/">Pattern memory</a>
+            </li>
+            <li>
+              <a href="/color-difference-test/">Color difference</a>
+            </li>
+            <li>
+              <a href="/mental-math-test/">Mental math</a>
+            </li>
+            <li>
+              <a href="/brain-games/">All games</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Company</h3>
+
+          <ul>
+            <li>
+              <a href="/about/">About</a>
+            </li>
+            <li>
+              <a href="/methodology/">Methodology</a>
+            </li>
+            <li>
+              <a href="/contact/">Contact</a>
+            </li>
+            <li>
+              <a href="/privacy-policy/">Privacy policy</a>
+            </li>
+            <li>
+              <a href="/terms/">Terms of service</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="disclaimer">
+        <strong>Disclaimer:</strong> Thinkora provides estimated IQ scores
+        for information and entertainment. Results are not clinically
+        validated and should not be used for medical, educational or
+        professional decisions. &copy; 2026 Thinkora.
+      </p>
+
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/number-memory.js" defer></script>
+
+</body>
+</html>

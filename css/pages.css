@@ -1,0 +1,145 @@
+/* ==========================================================
+   Thinkora — pages.css
+   Layout for calculator, guide, articles, About and legal pages.
+   Uses the tokens from style.css only.
+   ========================================================== */
+
+:root { --err: #c4361b; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --err: #ff8a73; }
+}
+
+/* ---------- Page header ---------- */
+.pg-hero { padding: 44px 0 20px; }
+.crumbs { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 18px; }
+.crumbs a { color: var(--ink-soft); }
+.crumbs a:hover { color: var(--violet); }
+.pg-hero h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); max-width: 22ch; }
+.lead { font-size: 1.2rem; color: var(--ink-soft); max-width: 62ch; }
+.meta { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+
+.pg-body { padding: 24px 0 56px; }
+
+/* ---------- Long-form text ---------- */
+.prose { max-width: 720px; }
+.prose h2 {
+  font-size: clamp(1.5rem, 3.6vw, 2rem);
+  margin: 2em 0 0.5em;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { margin: 1.6em 0 0.4em; }
+.prose p, .prose li { max-width: none; }
+.prose ul, .prose ol { padding-left: 1.3em; margin: 0 0 1.2em; }
+.prose li { margin-bottom: 0.5em; }
+.prose strong { color: var(--ink); }
+
+.callout {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--mint);
+  border-radius: var(--radius-md);
+  padding: 20px 24px 6px;
+  margin: 28px 0;
+}
+.callout h2, .callout h3 { font-size: 1.15rem; margin: 0 0 8px; }
+.callout ul { margin-bottom: 14px; }
+
+/* ---------- Tables ---------- */
+.table-scroll {
+  overflow-x: auto;
+  margin: 20px 0 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.table-scroll table { width: 100%; border-collapse: collapse; min-width: 520px; }
+.table-scroll th, .table-scroll td {
+  text-align: left;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1rem;
+}
+.table-scroll th { font: 700 0.95rem var(--font-body); color: var(--ink-soft); background: var(--violet-tint); }
+.table-scroll tr:last-child td { border-bottom: 0; }
+.table-scroll td:first-child { font-weight: 700; font-variant-numeric: tabular-nums; }
+.table-scroll caption { text-align: left; padding: 14px 18px 0; color: var(--ink-soft); font-size: 0.95rem; caption-side: bottom; padding-bottom: 14px; }
+
+/* ---------- Calculator ---------- */
+.calc-grid { display: grid; gap: 22px; }
+.calc-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px 28px;
+}
+.calc-card h2 { font-size: 1.4rem; margin-bottom: 4px; }
+.calc-card .hint { color: var(--ink-soft); font-size: 0.97rem; margin-bottom: 18px; }
+
+.field { margin-bottom: 16px; }
+.field label { display: block; font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  font: 500 1.05rem var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+.field textarea { min-height: 150px; padding: 14px 16px; resize: vertical; line-height: 1.5; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--violet); outline: none; box-shadow: 0 0 0 3px var(--violet-tint); }
+.field .help { font-size: 0.9rem; color: var(--ink-soft); margin: 6px 0 0; }
+.field-row { display: grid; gap: 0 16px; }
+
+.calc-error { color: var(--err); font-weight: 600; min-height: 1.4em; margin: 0 0 8px; }
+.calc-result {
+  margin-top: 18px;
+  padding: 20px 22px 8px;
+  border-radius: var(--radius-md);
+  background: var(--violet-tint);
+}
+.calc-result[hidden] { display: none; }
+.calc-big {
+  font: 800 clamp(2.6rem, 9vw, 3.6rem)/1 var(--font-display);
+  letter-spacing: -0.04em;
+  color: var(--violet-deep);
+  margin: 0 0 6px;
+}
+.calc-big small { font-size: 0.45em; letter-spacing: 0; font-weight: 700; }
+.calc-line { margin: 0 0 12px; color: var(--ink); }
+.calc-line span { color: var(--ink-soft); }
+
+/* ---------- Article cards (hub) ---------- */
+.card-meta { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; }
+
+/* ---------- Related + CTA ---------- */
+.related { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--line); }
+.related h2 { font-size: 1.5rem; }
+.related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.related a { font-weight: 700; }
+.related p { margin: 2px 0 0; color: var(--ink-soft); font-size: 0.97rem; }
+
+.cta-band {
+  margin-top: 40px;
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--violet-tint);
+}
+.cta-band h2 { font-size: 1.5rem; margin-bottom: 6px; }
+.cta-band p { color: var(--ink-soft); }
+.cta-band .hero-actions { margin-top: 16px; }
+
+.legal-date { color: var(--ink-soft); font-weight: 600; }
+
+@media (min-width: 640px) {
+  .field-row { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 768px) {
+  .pg-hero { padding: 64px 0 28px; }
+  .calc-card { padding: 34px 32px 36px; }
+}
+@media (min-width: 1024px) {
+  .calc-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .calc-grid .calc-wide { grid-column: 1 / -1; }
+}

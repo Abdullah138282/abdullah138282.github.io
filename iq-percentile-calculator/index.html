@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>IQ Percentile Calculator: See How Your Score Ranks | Thinkora</title>
+  <meta name="description" content="Free IQ percentile calculator. Convert any IQ score to a percentile, or find the IQ for a given percentile. Works for SD 15, 16 and 24.">
+  <link rel="canonical" href="https://abdullah138282.github.io/iq-percentile-calculator/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#5a3df0">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="IQ Percentile Calculator: See How Your Score Ranks | Thinkora">
+  <meta property="og:description" content="Free IQ percentile calculator. Convert any IQ score to a percentile, or find the IQ for a given percentile. Works for SD 15, 16 and 24.">
+  <meta property="og:url" content="https://abdullah138282.github.io/iq-percentile-calculator/">
+  <meta property="og:site_name" content="Thinkora">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235a3df0'/%3E%3Cpath d='M4 25 C11 25 11 7 16 7 S21 25 28 25' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    document.documentElement.classList.add("js");
+    setTimeout(function () {
+      if (!window.__thinkoraReady) {
+        document.documentElement.classList.remove("js");
+      }
+    }, 2500);
+  </script>
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("thinkora-theme");
+
+        if (saved === "dark" || saved === "light") {
+          document.documentElement.setAttribute("data-theme", saved);
+        } else if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/pages.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://abdullah138282.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "IQ percentile calculator",
+            "item": "https://abdullah138282.github.io/iq-percentile-calculator/"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Thinkora IQ Percentile Calculator",
+        "url": "https://abdullah138282.github.io/iq-percentile-calculator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "description": "Convert an IQ score to a percentile, or a percentile to an IQ score.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does an IQ percentile mean?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A percentile shows the share of people who score below you. If your IQ is at the 90th percentile, you scored higher than about 90 out of every 100 people in the comparison group."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What percentile is an IQ of 130?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On the standard scale (mean 100, standard deviation 15), an IQ of 130 is at about the 97.7th percentile. Roughly 1 in 44 people score 130 or higher."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What IQ is the 50th percentile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An IQ of 100. Tests are designed so that 100 is the median and the mean of the comparison group."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do different tests give different percentiles for the same score?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Some tests use a different standard deviation. Most modern tests use 15, some older Stanford-Binet editions used 16, and the Cattell culture-fair scales use 24. The same number means a different rank on each scale, so pick the standard deviation your test uses."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this to check my result from an online test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, for a rough comparison. Online tests are not normed against a large, representative sample, so treat the percentile as an estimate, not a diagnosis."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+
+      <a class="logo" href="/" aria-label="Thinkora home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#5a3df0"/>
+          <path d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+                fill="none"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"/>
+        </svg>
+        Thinkora
+      </a>
+
+      <button class="nav-toggle"
+              aria-expanded="false"
+              aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+
+          <li>
+            <a href="/iq-test/">IQ test</a>
+          </li>
+
+          <li class="has-sub">
+            <a href="/brain-games/">Brain games</a>
+
+            <button type="button"
+                    class="sub-toggle"
+                    aria-expanded="false"
+                    aria-label="Show brain games links">
+            </button>
+
+            <ul class="submenu">
+              <li><a href="/reaction-time-test/">Reaction time test</a></li>
+              <li><a href="/number-memory-test/">Number memory test</a></li>
+              <li><a href="/pattern-memory-game/">Pattern memory game</a></li>
+              <li><a href="/color-difference-test/">Color difference test</a></li>
+              <li><a href="/mental-math-test/">Mental math test</a></li>
+              <li><a href="/brain-games/">All brain games</a></li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/iq-percentile-calculator/" aria-current="page">Calculator</a>
+
+            <button type="button"
+                    class="sub-toggle"
+                    aria-expanded="false"
+                    aria-label="Show calculator links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/iq-percentile-calculator/" aria-current="page">
+                  IQ percentile calculator
+                </a>
+              </li>
+              <li>
+                <a href="/iq-scores/">IQ score guide</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/blog/">Articles</a>
+
+            <button type="button"
+                    class="sub-toggle"
+                    aria-expanded="false"
+                    aria-label="Show articles links">
+            </button>
+
+            <ul class="submenu">
+              <li><a href="/blog/">All articles</a></li>
+            </ul>
+          </li>
+
+          <li class="has-sub">
+            <a href="/about/">About</a>
+
+            <button type="button"
+                    class="sub-toggle"
+                    aria-expanded="false"
+                    aria-label="Show about links">
+            </button>
+
+            <ul class="submenu">
+              <li><a href="/about/">About Thinkora</a></li>
+              <li><a href="/methodology/">Methodology</a></li>
+              <li><a href="/contact/">Contact</a></li>
+              <li><a href="/privacy-policy/">Privacy policy</a></li>
+              <li><a href="/terms/">Terms of service</a></li>
+            </ul>
+          </li>
+
+          <!-- Theme toggle -->
+          <li class="theme-item">
+            <button
+              type="button"
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Switch to dark mode"
+              aria-pressed="false">
+              <span class="theme-icon" aria-hidden="true">☾</span>
+              <span class="theme-text">Dark</span>
+            </button>
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="pg-hero">
+      <div class="wrap">
+
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a> / IQ percentile calculator
+        </nav>
+
+        <h1>IQ percentile calculator</h1>
+
+        <p class="lead">
+          Enter an IQ score to see what percentage of people score lower,
+          or enter a percentile to find the matching IQ.
+        </p>
+
+      </div>
+    </section>
+
+    <section class="pg-body">
+      <div class="wrap">
+
+        <div class="calc-grid">
+
+          <div class="calc-card">
+
+            <h2>IQ to percentile</h2>
+            <p class="hint">Enter a score to see how it ranks.</p>
+
+            <form id="form-iq" novalidate>
+
+              <div class="field-row">
+
+                <div class="field">
+                  <label for="in-iq">IQ score</label>
+                  <input
+                    id="in-iq"
+                    type="number"
+                    inputmode="decimal"
+                    min="40"
+                    max="200"
+                    step="1"
+                    value="115"
+                    required>
+                </div>
+
+                <div class="field">
+                  <label for="in-sd">Standard deviation</label>
+                  <select id="in-sd">
+                    <option value="15" selected>15 (Wechsler)</option>
+                    <option value="16">16 (Stanford&ndash;Binet)</option>
+                    <option value="24">24 (Cattell)</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <p class="calc-error" id="err-iq" role="alert"></p>
+
+              <button type="submit" class="btn btn-primary">
+                Calculate percentile
+              </button>
+
+            </form>
+
+            <div class="calc-result"
+                 id="out-iq"
+                 aria-live="polite"
+                 hidden>
+
+              <p class="calc-big">
+                <span id="res-pct">0</span>
+                <small>th percentile</small>
+              </p>
+
+              <p class="calc-line" id="res-text"></p>
+              <p class="calc-line" id="res-rarity"></p>
+
+              <p class="calc-line">
+                <span>Classification:</span>
+                <strong id="res-label"></strong>
+                &nbsp;
+                <span>z-score:</span>
+                <strong id="res-z"></strong>
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="calc-card">
+
+            <h2>Percentile to IQ</h2>
+            <p class="hint">Know your rank? Find the matching score.</p>
+
+            <form id="form-pct" novalidate>
+
+              <div class="field-row">
+
+                <div class="field">
+                  <label for="in-pct">Percentile</label>
+                  <input
+                    id="in-pct"
+                    type="number"
+                    inputmode="decimal"
+                    min="0.01"
+                    max="99.99"
+                    step="any"
+                    value="90"
+                    required>
+                </div>
+
+                <div class="field">
+                  <label for="in-sd2">Standard deviation</label>
+                  <select id="in-sd2">
+                    <option value="15" selected>15 (Wechsler)</option>
+                    <option value="16">16 (Stanford&ndash;Binet)</option>
+                    <option value="24">24 (Cattell)</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <p class="calc-error" id="err-pct" role="alert"></p>
+
+              <button type="submit" class="btn btn-primary">
+                Find IQ score
+              </button>
+
+            </form>
+
+            <div class="calc-result"
+                 id="out-pct"
+                 aria-live="polite"
+                 hidden>
+
+              <p class="calc-big">
+                <span id="res-iq2">0</span>
+                <small>IQ</small>
+              </p>
+
+              <p class="calc-line" id="res-text2"></p>
+
+              <p class="calc-line">
+                <span>Classification:</span>
+                <strong id="res-label2"></strong>
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="curve-card calc-wide">
+
+            <h2>Where your score sits on the bell curve</h2>
+
+            <p class="hint">
+              Standard scale: mean 100, standard deviation 15.
+              The calculators above move this marker, or drag the slider yourself.
+            </p>
+
+            <svg id="curve"
+                 class="curve-svg"
+                 viewBox="0 0 640 300"
+                 role="img"
+                 aria-label="Bell curve of IQ scores from 55 to 145">
+            </svg>
+
+            <div class="readout">
+              <span class="readout-score" id="readout-score">100</span>
+              <span class="readout-text" id="readout-text"></span>
+            </div>
+
+            <label class="slider-label" for="iq-slider">
+              IQ score
+            </label>
+
+            <input
+              type="range"
+              id="iq-slider"
+              min="55"
+              max="145"
+              value="100">
+
+          </div>
+
+        </div>
+
+        <div class="prose" style="margin-top:56px">
+
+          <h2>How the IQ percentile calculator works</h2>
+
+          <p>
+            IQ scores are built to follow a normal distribution, the familiar
+            bell curve. The average is set to 100, and the standard deviation
+            (the typical spread around the average) is 15 on most modern tests.
+            The calculator turns your score into a z-score, which counts how
+            many standard deviations you are from 100, and then reads the
+            percentile from the normal curve.
+          </p>
+
+          <p>
+            For example, a score of 115 is one standard deviation above average.
+            That puts you at about the 84th percentile: higher than roughly
+            84 out of 100 people.
+          </p>
+
+          <div class="table-scroll">
+
+            <table>
+
+              <caption>
+                Common IQ scores and percentiles on the standard scale
+                (mean 100, SD 15)
+              </caption>
+
+              <thead>
+                <tr>
+                  <th scope="col">IQ</th>
+                  <th scope="col">Percentile</th>
+                  <th scope="col">Rarity</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr><td>70</td><td>2.3</td><td>1 in 44 score this low or lower</td></tr>
+                <tr><td>80</td><td>9.1</td><td>1 in 11 score this low or lower</td></tr>
+                <tr><td>85</td><td>15.9</td><td>1 in 6.3 score this low or lower</td></tr>
+                <tr><td>90</td><td>25.2</td><td>1 in 4 score this low or lower</td></tr>
+                <tr><td>100</td><td>50.0</td><td>Average</td></tr>
+                <tr><td>110</td><td>74.8</td><td>1 in 4 score this high or higher</td></tr>
+                <tr><td>115</td><td>84.1</td><td>1 in 6.3 score this high or higher</td></tr>
+                <tr><td>120</td><td>90.9</td><td>1 in 11 score this high or higher</td></tr>
+                <tr><td>125</td><td>95.2</td><td>1 in 21 score this high or higher</td></tr>
+                <tr><td>130</td><td>97.7</td><td>1 in 44 score this high or higher</td></tr>
+                <tr><td>135</td><td>99.02</td><td>1 in 100 score this high or higher</td></tr>
+                <tr><td>140</td><td>99.62</td><td>1 in 260 score this high or higher</td></tr>
+                <tr><td>145</td><td>99.87</td><td>1 in 740 score this high or higher</td></tr>
+                <tr><td>160</td><td>99.99</td><td>1 in 31,574 score this high or higher</td></tr>
+              </tbody>
+
+            </table>
+
+          </div>
+
+          <h2>How to read your result</h2>
+
+          <p>
+            A percentile describes rank, not ability in absolute terms.
+            Two people with IQs of 98 and 102 are almost indistinguishable,
+            even though their percentiles differ by a few points. Differences
+            matter most at a distance: the gap between 85 and 115 is meaningful,
+            the gap between 100 and 103 is not.
+          </p>
+
+          <p>
+            Every IQ test also has a margin of error, usually several points
+            even for professionally administered tests. Free online tests,
+            including ours, have a wider one. Use the number as a rough guide
+            and read the <a href="/iq-scores/">IQ score guide</a> for what each
+            range means. If you have not tested yet, you can try the
+            <a href="/iq-test/">Thinkora IQ test</a>.
+          </p>
+
+          <h2>Questions about IQ percentiles</h2>
+
+          <div class="faq">
+
+            <details>
+              <summary>What does an IQ percentile mean?</summary>
+              <p>
+                A percentile shows the share of people who score below you.
+                If your IQ is at the 90th percentile, you scored higher than
+                about 90 out of every 100 people in the comparison group.
+              </p>
+            </details>
+
+            <details>
+              <summary>What percentile is an IQ of 130?</summary>
+              <p>
+                On the standard scale (mean 100, standard deviation 15),
+                an IQ of 130 is at about the 97.7th percentile. Roughly
+                1 in 44 people score 130 or higher.
+              </p>
+            </details>
+
+            <details>
+              <summary>What IQ is the 50th percentile?</summary>
+              <p>
+                An IQ of 100. Tests are designed so that 100 is the median
+                and the mean of the comparison group.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                Why do different tests give different percentiles for the same score?
+              </summary>
+              <p>
+                Some tests use a different standard deviation. Most modern
+                tests use 15, some older Stanford&ndash;Binet editions used 16,
+                and the Cattell culture-fair scales use 24. The same number
+                means a different rank on each scale, so pick the standard
+                deviation your test uses.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                Can I use this to check my result from an online test?
+              </summary>
+              <p>
+                Yes, for a rough comparison. Online tests are not normed
+                against a large, representative sample, so treat the percentile
+                as an estimate, not a diagnosis.
+              </p>
+            </details>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="wrap">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <a class="logo" href="/">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="9" fill="#5a3df0"/>
+              <path d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="3"
+                    stroke-linecap="round"/>
+            </svg>
+            Thinkora
+          </a>
+
+          <p style="margin-top:12px">
+            Free IQ test, brain games and calculators.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3>Test</h3>
+
+          <ul>
+            <li><a href="/iq-test/">IQ test</a></li>
+            <li><a href="/iq-percentile-calculator/">Percentile calculator</a></li>
+            <li><a href="/iq-scores/">IQ score guide</a></li>
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>Play</h3>
+
+          <ul>
+            <li><a href="/reaction-time-test/">Reaction time</a></li>
+            <li><a href="/number-memory-test/">Number memory</a></li>
+            <li><a href="/pattern-memory-game/">Pattern memory</a></li>
+            <li><a href="/color-difference-test/">Color difference</a></li>
+            <li><a href="/mental-math-test/">Mental math</a></li>
+            <li><a href="/brain-games/">All games</a></li>
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>Company</h3>
+
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/methodology/">Methodology</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/privacy-policy/">Privacy policy</a></li>
+            <li><a href="/terms/">Terms of service</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <p class="disclaimer">
+        <strong>Disclaimer:</strong>
+        Thinkora provides estimated IQ scores for information and entertainment.
+        Results are not clinically validated and should not be used for medical,
+        educational or professional decisions. &copy; 2026 Thinkora.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/percentile.js" defer></script>
+
+</body>
+</html>

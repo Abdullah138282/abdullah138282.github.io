@@ -1,0 +1,270 @@
+/* ==========================================================
+   Thinkora — dropdown navigation
+   Loads after style.css
+   ========================================================== */
+
+
+/* ==========================================================
+   MOBILE NAVIGATION / ACCORDION
+   ========================================================== */
+
+.site-nav .has-sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.site-nav .has-sub > a {
+  flex: 1;
+}
+
+.sub-toggle {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex: none;
+
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+
+  color: var(--ink);
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.sub-toggle::before {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+
+  transform: translate(-50%, -70%) rotate(45deg);
+
+  transition: transform 0.2s ease;
+}
+
+.has-sub.open > .sub-toggle::before {
+  transform: translate(-50%, -30%) rotate(225deg);
+}
+
+.site-nav .submenu {
+  display: none;
+
+  flex-basis: 100%;
+
+  padding: 0 0 6px 14px;
+}
+
+.site-nav .has-sub.open > .submenu {
+  display: block;
+}
+
+.site-nav .submenu a {
+  padding: 12px 4px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 767px) {
+
+  .site-nav {
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+  }
+
+}
+
+
+/* ==========================================================
+   DESKTOP DROPDOWN
+   ========================================================== */
+
+@media (min-width: 768px) {
+
+  .site-nav .has-sub {
+    position: relative;
+    display: block;
+  }
+
+  .sub-toggle {
+    display: none;
+  }
+
+  .site-nav .has-sub > a::after {
+    content: "";
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-left: 8px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    transform: translateY(-3px) rotate(45deg);
+  }
+
+  .site-nav .submenu {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 12px);
+    left: -14px;
+
+    min-width: 250px;
+
+    padding: 8px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+
+    box-shadow: 0 24px 48px -24px rgba(28, 26, 51, 0.45);
+
+    z-index: 60;
+  }
+
+  /* Invisible bridge between parent and dropdown */
+  .site-nav .submenu::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: -14px;
+
+    height: 14px;
+  }
+
+  .site-nav .has-sub:hover > .submenu,
+  .site-nav .has-sub:focus-within > .submenu {
+    display: block;
+  }
+
+  .site-nav .submenu li {
+    margin: 0;
+  }
+
+  .site-nav .submenu a {
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    white-space: nowrap;
+
+    font-weight: 600;
+
+    color: var(--ink);
+
+    border: 0;
+  }
+
+  .site-nav .submenu a:hover {
+    background: var(--violet-tint);
+    color: var(--violet-deep);
+  }
+
+}
+
+
+/* ==========================================================
+   THEME TOGGLE
+   ========================================================== */
+
+.theme-item {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 40px;
+
+  padding: 8px 12px;
+
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--ink);
+
+  font: 600 0.95rem var(--font-body);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--violet-tint);
+  color: var(--violet-deep);
+}
+
+.theme-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  font-size: 18px;
+  line-height: 1;
+}
+
+.theme-text {
+  line-height: 1;
+}
+
+
+/* ---------- Mobile theme button ---------- */
+
+@media (max-width: 767px) {
+
+  .theme-item {
+    width: 100%;
+  }
+
+  .theme-toggle {
+    width: 100%;
+
+    min-height: 48px;
+
+    justify-content: flex-start;
+
+    padding: 0 14px;
+
+    border-left: 0;
+    border-right: 0;
+
+    border-radius: 0;
+  }
+
+}
