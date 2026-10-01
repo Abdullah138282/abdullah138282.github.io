@@ -1711,7 +1711,6 @@ html[data-theme="dark"] .site-footer {
   box-shadow:
     0 24px 60px rgba(40, 25, 100, 0.16),
     0 8px 24px rgba(40, 25, 100, 0.10);
-  transform: translateZ(0);
 }
 
 .hero-image::before {
