@@ -950,10 +950,12 @@ input[type="range"]::-moz-range-thumb {
 
 .hero-bg {
   position: absolute;
-
-  inset: -10% 0 0;
-
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
   z-index: -1;
+  pointer-events: none;
 }
 
 .blob {
