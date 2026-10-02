@@ -3,7 +3,7 @@
   "use strict";
 
   const firebaseConfig = {
-    apiKey: "AIzaSyBt35WXJgK4UP1_vSgEaNM-yM6_NdkJV7M",
+    apiKey: "AIzaSyBt35WXJgK4PG1_vSgEaNM-yM6_NdkJV7M",
     authDomain: "thinkora-b506e.firebaseapp.com",
     projectId: "thinkora-b506e",
     storageBucket: "thinkora-b506e.firebasestorage.app",
