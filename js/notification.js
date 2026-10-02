@@ -1,4 +1,3 @@
-
 (function () {
   "use strict";
 
@@ -18,32 +17,37 @@
   async function setupNotifications() {
     if (
       !("serviceWorker" in navigator) ||
-      !("Notification" in window) ||
-      !window.firebase
+      !("Notification" in window)
     ) {
       return;
     }
 
-    const supported = await firebase.messaging.isSupported();
-
-    if (!supported) {
-      console.warn("Push notifications are not supported here.");
+    if (!window.firebase) {
+      console.error("Firebase SDK not loaded.");
       return;
     }
 
-    const app = firebase.apps.length
-      ? firebase.app()
-      : firebase.initializeApp(firebaseConfig);
+    if (!firebase.messaging.isSupported()) {
+      console.warn("Push notifications are not supported.");
+      return;
+    }
 
-    const messaging = firebase.messaging(app);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
 
-    const registration = await navigator.serviceWorker.register(
-      "/firebase-messaging-sw.js"
-    );
+    const messaging = firebase.messaging();
+
+    const registration =
+      await navigator.serviceWorker.register(
+        "/firebase-messaging-sw.js"
+      );
 
     const button = document.createElement("button");
+
     button.type = "button";
     button.textContent = "🔔 Enable notifications";
+
     button.setAttribute(
       "aria-label",
       "Enable Thinkora push notifications"
@@ -67,55 +71,80 @@
     document.body.appendChild(button);
 
     button.addEventListener("click", async function () {
+
       button.disabled = true;
       button.textContent = "Setting up...";
 
       try {
-        const permission = await Notification.requestPermission();
+
+        const permission =
+          await Notification.requestPermission();
 
         if (permission !== "granted") {
-          button.textContent = permission === "denied"
-            ? "Notifications blocked"
-            : "Enable notifications";
+          button.textContent =
+            permission === "denied"
+              ? "Notifications blocked"
+              : "Enable notifications";
+
+          button.disabled = false;
           return;
         }
 
-        const token = await firebase.messaging(app).getToken({
-          vapidKey: vapidKey,
-          serviceWorkerRegistration: registration
-        });
+        const token =
+          await messaging.getToken({
+            vapidKey: vapidKey,
+            serviceWorkerRegistration: registration
+          });
 
         if (!token) {
-          throw new Error("No FCM registration token was returned.");
+          throw new Error(
+            "No FCM registration token received."
+          );
         }
 
-        console.log("Thinkora FCM test token:", token);
+        console.log(
+          "[Thinkora] FCM token:",
+          token
+        );
 
-        button.textContent = "✓ Notifications enabled";
         localStorage.setItem(
           "thinkora-notifications-enabled",
           "true"
         );
 
-        alert(
-          "Notifications are enabled on this device. " +
-          "Next, we need to connect secure message delivery."
-        );
+        button.textContent =
+          "✓ Notifications enabled";
+
       } catch (error) {
-        console.error("Thinkora notification setup failed:", error);
-        button.textContent = "Try again";
-        alert(
-          "Setup failed. Check the browser console for the error."
+
+        console.error(
+          "[Thinkora] Notification setup failed:",
+          error
         );
+
+        button.textContent =
+          "Enable notifications";
+
       } finally {
+
         button.disabled = false;
+
       }
+
     });
+
   }
 
-  window.addEventListener("DOMContentLoaded", function () {
-    setupNotifications().catch(function (error) {
-      console.error("Thinkora notification initialization failed:", error);
-    });
-  });
+  window.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      setupNotifications().catch(function (error) {
+        console.error(
+          "[Thinkora] Initialization failed:",
+          error
+        );
+      });
+    }
+  );
+
 })();

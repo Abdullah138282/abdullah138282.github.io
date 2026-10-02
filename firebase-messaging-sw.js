@@ -1,10 +1,5 @@
-
-importScripts(
-  "https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"
-);
-importScripts(
-  "https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-compat.js"
-);
+importScripts("https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js");
+importScripts("https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-compat.js");
 
 firebase.initializeApp({
   apiKey: "AIzaSyBt35WXJgK4PG1_vSgEaNM-yM6_NdkJV7M",
@@ -16,4 +11,24 @@ firebase.initializeApp({
   measurementId: "G-E1X99BS735"
 });
 
-firebase.messaging();
+const messaging = firebase.messaging();
+
+messaging.onBackgroundMessage(function (payload) {
+  console.log("[Thinkora] Background message received:", payload);
+
+  const notificationTitle =
+    payload.notification?.title || "Thinkora";
+
+  const notificationOptions = {
+    body:
+      payload.notification?.body ||
+      "You have a new update from Thinkora.",
+    icon: "/favicon.svg",
+    badge: "/favicon.svg"
+  };
+
+  self.registration.showNotification(
+    notificationTitle,
+    notificationOptions
+  );
+});
