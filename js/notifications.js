@@ -265,6 +265,19 @@
           token
         );
 
+        await fetch(
+  "https://thinkora-notifications.abdullahzahoor2525.workers.dev/",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      token: token
+    })
+  }
+);
+
         localStorage.setItem(
           "thinkora-notifications-enabled",
           "true"
