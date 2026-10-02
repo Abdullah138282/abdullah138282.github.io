@@ -40,6 +40,29 @@
 
     const messaging = firebase.messaging();
 
+    messaging.onMessage(function (payload) {
+
+  console.log("[Thinkora] Foreground notification received:", payload);
+
+  const title =
+    payload.notification?.title || "Thinkora";
+
+  const body =
+    payload.notification?.body ||
+    "You have a new update from Thinkora.";
+
+  if (Notification.permission === "granted") {
+
+    new Notification(title, {
+      body: body,
+      icon: "/favicon.svg",
+      badge: "/favicon.svg"
+    });
+
+  }
+
+});
+
     let registration;
 
     try {
@@ -645,4 +668,3 @@
   );
 
 })();
-
