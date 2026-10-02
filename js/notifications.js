@@ -15,20 +15,16 @@
     "BGEiXqfJnyYkT-D1GgBRXA-Tr7xAD2HSn6vwuZfLwTZfNI1RkJxNRQu578OFKUA9hNONN5FAM6sQnMsc-VWJ28s";
 
   async function setupNotifications() {
+
     if (
       !("serviceWorker" in navigator) ||
-      !("Notification" in window)
+      !("Notification" in window) ||
+      !window.firebase
     ) {
       return;
     }
 
-    if (!window.firebase) {
-      console.error("Firebase SDK not loaded.");
-      return;
-    }
-
     if (!firebase.messaging.isSupported()) {
-      console.warn("Push notifications are not supported.");
       return;
     }
 
@@ -43,32 +39,192 @@
         "/firebase-messaging-sw.js"
       );
 
-    const button = document.createElement("button");
+    /* ---------- Notification box ---------- */
 
-    button.type = "button";
-    button.textContent = "🔔 Enable notifications";
+    const box = document.createElement("div");
 
-    button.setAttribute(
-      "aria-label",
-      "Enable Thinkora push notifications"
-    );
+    box.className = "thinkora-notification-box";
 
-    Object.assign(button.style, {
-      position: "fixed",
-      right: "16px",
-      bottom: "16px",
-      zIndex: "9999",
-      padding: "12px 16px",
-      border: "0",
-      borderRadius: "12px",
-      background: "#5a3df0",
-      color: "#ffffff",
-      font: "600 14px DM Sans, sans-serif",
-      cursor: "pointer",
-      boxShadow: "0 4px 16px rgba(0,0,0,.18)"
+    box.innerHTML = `
+      <div class="thinkora-notification-icon">🔔</div>
+
+      <div class="thinkora-notification-content">
+        <strong>Get Thinkora updates</strong>
+        <span>New articles, brain games and useful updates.</span>
+      </div>
+
+      <button type="button" class="thinkora-notification-button">
+        Enable
+      </button>
+
+      <button
+        type="button"
+        class="thinkora-notification-close"
+        aria-label="Close notification box"
+      >
+        ×
+      </button>
+    `;
+
+    document.body.appendChild(box);
+
+    /* ---------- Styles ---------- */
+
+    const style = document.createElement("style");
+
+    style.textContent = `
+      .thinkora-notification-box {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 9999;
+
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        width: min(430px, calc(100vw - 32px));
+
+        padding: 14px 16px;
+
+        background: var(--surface, #ffffff);
+        color: var(--ink, #17152b);
+
+        border: 1px solid var(--line, #e6e3f0);
+        border-radius: 16px;
+
+        box-shadow:
+          0 18px 45px rgba(28, 26, 51, 0.18);
+      }
+
+      .thinkora-notification-icon {
+        width: 40px;
+        height: 40px;
+
+        flex: 0 0 40px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 12px;
+
+        background: var(--violet-tint, #f0edff);
+
+        font-size: 20px;
+      }
+
+      .thinkora-notification-content {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+        min-width: 0;
+        flex: 1;
+      }
+
+      .thinkora-notification-content strong {
+        font: 700 14px var(--font-body, "DM Sans", sans-serif);
+      }
+
+      .thinkora-notification-content span {
+        font: 400 12px var(--font-body, "DM Sans", sans-serif);
+        color: var(--ink-soft, #66627a);
+        line-height: 1.4;
+      }
+
+      .thinkora-notification-button {
+        flex: 0 0 auto;
+
+        padding: 9px 13px;
+
+        border: 0;
+        border-radius: 10px;
+
+        background: var(--violet, #5a3df0);
+        color: #ffffff;
+
+        font: 700 13px var(--font-body, "DM Sans", sans-serif);
+
+        cursor: pointer;
+
+        white-space: nowrap;
+      }
+
+      .thinkora-notification-button:hover {
+        opacity: 0.9;
+      }
+
+      .thinkora-notification-button:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+
+      .thinkora-notification-close {
+        position: absolute;
+
+        top: 5px;
+        right: 7px;
+
+        width: 24px;
+        height: 24px;
+
+        padding: 0;
+
+        border: 0;
+        background: transparent;
+
+        color: var(--ink-soft, #66627a);
+
+        font-size: 20px;
+        line-height: 1;
+
+        cursor: pointer;
+      }
+
+      @media (max-width: 600px) {
+
+        .thinkora-notification-box {
+          right: 12px;
+          bottom: 12px;
+
+          width: calc(100vw - 24px);
+
+          padding: 13px 14px;
+        }
+
+        .thinkora-notification-content span {
+          font-size: 11px;
+        }
+
+        .thinkora-notification-button {
+          padding: 9px 11px;
+        }
+      }
+    `;
+
+    document.head.appendChild(style);
+
+    const button =
+      box.querySelector(".thinkora-notification-button");
+
+    const closeButton =
+      box.querySelector(".thinkora-notification-close");
+
+    /* ---------- Close ---------- */
+
+    closeButton.addEventListener("click", function () {
+
+      box.remove();
+
+      localStorage.setItem(
+        "thinkora-notification-dismissed",
+        "true"
+      );
+
     });
 
-    document.body.appendChild(button);
+    /* ---------- Enable ---------- */
 
     button.addEventListener("click", async function () {
 
@@ -81,12 +237,14 @@
           await Notification.requestPermission();
 
         if (permission !== "granted") {
-          button.textContent =
-            permission === "denied"
-              ? "Notifications blocked"
-              : "Enable notifications";
 
           button.disabled = false;
+
+          button.textContent =
+            permission === "denied"
+              ? "Blocked"
+              : "Enable";
+
           return;
         }
 
@@ -112,8 +270,28 @@
           "true"
         );
 
-        button.textContent =
-          "✓ Notifications enabled";
+        box.innerHTML = `
+          <div class="thinkora-notification-icon">✓</div>
+
+          <div class="thinkora-notification-content">
+            <strong>Notifications enabled</strong>
+            <span>You'll receive Thinkora updates here.</span>
+          </div>
+
+          <button
+            type="button"
+            class="thinkora-notification-close"
+            aria-label="Close notification box"
+          >
+            ×
+          </button>
+        `;
+
+        box.querySelector(
+          ".thinkora-notification-close"
+        ).addEventListener("click", function () {
+          box.remove();
+        });
 
       } catch (error) {
 
@@ -122,12 +300,8 @@
           error
         );
 
-        button.textContent =
-          "Enable notifications";
-
-      } finally {
-
         button.disabled = false;
+        button.textContent = "Try again";
 
       }
 
@@ -140,7 +314,7 @@
     function () {
       setupNotifications().catch(function (error) {
         console.error(
-          "[Thinkora] Initialization failed:",
+          "[Thinkora] Notification initialization failed:",
           error
         );
       });
