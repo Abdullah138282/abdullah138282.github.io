@@ -299,3 +299,35 @@
   }
 
 }
+
+
+/* ==========================================================
+   FORCE grid on mobile/tablet rows (overrides any other
+   rule that turns .has-sub into flex)
+   ========================================================== */
+
+@media (max-width: 1023px) {
+
+  .site-nav ul > li.has-sub {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 48px;
+    align-items: stretch;
+  }
+
+}
+@media (max-width: 1023px) {
+
+  .site-nav .has-sub:not(.open) > .submenu {
+    display: none !important;
+  }
+
+  .site-nav .has-sub.open > .submenu {
+    display: block !important;
+    position: static !important;
+    min-width: 0 !important;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+}

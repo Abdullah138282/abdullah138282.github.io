@@ -91,9 +91,14 @@
 
   <link rel="stylesheet" href="/css/style.css">
 
-  <!-- Homepage + Navigation CSS -->
+  <!-- Navigation CSS -->
+
+  <link rel="stylesheet" href="/css/nav.css">
+
+  <!-- Homepage CSS -->
 
   <style>
+
     /* ==========================================================
        THINKORA HOMEPAGE HERO
        ========================================================== */
@@ -170,6 +175,7 @@
     }
 
     @media (max-width: 600px) {
+
       .hero-image {
         width: 190px;
         height: 190px;
@@ -183,181 +189,7 @@
       .curve-svg {
         min-height: 190px;
       }
-    }
 
-
-    /* ==========================================================
-       THINKORA — DROPDOWN NAVIGATION
-       ========================================================== */
-
-    /* ---------- Mobile navigation / accordion ---------- */
-
-    .site-nav .has-sub {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .site-nav .has-sub > a {
-      flex: 1;
-    }
-
-    .sub-toggle {
-      position: relative;
-      width: 48px;
-      height: 48px;
-      flex: none;
-
-      background: none;
-      border: 0;
-      border-bottom: 1px solid var(--line);
-
-      color: var(--ink);
-      cursor: pointer;
-
-      transition:
-        background-color 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .sub-toggle::before {
-      content: "";
-      position: absolute;
-
-      left: 50%;
-      top: 50%;
-
-      width: 9px;
-      height: 9px;
-
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
-
-      transform: translate(-50%, -70%) rotate(45deg);
-
-      transition: transform 0.2s ease;
-    }
-
-    .has-sub.open > .sub-toggle::before {
-      transform: translate(-50%, -30%) rotate(225deg);
-    }
-
-    .site-nav .submenu {
-      display: none;
-
-      flex-basis: 100%;
-
-      padding: 0 0 6px 14px;
-    }
-
-    .site-nav .has-sub.open > .submenu {
-      display: block;
-    }
-
-    .site-nav .submenu a {
-      padding: 12px 4px;
-      font-weight: 500;
-      color: var(--ink-soft);
-    }
-
-    @media (max-width: 767px) {
-      .site-nav {
-        max-height: calc(100vh - 68px);
-        overflow-y: auto;
-      }
-    }
-
-
-    /* ---------- Desktop dropdown ---------- */
-
-    @media (min-width: 768px) {
-
-      .site-nav .has-sub {
-        position: relative;
-        display: block;
-      }
-
-      .sub-toggle {
-        display: none;
-      }
-
-      .site-nav .has-sub > a::after {
-        content: "";
-        display: inline-block;
-
-        width: 6px;
-        height: 6px;
-
-        margin-left: 8px;
-
-        border-right: 2px solid currentColor;
-        border-bottom: 2px solid currentColor;
-
-        transform: translateY(-3px) rotate(45deg);
-      }
-
-      .site-nav .submenu {
-        display: none;
-
-        position: absolute;
-
-        top: calc(100% + 12px);
-        left: -14px;
-
-        min-width: 250px;
-
-        padding: 8px;
-
-        background: var(--surface);
-
-        border: 1px solid var(--line);
-        border-radius: var(--radius-md);
-
-        box-shadow: 0 24px 48px -24px rgba(28, 26, 51, 0.45);
-
-        z-index: 60;
-      }
-
-      .site-nav .submenu::before {
-        content: "";
-
-        position: absolute;
-
-        left: 0;
-        right: 0;
-        top: -14px;
-
-        height: 14px;
-      }
-
-      .site-nav .has-sub:hover > .submenu,
-      .site-nav .has-sub:focus-within > .submenu {
-        display: block;
-      }
-
-      .site-nav .submenu li {
-        margin: 0;
-      }
-
-      .site-nav .submenu a {
-        padding: 10px 14px;
-
-        border-radius: 10px;
-
-        white-space: nowrap;
-
-        font-weight: 600;
-
-        color: var(--ink);
-
-        border: 0;
-      }
-
-      .site-nav .submenu a:hover {
-        background: var(--violet-tint);
-        color: var(--violet-deep);
-      }
     }
 
 
@@ -441,7 +273,9 @@
 
         border-radius: 0;
       }
+
     }
+
   </style>
 
   <!-- Structured data -->
@@ -507,215 +341,214 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="scroll-progress" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"></div>
 
-  <!-- HEADER -->
+<!-- HEADER -->
 
-  <header class="site-header">
-    <div class="wrap header-row">
+<header class="site-header">
 
+  <div class="wrap header-row">
 
-  <a class="logo" href="/" aria-label="Thinkora home">
+    <a class="logo" href="/" aria-label="Thinkora home">
 
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <rect width="32" height="32" rx="9" fill="#5a3df0"/>
-      <path
-        d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
-        fill="none"
-        stroke="#fff"
-        stroke-width="3"
-        stroke-linecap="round"
-      />
-    </svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="9" fill="#5a3df0"/>
+        <path
+          d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+          fill="none"
+          stroke="#fff"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+      </svg>
 
-    Thinkora
+      Thinkora
 
-  </a>
+    </a>
 
-  <button
-    class="nav-toggle"
-    aria-expanded="false"
-    aria-controls="site-nav"
-  >
-    Menu
-  </button>
+    <button
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
+      Menu
+    </button>
 
-  <nav class="site-nav" id="site-nav" aria-label="Main">
+    <nav class="site-nav" id="site-nav" aria-label="Main">
 
-    <ul>
+      <ul>
 
-      <li>
-        <a href="/iq-test/">IQ test</a>
-      </li>
+        <li>
+          <a href="/iq-test/">IQ test</a>
+        </li>
 
-      <li class="has-sub">
+        <li class="has-sub">
 
-        <a href="/brain-games/">Brain games</a>
+          <a href="/brain-games/">Brain games</a>
 
-        <button
-          type="button"
-          class="sub-toggle"
-          aria-expanded="false"
-          aria-label="Show brain games links"
-        ></button>
+          <button
+            type="button"
+            class="sub-toggle"
+            aria-expanded="false"
+            aria-label="Show brain games links"
+          ></button>
 
-        <ul class="submenu">
+          <ul class="submenu">
 
-          <li>
-            <a href="/reaction-time-test/">Reaction time test</a>
-          </li>
+            <li>
+              <a href="/reaction-time-test/">Reaction time test</a>
+            </li>
 
-          <li>
-            <a href="/number-memory-test/">Number memory test</a>
-          </li>
+            <li>
+              <a href="/number-memory-test/">Number memory test</a>
+            </li>
 
-          <li>
-            <a href="/pattern-memory-game/">Pattern memory game</a>
-          </li>
+            <li>
+              <a href="/pattern-memory-game/">Pattern memory game</a>
+            </li>
 
-          <li>
-            <a href="/color-difference-test/">Color difference test</a>
-          </li>
+            <li>
+              <a href="/color-difference-test/">Color difference test</a>
+            </li>
 
-          <li>
-            <a href="/mental-math-test/">Mental math test</a>
-          </li>
+            <li>
+              <a href="/mental-math-test/">Mental math test</a>
+            </li>
 
-          <li>
-            <a href="/brain-games/">All brain games</a>
-          </li>
+            <li>
+              <a href="/brain-games/">All brain games</a>
+            </li>
 
-        </ul>
+          </ul>
 
-      </li>
+        </li>
 
-      <li class="has-sub">
+        <li class="has-sub">
 
-        <a href="/blog/">Articles</a>
+          <a href="/blog/">Articles</a>
 
-        <button
-          type="button"
-          class="sub-toggle"
-          aria-expanded="false"
-          aria-label="Show articles links"
-        ></button>
+          <button
+            type="button"
+            class="sub-toggle"
+            aria-expanded="false"
+            aria-label="Show articles links"
+          ></button>
 
-        <ul class="submenu">
+          <ul class="submenu">
 
-          <li>
-            <a href="/blog/are-online-iq-tests-accurate/">
-              Are Online IQ Tests Accurate?
-            </a>
-          </li>
+            <li>
+              <a href="/blog/are-online-iq-tests-accurate/">
+                Are Online IQ Tests Accurate?
+              </a>
+            </li>
 
-          <li>
-            <a href="/blog/can-you-increase-your-iq/">
-              Can You Increase Your IQ?
-            </a>
-          </li>
+            <li>
+              <a href="/blog/can-you-increase-your-iq/">
+                Can You Increase Your IQ?
+              </a>
+            </li>
 
-          <li>
-            <a href="/blog/flynn-effect-explained/">
-              Flynn Effect Explained
-            </a>
-          </li>
+            <li>
+              <a href="/blog/flynn-effect-explained/">
+                Flynn Effect Explained
+              </a>
+            </li>
 
-          <li>
-            <a href="/blog/how-iq-is-calculated/">
-              How Is IQ Calculated?
-            </a>
-          </li>
+            <li>
+              <a href="/blog/how-iq-is-calculated/">
+                How Is IQ Calculated?
+              </a>
+            </li>
 
-          <li>
-            <a href="/blog/reaction-time-test-results-explained/">
-              Reaction Time Test Results Explained
-            </a>
-          </li>
+            <li>
+              <a href="/blog/reaction-time-test-results-explained/">
+                Reaction Time Test Results Explained
+              </a>
+            </li>
 
-          <li>
-            <a href="/blog/what-is-a-good-iq-score/">
-              What Is a Good IQ Score?
-            </a>
-          </li>
+            <li>
+              <a href="/blog/what-is-a-good-iq-score/">
+                What Is a Good IQ Score?
+              </a>
+            </li>
 
-          <li>
-            <a href="/blog/">
-              All Articles
-            </a>
-          </li>
+            <li>
+              <a href="/blog/">
+                All Articles
+              </a>
+            </li>
 
-        </ul>
+          </ul>
 
-      </li>
+        </li>
 
-      <li class="has-sub">
+        <li class="has-sub">
 
-        <a href="/about/">About</a>
+          <a href="/about/">About</a>
 
-        <button
-          type="button"
-          class="sub-toggle"
-          aria-expanded="false"
-          aria-label="Show about links"
-        ></button>
+          <button
+            type="button"
+            class="sub-toggle"
+            aria-expanded="false"
+            aria-label="Show about links"
+          ></button>
 
-        <ul class="submenu">
+          <ul class="submenu">
 
-          <li>
-            <a href="/about/">About Thinkora</a>
-          </li>
+            <li>
+              <a href="/about/">About Thinkora</a>
+            </li>
 
-          <li>
-            <a href="/methodology/">Methodology</a>
-          </li>
+            <li>
+              <a href="/methodology/">Methodology</a>
+            </li>
 
-          <li>
-            <a href="/contact/">Contact</a>
-          </li>
+            <li>
+              <a href="/contact/">Contact</a>
+            </li>
 
-          <li>
-            <a href="/privacy-policy/">Privacy policy</a>
-          </li>
+            <li>
+              <a href="/privacy-policy/">Privacy policy</a>
+            </li>
 
-          <li>
-            <a href="/terms/">Terms of service</a>
-          </li>
+            <li>
+              <a href="/terms/">Terms of service</a>
+            </li>
 
-        </ul>
+          </ul>
 
-      </li>
+        </li>
 
-      <li class="theme-item">
+        <li class="theme-item">
 
-        <button
-          type="button"
-          class="theme-toggle"
-          id="theme-toggle"
-          aria-label="Switch to dark mode"
-          aria-pressed="false"
-        >
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+          >
 
-          <span class="theme-icon" aria-hidden="true">☾</span>
+            <span class="theme-icon" aria-hidden="true">☾</span>
 
-          <span class="theme-text">Dark</span>
+            <span class="theme-text">Dark</span>
 
-        </button>
+          </button>
 
-      </li>
+        </li>
 
-    </ul>
+      </ul>
 
-  </nav>
+    </nav>
 
-</div>
+  </div>
 
+</header>
 
-  </header>
-
-  <main id="main">
-
+<main id="main">
 
 <!-- HERO -->
+
 <section class="hero">
 
   <div class="hero-bg" aria-hidden="true">
@@ -726,11 +559,10 @@
 
   </div>
 
-
   <div class="wrap hero-grid">
 
-
     <!-- CIRCLE IMAGE -->
+
     <div class="hero-image">
 
       <img
@@ -744,8 +576,8 @@
 
     </div>
 
-
     <!-- HERO TEXT -->
+
     <div class="hero-copy">
 
       <h1 class="split">
@@ -757,7 +589,6 @@
         instantly, and see how your reasoning skills compare. No account or
         email required.
       </p>
-
 
       <div class="hero-actions">
 
@@ -779,8 +610,8 @@
 
     </div>
 
-
     <!-- FULL WIDTH IQ GRAPH -->
+
     <div class="curve-card">
 
       <h2>
@@ -790,7 +621,6 @@
       <p class="hint">
         Drag the slider to see what a score means.
       </p>
-
 
       <div
         class="readout"
@@ -811,7 +641,6 @@
 
       </div>
 
-
       <svg
         class="curve-svg"
         id="curve"
@@ -821,14 +650,12 @@
       >
       </svg>
 
-
       <label
         class="slider-label"
         for="iq-slider"
       >
         Try a score
       </label>
-
 
       <input
         type="range"
@@ -841,13 +668,12 @@
 
     </div>
 
-
   </div>
 
 </section>
 
-
 <!-- STATS -->
+
 <section class="stats">
 
   <div class="wrap">
@@ -872,7 +698,6 @@
 
       </div>
 
-
       <div class="stat">
 
         <span
@@ -888,7 +713,6 @@
 
       </div>
 
-
       <div class="stat">
 
         <span
@@ -903,7 +727,6 @@
         </span>
 
       </div>
-
 
       <div class="stat">
 
@@ -926,8 +749,8 @@
 
 </section>
 
-
 <!-- TOOLS -->
+
 <section
   class="section"
   id="tools"
@@ -950,9 +773,7 @@
 
     </div>
 
-
     <div class="tools-grid">
-
 
       <a
         class="tool tool-feature"
@@ -975,7 +796,6 @@
           aria-hidden="true"
         ></span>
 
-
         <div>
 
           <h3>
@@ -990,13 +810,11 @@
 
         </div>
 
-
         <span class="tool-link">
           Start the test
         </span>
 
       </a>
-
 
       <a
         class="tool"
@@ -1017,7 +835,6 @@
 
         </div>
 
-
         <ul class="game-list">
 
           <li>Reaction time</li>
@@ -1029,7 +846,6 @@
         </ul>
 
       </a>
-
 
       <a
         class="tool"
@@ -1051,13 +867,11 @@
 
         </div>
 
-
         <span class="tool-link">
           Open the calculator
         </span>
 
       </a>
-
 
     </div>
 
@@ -1065,8 +879,8 @@
 
 </section>
 
-
 <!-- HOW IT WORKS -->
+
 <section
   class="section"
   id="how-it-works"
@@ -1085,9 +899,7 @@
 
     </div>
 
-
     <ol class="steps">
-
 
       <li
         class="step"
@@ -1104,7 +916,6 @@
         </p>
 
       </li>
-
 
       <li
         class="step"
@@ -1123,7 +934,6 @@
 
       </li>
 
-
       <li
         class="step"
         data-reveal="left"
@@ -1141,15 +951,14 @@
 
       </li>
 
-
     </ol>
 
   </div>
 
 </section>
 
-
 <!-- DOMAINS -->
+
 <section
   class="section"
   id="what-it-measures"
@@ -1175,9 +984,7 @@
 
     </div>
 
-
     <dl class="domains">
-
 
       <div
         class="domain"
@@ -1214,7 +1021,6 @@
 
       </div>
 
-
       <div
         class="domain"
         data-reveal
@@ -1248,7 +1054,6 @@
         </dd>
 
       </div>
-
 
       <div
         class="domain"
@@ -1288,7 +1093,6 @@
 
       </div>
 
-
       <div
         class="domain"
         data-reveal
@@ -1325,24 +1129,22 @@
 
       </div>
 
-
     </dl>
 
   </div>
 
 </section>
 
+<!-- AD SLOT -->
 
-<!-- AD SLOT -->
-<!-- AD SLOT -->
 <div class="wrap">
 
   <div class="ad-slot"></div>
 
 </div>
 
-
 <!-- HONEST NOTE -->
+
 <section class="section">
 
   <div class="wrap">
@@ -1370,8 +1172,8 @@
 
 </section>
 
-
 <!-- WHAT IS AN ONLINE IQ TEST -->
+
 <section class="section">
 
   <div class="wrap">
@@ -1392,7 +1194,6 @@
 
     </div>
 
-
     <div
       class="note"
       data-reveal
@@ -1412,8 +1213,8 @@
 
 </section>
 
-
 <!-- FAQ -->
+
 <section
   class="section faq"
   id="faq"
@@ -1432,7 +1233,6 @@
 
     </div>
 
-
     <details
       data-reveal
       style="--d:0"
@@ -1448,7 +1248,6 @@
       </p>
 
     </details>
-
 
     <details
       data-reveal
@@ -1466,7 +1265,6 @@
       </p>
 
     </details>
-
 
     <details
       data-reveal
@@ -1487,7 +1285,6 @@
 
     </details>
 
-
     <details
       data-reveal
       style="--d:3"
@@ -1505,177 +1302,166 @@
 
     </details>
 
-
   </div>
 
 </section>
 
+</main>
 
-  </main>
+<!-- FOOTER -->
 
-  <!-- FOOTER -->
+<footer class="site-footer">
 
-  <footer class="site-footer">
+  <div class="wrap">
 
+    <div class="footer-grid">
 
-<div class="wrap">
+      <div>
 
-  <div class="footer-grid">
-
-
-    <div>
-
-      <a
-        class="logo"
-        href="/"
-      >
-
-        <svg
-          viewBox="0 0 32 32"
-          aria-hidden="true"
+        <a
+          class="logo"
+          href="/"
         >
 
-          <rect
-            width="32"
-            height="32"
-            rx="9"
-            fill="#5a3df0"
-          />
+          <svg
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
 
-          <path
-            d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
-            fill="none"
-            stroke="#fff"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
+            <rect
+              width="32"
+              height="32"
+              rx="9"
+              fill="#5a3df0"
+            />
 
-        </svg>
+            <path
+              d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+              fill="none"
+              stroke="#fff"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-        Thinkora
+          </svg>
 
-      </a>
+          Thinkora
 
+        </a>
 
-      <p style="margin-top:12px">
-        Free IQ test, brain games and calculators.
-      </p>
+        <p style="margin-top:12px">
+          Free IQ test, brain games and calculators.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3>
+          Test
+        </h3>
+
+        <ul>
+
+          <li>
+            <a href="/iq-test/">IQ test</a>
+          </li>
+
+          <li>
+            <a href="/iq-percentile-calculator/">
+              Percentile calculator
+            </a>
+          </li>
+
+          <li>
+            <a href="/iq-scores/">
+              IQ score guide
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3>
+          Play
+        </h3>
+
+        <ul>
+
+          <li>
+            <a href="/reaction-time-test/">Reaction time</a>
+          </li>
+
+          <li>
+            <a href="/number-memory-test/">Number memory</a>
+          </li>
+
+          <li>
+            <a href="/brain-games/">All games</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3>
+          Company
+        </h3>
+
+        <ul>
+
+          <li>
+            <a href="/about/">About</a>
+          </li>
+
+          <li>
+            <a href="/methodology/">Methodology</a>
+          </li>
+
+          <li>
+            <a href="/contact/">Contact</a>
+          </li>
+
+          <li>
+            <a href="/privacy-policy/">Privacy policy</a>
+          </li>
+
+          <li>
+            <a href="/terms/">Terms of service</a>
+          </li>
+
+        </ul>
+
+      </div>
 
     </div>
 
+    <p class="disclaimer">
 
-    <div>
+      <strong>Disclaimer:</strong>
 
-      <h3>
-        Test
-      </h3>
+      Thinkora provides estimated IQ scores for information and entertainment.
+      Results are not clinically validated and should not be used for medical,
+      educational or professional decisions.
 
-      <ul>
+      &copy; 2026 Thinkora.
 
-        <li>
-          <a href="/iq-test/">IQ test</a>
-        </li>
-
-        <li>
-          <a href="/iq-percentile-calculator/">
-            Percentile calculator
-          </a>
-        </li>
-
-        <li>
-          <a href="/iq-scores/">
-            IQ score guide
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        Play
-      </h3>
-
-      <ul>
-
-        <li>
-          <a href="/reaction-time-test/">Reaction time</a>
-        </li>
-
-        <li>
-          <a href="/number-memory-test/">Number memory</a>
-        </li>
-
-        <li>
-          <a href="/brain-games/">All games</a>
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        Company
-      </h3>
-
-      <ul>
-
-        <li>
-          <a href="/about/">About</a>
-        </li>
-
-        <li>
-          <a href="/methodology/">Methodology</a>
-        </li>
-
-        <li>
-          <a href="/contact/">Contact</a>
-        </li>
-
-        <li>
-          <a href="/privacy-policy/">Privacy policy</a>
-        </li>
-
-        <li>
-          <a href="/terms/">Terms of service</a>
-        </li>
-
-      </ul>
-
-    </div>
-
+    </p>
 
   </div>
 
+</footer>
 
-  <p class="disclaimer">
+<!-- JavaScript -->
 
-    <strong>Disclaimer:</strong>
+<script src="/js/main.js" defer></script>
 
-    Thinkora provides estimated IQ scores for information and entertainment.
-    Results are not clinically validated and should not be used for medical,
-    educational or professional decisions.
-
-    &copy; 2026 Thinkora.
-
-  </p>
-
-</div>
-
-
-  </footer>
-
-  <!-- JavaScript -->
-
-  <script src="/js/main.js" defer></script>
-
-  <script src="/js/nav.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 </body>
 </html>
