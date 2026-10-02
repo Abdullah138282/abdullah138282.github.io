@@ -297,13 +297,7 @@ a:hover {
   border-bottom: 1px solid var(--line);
 }
 
-@media (max-width: 767px) {
-  .site-nav .has-sub > a {
-    display: flex;
-    align-items: center;
-    min-height: 48px;
-  }
-}
+/* (Mobile .has-sub rules are now handled in nav.css) */
 
 /* ==========================================================
    HERO
@@ -805,7 +799,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ==========================================================
-   TABLET
+   TABLET (768px+)  — layout only, NO nav rules here
    ========================================================== */
 
 @media (min-width: 768px) {
@@ -815,32 +809,6 @@ input[type="range"]::-moz-range-thumb {
 
   .wrap {
     padding: 0 32px;
-  }
-
-  .nav-toggle {
-    display: none;
-  }
-
-  .site-nav {
-    display: block;
-
-    position: static;
-
-    background: none;
-    border: 0;
-
-    padding: 0;
-  }
-
-  .site-nav ul {
-    display: flex;
-    gap: 28px;
-    align-items: center;
-  }
-
-  .site-nav a {
-    border: 0;
-    padding: 8px 0;
   }
 
   .tools-grid {
@@ -878,10 +846,41 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ==========================================================
-   DESKTOP
+   DESKTOP (1024px+)  — desktop navigation starts here
    ========================================================== */
 
 @media (min-width: 1024px) {
+
+  /* ----- Desktop nav (moved here from 768px) ----- */
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+
+    position: static;
+
+    background: none;
+    border: 0;
+
+    padding: 0;
+  }
+
+  .site-nav ul {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .site-nav a {
+    border: 0;
+    padding: 8px 0;
+  }
+
+  /* ----- Layout ----- */
+
   .hero {
     padding: 72px 0 104px;
   }
@@ -1678,6 +1677,7 @@ html[data-theme="dark"] .site-footer {
     display: none;
   }
 }
+
 /* =========================================
    THINKORA HOMEPAGE HERO IMAGE
    ========================================= */
@@ -1748,5 +1748,4 @@ html[data-theme="dark"] .site-footer {
       0 18px 40px rgba(40, 25, 100, 0.14),
       0 6px 18px rgba(40, 25, 100, 0.08);
   }
-
 }

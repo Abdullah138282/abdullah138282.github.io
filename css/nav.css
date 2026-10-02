@@ -1,19 +1,23 @@
- /* ==========================================================
+/* ==========================================================
    Thinkora — dropdown navigation
    Loads after style.css
+
+   BREAKPOINT: mobile/tablet menu = up to 1023px
+               desktop menu       = 1024px and above
+   (style.css mein bhi hamburger wala breakpoint yehi hona chahiye)
    ========================================================== */
 
 
 /* ==========================================================
-   MOBILE NAVIGATION / ACCORDION
+   MOBILE + TABLET NAVIGATION / ACCORDION
    ========================================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
 
   .site-nav .has-sub {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 48px;
-    align-items: center;
+    align-items: stretch;          /* link aur arrow dono ki height barabar */
     width: 100%;
   }
 
@@ -29,17 +33,13 @@
   .site-nav .has-sub > .sub-toggle {
     position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 
     width: 48px;
-    height: 48px;
+    height: auto;                  /* row ki poori height le */
     min-height: 48px;
     padding: 0;
     margin: 0;
-
-    flex: none;
 
     background: none;
     border: 0;
@@ -48,9 +48,10 @@
     color: var(--ink);
     cursor: pointer;
 
-    align-self: center;
+    align-self: stretch;
   }
 
+  /* Arrow: button ke bilkul beech mein */
   .site-nav .has-sub > .sub-toggle::before {
     content: "";
 
@@ -64,13 +65,13 @@
     border-right: 2px solid currentColor;
     border-bottom: 2px solid currentColor;
 
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -65%) rotate(45deg);
 
     transition: transform 0.2s ease;
   }
 
   .site-nav .has-sub.open > .sub-toggle::before {
-    transform: translate(-50%, -50%) rotate(225deg);
+    transform: translate(-50%, -35%) rotate(225deg);
   }
 
   .site-nav .has-sub > .submenu {
@@ -107,7 +108,7 @@
    DESKTOP DROPDOWN
    ========================================================== */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
   .site-nav .has-sub {
     position: relative;
@@ -116,6 +117,11 @@
 
   .sub-toggle {
     display: none;
+  }
+
+  .site-nav a,
+  .site-nav .has-sub > a {
+    white-space: nowrap;           /* "IQ test" / "Brain games" wrap na hon */
   }
 
   .site-nav .has-sub > a::after {
@@ -168,11 +174,6 @@
     height: 14px;
   }
 
-  .site-nav .has-sub:hover > .submenu,
-  .site-nav .has-sub:focus-within > .submenu {
-    display: block;
-  }
-
   .site-nav .submenu li {
     margin: 0;
   }
@@ -194,6 +195,18 @@
   .site-nav .submenu a:hover {
     background: var(--violet-tint);
     color: var(--violet-deep);
+  }
+
+}
+
+/* Hover se dropdown sirf mouse wale devices par.
+   Touch devices par hover tap ke saath click bhi kar deta hai,
+   isi wajah se pehle seedha page khul jata tha. */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+
+  .site-nav .has-sub:hover > .submenu,
+  .site-nav .has-sub:focus-within > .submenu {
+    display: block;
   }
 
 }
@@ -229,6 +242,8 @@
 
   font: 600 0.95rem var(--font-body);
 
+  white-space: nowrap;
+
   cursor: pointer;
 
   transition:
@@ -260,9 +275,9 @@
 }
 
 
-/* ---------- Mobile theme button ---------- */
+/* ---------- Mobile + tablet theme button ---------- */
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
 
   .theme-item {
     width: 100%;

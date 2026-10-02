@@ -1,7 +1,15 @@
 /* ==========================================================
    Thinkora — responsive navigation + theme
    ========================================================== */
+/* Mobile/tablet: tapping "Brain games" text also opens the submenu */
+document.addEventListener("click", function (e) {
+  var link = e.target.closest(".has-sub > a");
+  if (!link) return;
+  if (!window.matchMedia("(max-width: 1023px)").matches) return;
 
+  e.preventDefault();
+  link.parentElement.querySelector(":scope > .sub-toggle").click();
+});
 
 /* ==========================================================
    MOBILE SUBMENUS
