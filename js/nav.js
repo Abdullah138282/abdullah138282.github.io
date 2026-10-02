@@ -13,15 +13,23 @@
 
   Array.prototype.forEach.call(items, function (li) {
 
-    var btn = li.querySelector(".sub-toggle");
+    var btn = li.querySelector(":scope > .sub-toggle");
 
     if (!btn) return;
 
-    btn.addEventListener("click", function () {
+
+    btn.addEventListener("click", function (event) {
+
+      /* IMPORTANT:
+         Do not allow the parent link to open */
+      event.preventDefault();
+      event.stopPropagation();
 
       var isOpen = li.classList.contains("open");
 
+
       /* Close all other submenus */
+
       Array.prototype.forEach.call(items, function (otherLi) {
 
         if (otherLi !== li) {
@@ -29,26 +37,52 @@
           otherLi.classList.remove("open");
 
           var otherBtn =
-            otherLi.querySelector(".sub-toggle");
+            otherLi.querySelector(":scope > .sub-toggle");
 
           if (otherBtn) {
+
             otherBtn.setAttribute(
               "aria-expanded",
               "false"
             );
+
           }
 
         }
 
       });
 
+
       /* Toggle current submenu */
-      li.classList.toggle("open", !isOpen);
+
+      li.classList.toggle(
+        "open",
+        !isOpen
+      );
+
 
       btn.setAttribute(
         "aria-expanded",
         !isOpen ? "true" : "false"
       );
+
+    });
+
+
+    /* Prevent keyboard activation from opening parent link */
+
+    btn.addEventListener("keydown", function (event) {
+
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+
+        event.preventDefault();
+
+        btn.click();
+
+      }
 
     });
 
@@ -78,6 +112,7 @@
   function setTheme(theme) {
 
     var isDark = theme === "dark";
+
 
     document.documentElement.setAttribute(
       "data-theme",
