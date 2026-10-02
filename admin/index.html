@@ -1,0 +1,917 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Thinkora Notification Admin</title>
+
+  <meta
+    name="robots"
+    content="noindex, nofollow, noarchive"
+  >
+
+  <style>
+
+   
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --violet: #5a3df0;
+  --violet-deep: #4930d4;
+  --violet-soft: #f0edff;
+
+  --bg: #f7f6fb;
+  --surface: #ffffff;
+  --ink: #19172a;
+  --ink-soft: #686477;
+  --line: #e5e2ef;
+
+  --success-bg: #edf8f1;
+  --success-text: #24713a;
+
+  --error-bg: #fff0f0;
+  --error-text: #a32626;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family:
+    "DM Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: var(--ink);
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(90, 61, 240, 0.10),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 90%,
+      rgba(90, 61, 240, 0.07),
+      transparent 30%
+    ),
+    var(--bg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 32px 18px;
+}
+
+
+/* ==========================================================
+   ADMIN CARD
+   ========================================================== */
+
+.admin-card {
+  width: 100%;
+  max-width: 590px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 1px solid rgba(229, 226, 239, 0.95);
+
+  border-radius: 24px;
+
+  padding: 34px;
+
+  box-shadow:
+    0 28px 70px rgba(40, 34, 80, 0.10),
+    0 8px 24px rgba(40, 34, 80, 0.04);
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 10px;
+
+  font-family:
+    "Bricolage Grotesque",
+    Arial,
+    sans-serif;
+
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+
+  color: var(--violet);
+}
+
+h1 {
+  margin: 0;
+
+  font-family:
+    "Bricolage Grotesque",
+    Arial,
+    sans-serif;
+
+  font-size: clamp(25px, 5vw, 32px);
+  line-height: 1.15;
+
+  letter-spacing: -0.7px;
+}
+
+.intro {
+  margin: 10px 0 28px;
+
+  max-width: 480px;
+
+  color: var(--ink-soft);
+
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+
+/* ==========================================================
+   FORM LABELS
+   ========================================================== */
+
+label {
+  display: block;
+
+  margin: 19px 0 8px;
+
+  color: var(--ink);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 0.1px;
+}
+
+
+/* ==========================================================
+   INPUTS
+   ========================================================== */
+
+input,
+textarea {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: var(--ink);
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-size: 16px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa6b7;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #cbc6dc;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--violet);
+
+  box-shadow:
+    0 0 0 4px rgba(90, 61, 240, 0.11);
+
+  background: #fff;
+}
+
+textarea {
+  min-height: 130px;
+
+  resize: vertical;
+
+  line-height: 1.55;
+}
+
+
+/* ==========================================================
+   SUBSCRIBER COUNTER
+   ========================================================== */
+
+.count-box {
+  position: relative;
+
+  margin: 26px 0 16px;
+
+  padding: 22px;
+
+  overflow: hidden;
+
+  border: 1px solid #e4dfff;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f2ff,
+      #eeeaff
+    );
+
+  text-align: center;
+}
+
+.count-box::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  top: -65px;
+  right: -35px;
+
+  border-radius: 50%;
+
+  background: rgba(90, 61, 240, 0.08);
+}
+
+.count-label {
+  position: relative;
+
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--ink-soft);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.count {
+  position: relative;
+
+  display: block;
+
+  font-family:
+    "Bricolage Grotesque",
+    Arial,
+    sans-serif;
+
+  font-size: 42px;
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  color: var(--violet);
+}
+
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+button {
+  width: 100%;
+
+  min-height: 50px;
+
+  margin-top: 14px;
+
+  padding: 13px 18px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  background: var(--violet);
+
+  color: #ffffff;
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(90, 61, 240, 0.20);
+
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
+}
+
+button:hover {
+  background: var(--violet-deep);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 11px 25px rgba(90, 61, 240, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
+
+  box-shadow:
+    0 5px 14px rgba(90, 61, 240, 0.18);
+}
+
+button:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 4px rgba(90, 61, 240, 0.16),
+    0 8px 20px rgba(90, 61, 240, 0.20);
+}
+
+button:disabled {
+  opacity: 0.58;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* ==========================================================
+   STATUS
+   ========================================================== */
+
+.status {
+  display: none;
+
+  margin-top: 18px;
+
+  padding: 13px 15px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 12px;
+
+  background: #f7f6fa;
+
+  color: var(--ink-soft);
+
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.status.show {
+  display: block;
+}
+
+.status.success {
+  border-color: #cfe9d7;
+
+  background: var(--success-bg);
+
+  color: var(--success-text);
+}
+
+.status.error {
+  border-color: #f0cccc;
+
+  background: var(--error-bg);
+
+  color: var(--error-text);
+}
+
+
+/* ==========================================================
+   SECURITY NOTE
+   ========================================================== */
+
+.note {
+  margin: 22px 2px 0;
+
+  color: #898494;
+
+  font-size: 12px;
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 18px 12px;
+  }
+
+  .admin-card {
+    padding: 25px 20px;
+
+    border-radius: 20px;
+  }
+
+  .brand {
+    font-size: 27px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .intro {
+    margin-bottom: 23px;
+
+    font-size: 14px;
+  }
+
+  .count-box {
+    padding: 20px 15px;
+  }
+
+  .count {
+    font-size: 38px;
+  }
+
+  input,
+  textarea {
+    padding: 13px 14px;
+  }
+
+}
+
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <main class="admin-card">
+
+    <div class="brand">
+      Thinkora
+    </div>
+
+    <h1>
+      Notification Admin
+    </h1>
+
+    <p class="intro">
+      Manage Thinkora push notifications from this private admin page.
+    </p>
+
+
+    <label for="secret">
+      Admin Secret
+    </label>
+
+    <input
+      id="secret"
+      type="password"
+      autocomplete="off"
+      placeholder="Enter ADMIN_SECRET"
+    >
+
+
+    <div class="count-box">
+
+      <span class="count-label">
+        Subscribers
+      </span>
+
+      <span
+        id="subscriber-count"
+        class="count"
+      >
+        —
+      </span>
+
+    </div>
+
+
+    <button
+      id="count-button"
+      type="button"
+    >
+      Check Subscribers
+    </button>
+
+
+    <label for="title">
+      Notification Title
+    </label>
+
+    <input
+      id="title"
+      type="text"
+      maxlength="200"
+      placeholder="New update from Thinkora"
+    >
+
+
+    <label for="message">
+      Notification Message
+    </label>
+
+    <textarea
+      id="message"
+      maxlength="1000"
+      placeholder="Write your notification message..."
+    ></textarea>
+
+
+    <button
+      id="send-button"
+      type="button"
+    >
+      Send to All Subscribers
+    </button>
+
+
+    <div
+      id="status"
+      class="status"
+      aria-live="polite"
+    ></div>
+
+
+    <p class="note">
+      Your admin secret is only sent to the Thinkora notification Worker
+      and is not stored by this page.
+    </p>
+
+  </main>
+
+
+  <script>
+
+    "use strict";
+
+
+    const WORKER_URL =
+      "https://thinkora-notifications.abdullahzahoor2525.workers.dev/";
+
+
+    const secretInput =
+      document.getElementById("secret");
+
+    const countButton =
+      document.getElementById("count-button");
+
+    const sendButton =
+      document.getElementById("send-button");
+
+    const countDisplay =
+      document.getElementById("subscriber-count");
+
+    const titleInput =
+      document.getElementById("title");
+
+    const messageInput =
+      document.getElementById("message");
+
+    const statusBox =
+      document.getElementById("status");
+
+
+    function showStatus(
+      message,
+      type
+    ) {
+
+      statusBox.textContent =
+        message;
+
+      statusBox.className =
+        "status show " +
+        (type || "");
+
+    }
+
+
+    function getSecret() {
+
+      return secretInput.value.trim();
+
+    }
+
+
+    async function getSubscriberCount() {
+
+      const secret =
+        getSecret();
+
+
+      if (!secret) {
+
+        showStatus(
+          "Enter your Admin Secret first.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      countButton.disabled =
+        true;
+
+
+      showStatus(
+        "Checking subscribers...",
+        ""
+      );
+
+
+      try {
+
+        const response =
+          await fetch(
+            WORKER_URL,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json",
+
+                "X-Admin-Secret":
+                  secret
+              },
+
+              body: JSON.stringify({
+                action: "admin-count"
+              })
+            }
+          );
+
+
+        const data =
+          await response.json();
+
+
+        if (!response.ok || !data.success) {
+
+          throw new Error(
+            data.error ||
+            "Could not get subscriber count."
+          );
+
+        }
+
+
+        countDisplay.textContent =
+          data.subscribers;
+
+
+        showStatus(
+          "Subscriber count updated.",
+          "success"
+        );
+
+      } catch (error) {
+
+        countDisplay.textContent =
+          "—";
+
+        showStatus(
+          error.message ||
+          "Something went wrong.",
+          "error"
+        );
+
+      } finally {
+
+        countButton.disabled =
+          false;
+
+      }
+
+    }
+
+
+    async function sendNotification() {
+
+      const secret =
+        getSecret();
+
+      const title =
+        titleInput.value.trim();
+
+      const message =
+        messageInput.value.trim();
+
+
+      if (!secret) {
+
+        showStatus(
+          "Enter your Admin Secret first.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      if (!title) {
+
+        showStatus(
+          "Enter a notification title.",
+          "error"
+        );
+
+        titleInput.focus();
+
+        return;
+
+      }
+
+
+      if (!message) {
+
+        showStatus(
+          "Enter a notification message.",
+          "error"
+        );
+
+        messageInput.focus();
+
+        return;
+
+      }
+
+
+      const confirmed =
+        window.confirm(
+          "Send this notification to ALL Thinkora subscribers?"
+        );
+
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      sendButton.disabled =
+        true;
+
+
+      showStatus(
+        "Sending notification...",
+        ""
+      );
+
+
+      try {
+
+        const response =
+          await fetch(
+            WORKER_URL,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json",
+
+                "X-Admin-Secret":
+                  secret
+              },
+
+              body: JSON.stringify({
+
+                action:
+                  "admin-send",
+
+                title:
+                  title,
+
+                body:
+                  message
+
+              })
+            }
+          );
+
+
+        const data =
+          await response.json();
+
+
+        if (!response.ok || !data.success) {
+
+          throw new Error(
+            data.error ||
+            "Notification sending failed."
+          );
+
+        }
+
+
+        showStatus(
+          "Sent: " +
+          data.sent +
+          " | Failed: " +
+          data.failed,
+          "success"
+        );
+
+
+        countDisplay.textContent =
+          data.subscribers;
+
+
+        titleInput.value =
+          "";
+
+        messageInput.value =
+          "";
+
+
+      } catch (error) {
+
+        showStatus(
+          error.message ||
+          "Something went wrong.",
+          "error"
+        );
+
+      } finally {
+
+        sendButton.disabled =
+          false;
+
+      }
+
+    }
+
+
+    countButton.addEventListener(
+      "click",
+      getSubscriberCount
+    );
+
+
+    sendButton.addEventListener(
+      "click",
+      sendNotification
+    );
+
+  </script>
+
+</body>
+
+</html>
+
