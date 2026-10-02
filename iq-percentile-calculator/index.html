@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>IQ Percentile Calculator: See How Your Score Ranks | Thinkora</title>
-  <meta name="description" content="Free IQ percentile calculator. Convert any IQ score to a percentile, or find the IQ for a given percentile. Works for SD 15, 16 and 24.">
+  <title>IQ Percentile Calculator: Convert IQ Score to Percentile | Thinkora</title>
+  <meta name="description" content="Use Thinkora's free IQ percentile calculator to convert an IQ score to a percentile or find the IQ score for a percentile. Supports SD 15, 16 and 24.">
   <link rel="canonical" href="https://abdullah138282.github.io/iq-percentile-calculator/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#5a3df0">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="IQ Percentile Calculator: See How Your Score Ranks | Thinkora">
-  <meta property="og:description" content="Free IQ percentile calculator. Convert any IQ score to a percentile, or find the IQ for a given percentile. Works for SD 15, 16 and 24.">
+  <meta property="og:title" content="IQ Percentile Calculator: Convert IQ Score to Percentile | Thinkora">
+  <meta property="og:description" content="Use a free IQ percentile calculator to convert an IQ score to a percentile or find the IQ score for a given percentile.">
   <meta property="og:url" content="https://abdullah138282.github.io/iq-percentile-calculator/">
   <meta property="og:site_name" content="Thinkora">
 
@@ -24,6 +24,7 @@
 
   <script>
     document.documentElement.classList.add("js");
+
     setTimeout(function () {
       if (!window.__thinkoraReady) {
         document.documentElement.classList.remove("js");
@@ -31,6 +32,7 @@
     }, 2500);
   </script>
 
+  <!-- Theme boot: prevents light/dark flash -->
   <script>
     (function () {
       try {
@@ -52,10 +54,12 @@
     })();
   </script>
 
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/pages.css">
 
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -83,7 +87,7 @@
         "url": "https://abdullah138282.github.io/iq-percentile-calculator/",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Any",
-        "description": "Convert an IQ score to a percentile, or a percentile to an IQ score.",
+        "description": "A free IQ percentile calculator that converts IQ scores to percentiles and percentiles to IQ scores.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -98,7 +102,7 @@
             "name": "What does an IQ percentile mean?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A percentile shows the share of people who score below you. If your IQ is at the 90th percentile, you scored higher than about 90 out of every 100 people in the comparison group."
+              "text": "An IQ percentile shows the percentage of people in the comparison population who score below a particular IQ score. For example, the 90th percentile means the score is higher than approximately 90 percent of the comparison population."
             }
           },
           {
@@ -106,7 +110,7 @@
             "name": "What percentile is an IQ of 130?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "On the standard scale (mean 100, standard deviation 15), an IQ of 130 is at about the 97.7th percentile. Roughly 1 in 44 people score 130 or higher."
+              "text": "On an IQ scale with a mean of 100 and a standard deviation of 15, an IQ of 130 is approximately at the 97.7th percentile."
             }
           },
           {
@@ -114,23 +118,31 @@
             "name": "What IQ is the 50th percentile?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "An IQ of 100. Tests are designed so that 100 is the median and the mean of the comparison group."
+              "text": "An IQ of 100 corresponds to the 50th percentile on the standard IQ scale with a mean of 100."
             }
           },
           {
             "@type": "Question",
-            "name": "Why do different tests give different percentiles for the same score?",
+            "name": "What is the difference between IQ score and IQ percentile?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Some tests use a different standard deviation. Most modern tests use 15, some older Stanford-Binet editions used 16, and the Cattell culture-fair scales use 24. The same number means a different rank on each scale, so pick the standard deviation your test uses."
+              "text": "An IQ score is a standardized numerical score, while an IQ percentile describes how that score compares with scores in a reference population."
             }
           },
           {
             "@type": "Question",
-            "name": "Can I use this to check my result from an online test?",
+            "name": "Why can the same IQ score have different percentiles?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, for a rough comparison. Online tests are not normed against a large, representative sample, so treat the percentile as an estimate, not a diagnosis."
+              "text": "The percentile depends on the IQ scale and its standard deviation. A scale using a standard deviation of 15 will produce a different percentile from a scale using a different standard deviation for the same numerical IQ."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use an IQ percentile calculator for an online IQ test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. An IQ percentile calculator can provide a rough comparison for an online IQ test result, but online IQ scores should generally be treated as estimates rather than clinical assessments."
             }
           }
         ]
@@ -138,7 +150,8 @@
     ]
   }
   </script>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -167,6 +180,7 @@
       </button>
 
       <nav class="site-nav" id="site-nav" aria-label="Main">
+
         <ul>
 
           <li>
@@ -174,6 +188,7 @@
           </li>
 
           <li class="has-sub">
+
             <a href="/brain-games/">Brain games</a>
 
             <button type="button"
@@ -190,10 +205,14 @@
               <li><a href="/mental-math-test/">Mental math test</a></li>
               <li><a href="/brain-games/">All brain games</a></li>
             </ul>
+
           </li>
 
           <li class="has-sub">
-            <a href="/iq-percentile-calculator/" aria-current="page">Calculator</a>
+
+            <a href="/iq-percentile-calculator/" aria-current="page">
+              Calculator
+            </a>
 
             <button type="button"
                     class="sub-toggle"
@@ -202,18 +221,25 @@
             </button>
 
             <ul class="submenu">
+
               <li>
                 <a href="/iq-percentile-calculator/" aria-current="page">
                   IQ percentile calculator
                 </a>
               </li>
+
               <li>
-                <a href="/iq-scores/">IQ score guide</a>
+                <a href="/iq-scores/">
+                  IQ score guide
+                </a>
               </li>
+
             </ul>
+
           </li>
 
           <li class="has-sub">
+
             <a href="/blog/">Articles</a>
 
             <button type="button"
@@ -223,11 +249,15 @@
             </button>
 
             <ul class="submenu">
-              <li><a href="/blog/">All articles</a></li>
+              <li>
+                <a href="/blog/">All articles</a>
+              </li>
             </ul>
+
           </li>
 
           <li class="has-sub">
+
             <a href="/about/">About</a>
 
             <button type="button"
@@ -237,28 +267,56 @@
             </button>
 
             <ul class="submenu">
-              <li><a href="/about/">About Thinkora</a></li>
-              <li><a href="/methodology/">Methodology</a></li>
-              <li><a href="/contact/">Contact</a></li>
-              <li><a href="/privacy-policy/">Privacy policy</a></li>
-              <li><a href="/terms/">Terms of service</a></li>
+
+              <li>
+                <a href="/about/">About Thinkora</a>
+              </li>
+
+              <li>
+                <a href="/methodology/">Methodology</a>
+              </li>
+
+              <li>
+                <a href="/contact/">Contact</a>
+              </li>
+
+              <li>
+                <a href="/privacy-policy/">Privacy policy</a>
+              </li>
+
+              <li>
+                <a href="/terms/">
+                  Terms of service
+                </a>
+              </li>
+
             </ul>
+
           </li>
 
           <!-- Theme toggle -->
+
           <li class="theme-item">
+
             <button
               type="button"
               class="theme-toggle"
               id="theme-toggle"
               aria-label="Switch to dark mode"
               aria-pressed="false">
-              <span class="theme-icon" aria-hidden="true">☾</span>
+
+              <span
+                class="theme-icon"
+                aria-hidden="true">☾</span>
+
               <span class="theme-text">Dark</span>
+
             </button>
+
           </li>
 
         </ul>
+
       </nav>
 
     </div>
@@ -266,39 +324,56 @@
 
   <main id="main">
 
+    <!-- ================= HERO ================= -->
+
     <section class="pg-hero">
+
       <div class="wrap">
 
         <nav class="crumbs" aria-label="Breadcrumb">
           <a href="/">Home</a> / IQ percentile calculator
         </nav>
 
-        <h1>IQ percentile calculator</h1>
+        <h1>IQ Percentile Calculator</h1>
 
         <p class="lead">
-          Enter an IQ score to see what percentage of people score lower,
-          or enter a percentile to find the matching IQ.
+          Use this free IQ percentile calculator to convert an IQ score into
+          a percentile, or find the IQ score that corresponds to a specific
+          percentile.
         </p>
 
       </div>
+
     </section>
 
+    <!-- ================= CALCULATOR ================= -->
+
     <section class="pg-body">
+
       <div class="wrap">
 
         <div class="calc-grid">
 
+          <!-- IQ TO PERCENTILE -->
+
           <div class="calc-card">
 
-            <h2>IQ to percentile</h2>
-            <p class="hint">Enter a score to see how it ranks.</p>
+            <h2>IQ score to percentile</h2>
+
+            <p class="hint">
+              Enter your IQ score to see its approximate percentile.
+            </p>
 
             <form id="form-iq" novalidate>
 
               <div class="field-row">
 
                 <div class="field">
-                  <label for="in-iq">IQ score</label>
+
+                  <label for="in-iq">
+                    IQ score
+                  </label>
+
                   <input
                     id="in-iq"
                     type="number"
@@ -308,63 +383,113 @@
                     step="1"
                     value="115"
                     required>
+
                 </div>
 
                 <div class="field">
-                  <label for="in-sd">Standard deviation</label>
+
+                  <label for="in-sd">
+                    Standard deviation
+                  </label>
+
                   <select id="in-sd">
-                    <option value="15" selected>15 (Wechsler)</option>
-                    <option value="16">16 (Stanford&ndash;Binet)</option>
-                    <option value="24">24 (Cattell)</option>
+
+                    <option value="15" selected>
+                      15 (Wechsler)
+                    </option>
+
+                    <option value="16">
+                      16 (Stanford&ndash;Binet)
+                    </option>
+
+                    <option value="24">
+                      24 (Cattell)
+                    </option>
+
                   </select>
+
                 </div>
 
               </div>
 
-              <p class="calc-error" id="err-iq" role="alert"></p>
+              <p
+                class="calc-error"
+                id="err-iq"
+                role="alert">
+              </p>
 
-              <button type="submit" class="btn btn-primary">
+              <button
+                type="submit"
+                class="btn btn-primary">
                 Calculate percentile
               </button>
 
             </form>
 
-            <div class="calc-result"
-                 id="out-iq"
-                 aria-live="polite"
-                 hidden>
+            <div
+              class="calc-result"
+              id="out-iq"
+              aria-live="polite"
+              hidden>
 
               <p class="calc-big">
+
                 <span id="res-pct">0</span>
-                <small>th percentile</small>
+
+                <small>
+                  th percentile
+                </small>
+
               </p>
 
-              <p class="calc-line" id="res-text"></p>
-              <p class="calc-line" id="res-rarity"></p>
+              <p
+                class="calc-line"
+                id="res-text">
+              </p>
+
+              <p
+                class="calc-line"
+                id="res-rarity">
+              </p>
 
               <p class="calc-line">
+
                 <span>Classification:</span>
+
                 <strong id="res-label"></strong>
+
                 &nbsp;
+
                 <span>z-score:</span>
+
                 <strong id="res-z"></strong>
+
               </p>
 
             </div>
 
           </div>
 
+          <!-- PERCENTILE TO IQ -->
+
           <div class="calc-card">
 
-            <h2>Percentile to IQ</h2>
-            <p class="hint">Know your rank? Find the matching score.</p>
+            <h2>Percentile to IQ score</h2>
+
+            <p class="hint">
+              Enter a percentile to find the corresponding IQ score.
+            </p>
 
             <form id="form-pct" novalidate>
 
               <div class="field-row">
 
                 <div class="field">
-                  <label for="in-pct">Percentile</label>
+
+                  <label for="in-pct">
+                    Percentile
+                  </label>
+
                   <input
                     id="in-pct"
                     type="number"
@@ -374,70 +499,121 @@
                     step="any"
                     value="90"
                     required>
+
                 </div>
 
                 <div class="field">
-                  <label for="in-sd2">Standard deviation</label>
+
+                  <label for="in-sd2">
+                    Standard deviation
+                  </label>
+
                   <select id="in-sd2">
-                    <option value="15" selected>15 (Wechsler)</option>
-                    <option value="16">16 (Stanford&ndash;Binet)</option>
-                    <option value="24">24 (Cattell)</option>
+
+                    <option value="15" selected>
+                      15 (Wechsler)
+                    </option>
+
+                    <option value="16">
+                      16 (Stanford&ndash;Binet)
+                    </option>
+
+                    <option value="24">
+                      24 (Cattell)
+                    </option>
+
                   </select>
+
                 </div>
 
               </div>
 
-              <p class="calc-error" id="err-pct" role="alert"></p>
+              <p
+                class="calc-error"
+                id="err-pct"
+                role="alert">
+              </p>
 
-              <button type="submit" class="btn btn-primary">
+              <button
+                type="submit"
+                class="btn btn-primary">
                 Find IQ score
               </button>
 
             </form>
 
-            <div class="calc-result"
-                 id="out-pct"
-                 aria-live="polite"
-                 hidden>
+            <div
+              class="calc-result"
+              id="out-pct"
+              aria-live="polite"
+              hidden>
 
               <p class="calc-big">
+
                 <span id="res-iq2">0</span>
-                <small>IQ</small>
+
+                <small>
+                  IQ
+                </small>
+
               </p>
 
-              <p class="calc-line" id="res-text2"></p>
+              <p
+                class="calc-line"
+                id="res-text2">
+              </p>
 
               <p class="calc-line">
+
                 <span>Classification:</span>
+
                 <strong id="res-label2"></strong>
+
               </p>
 
             </div>
 
           </div>
 
+          <!-- BELL CURVE -->
+
           <div class="curve-card calc-wide">
 
-            <h2>Where your score sits on the bell curve</h2>
+            <h2>
+              Where your IQ score sits on the bell curve
+            </h2>
 
             <p class="hint">
               Standard scale: mean 100, standard deviation 15.
               The calculators above move this marker, or drag the slider yourself.
             </p>
 
-            <svg id="curve"
-                 class="curve-svg"
-                 viewBox="0 0 640 300"
-                 role="img"
-                 aria-label="Bell curve of IQ scores from 55 to 145">
+            <svg
+              id="curve"
+              class="curve-svg"
+              viewBox="0 0 640 300"
+              role="img"
+              aria-label="Bell curve of IQ scores from 55 to 145">
             </svg>
 
             <div class="readout">
-              <span class="readout-score" id="readout-score">100</span>
-              <span class="readout-text" id="readout-text"></span>
+
+              <span
+                class="readout-score"
+                id="readout-score">
+                100
+              </span>
+
+              <span
+                class="readout-text"
+                id="readout-text">
+              </span>
+
             </div>
 
-            <label class="slider-label" for="iq-slider">
+            <label
+              class="slider-label"
+              for="iq-slider">
               IQ score
             </label>
 
@@ -452,23 +628,45 @@
 
         </div>
 
-        <div class="prose" style="margin-top:56px">
+        <!-- ================= SEO CONTENT ================= -->
 
-          <h2>How the IQ percentile calculator works</h2>
+        <div
+          class="prose"
+          style="margin-top:56px">
+
+          <h2>
+            How the IQ percentile calculator works
+          </h2>
 
           <p>
-            IQ scores are built to follow a normal distribution, the familiar
-            bell curve. The average is set to 100, and the standard deviation
-            (the typical spread around the average) is 15 on most modern tests.
-            The calculator turns your score into a z-score, which counts how
-            many standard deviations you are from 100, and then reads the
-            percentile from the normal curve.
+            An <strong>IQ percentile calculator</strong> shows where an IQ
+            score falls compared with a reference population. IQ scores are
+            commonly standardized around a mean of 100. On the standard scale,
+            a standard deviation of 15 describes how widely scores are spread
+            around that mean.
           </p>
 
           <p>
-            For example, a score of 115 is one standard deviation above average.
-            That puts you at about the 84th percentile: higher than roughly
-            84 out of 100 people.
+            To estimate a percentile, the calculator first converts the IQ
+            score into a z-score. It then uses the normal distribution to
+            estimate the proportion of the reference population scoring below
+            that point.
+          </p>
+
+          <p>
+            For example, an IQ score of 115 is one standard deviation above
+            the mean on a scale with a mean of 100 and SD 15. That corresponds
+            to approximately the 84th percentile.
+          </p>
+
+          <h2>
+            IQ score to percentile chart
+          </h2>
+
+          <p>
+            The following IQ percentile chart shows common scores and their
+            approximate percentiles on the standard scale with a mean of 100
+            and a standard deviation of 15.
           </p>
 
           <div class="table-scroll">
@@ -476,110 +674,362 @@
             <table>
 
               <caption>
-                Common IQ scores and percentiles on the standard scale
-                (mean 100, SD 15)
+                Common IQ scores and approximate percentiles on the standard
+                scale (mean 100, SD 15)
               </caption>
 
               <thead>
+
                 <tr>
                   <th scope="col">IQ</th>
                   <th scope="col">Percentile</th>
-                  <th scope="col">Rarity</th>
+                  <th scope="col">Approximate frequency</th>
                 </tr>
+
               </thead>
 
               <tbody>
-                <tr><td>70</td><td>2.3</td><td>1 in 44 score this low or lower</td></tr>
-                <tr><td>80</td><td>9.1</td><td>1 in 11 score this low or lower</td></tr>
-                <tr><td>85</td><td>15.9</td><td>1 in 6.3 score this low or lower</td></tr>
-                <tr><td>90</td><td>25.2</td><td>1 in 4 score this low or lower</td></tr>
-                <tr><td>100</td><td>50.0</td><td>Average</td></tr>
-                <tr><td>110</td><td>74.8</td><td>1 in 4 score this high or higher</td></tr>
-                <tr><td>115</td><td>84.1</td><td>1 in 6.3 score this high or higher</td></tr>
-                <tr><td>120</td><td>90.9</td><td>1 in 11 score this high or higher</td></tr>
-                <tr><td>125</td><td>95.2</td><td>1 in 21 score this high or higher</td></tr>
-                <tr><td>130</td><td>97.7</td><td>1 in 44 score this high or higher</td></tr>
-                <tr><td>135</td><td>99.02</td><td>1 in 100 score this high or higher</td></tr>
-                <tr><td>140</td><td>99.62</td><td>1 in 260 score this high or higher</td></tr>
-                <tr><td>145</td><td>99.87</td><td>1 in 740 score this high or higher</td></tr>
-                <tr><td>160</td><td>99.99</td><td>1 in 31,574 score this high or higher</td></tr>
+
+                <tr>
+                  <td>70</td>
+                  <td>2.3</td>
+                  <td>About 2.3% score this low or lower</td>
+                </tr>
+
+                <tr>
+                  <td>80</td>
+                  <td>9.1</td>
+                  <td>About 9.1% score this low or lower</td>
+                </tr>
+
+                <tr>
+                  <td>85</td>
+                  <td>15.9</td>
+                  <td>About 15.9% score this low or lower</td>
+                </tr>
+
+                <tr>
+                  <td>90</td>
+                  <td>25.2</td>
+                  <td>About 25.2% score this low or lower</td>
+                </tr>
+
+                <tr>
+                  <td>100</td>
+                  <td>50.0</td>
+                  <td>About half of the comparison population</td>
+                </tr>
+
+                <tr>
+                  <td>110</td>
+                  <td>74.8</td>
+                  <td>About 25.2% score this high or higher</td>
+                </tr>
+
+                <tr>
+                  <td>115</td>
+                  <td>84.1</td>
+                  <td>About 15.9% score this high or higher</td>
+                </tr>
+
+                <tr>
+                  <td>120</td>
+                  <td>90.9</td>
+                  <td>About 9.1% score this high or higher</td>
+                </tr>
+
+                <tr>
+                  <td>125</td>
+                  <td>95.2</td>
+                  <td>About 4.8% score this high or higher</td>
+                </tr>
+
+                <tr>
+                  <td>130</td>
+                  <td>97.7</td>
+                  <td>About 2.3% score this high or higher</td>
+                </tr>
+
+                <tr>
+                  <td>135</td>
+                  <td>99.02</td>
+                  <td>About 1% score this high or higher</td>
+                </tr>
+
+                <tr>
+                  <td>140</td>
+                  <td>99.62</td>
+                  <td>About 0.38% score this high or higher</td>
+                </tr>
+
+                <tr>
+                  <td>145</td>
+                  <td>99.87</td>
+                  <td>About 0.13% score this high or higher</td>
+                </tr>
+
+                <tr>
+                  <td>160</td>
+                  <td>99.999</td>
+                  <td>About 0.001% score this high or higher</td>
+                </tr>
+
               </tbody>
 
             </table>
 
           </div>
 
-          <h2>How to read your result</h2>
+          <h2>
+            How to read an IQ percentile
+          </h2>
 
           <p>
-            A percentile describes rank, not ability in absolute terms.
-            Two people with IQs of 98 and 102 are almost indistinguishable,
-            even though their percentiles differ by a few points. Differences
-            matter most at a distance: the gap between 85 and 115 is meaningful,
-            the gap between 100 and 103 is not.
+            An IQ percentile represents <strong>relative rank</strong>, not a
+            percentage of questions answered correctly. If your result is at
+            the 90th percentile, your score is higher than approximately 90%
+            of the comparison population.
           </p>
 
           <p>
-            Every IQ test also has a margin of error, usually several points
-            even for professionally administered tests. Free online tests,
-            including ours, have a wider one. Use the number as a rough guide
-            and read the <a href="/iq-scores/">IQ score guide</a> for what each
-            range means. If you have not tested yet, you can try the
-            <a href="/iq-test/">Thinkora IQ test</a>.
+            For example, an IQ of 100 is at the 50th percentile on the standard
+            scale. An IQ of 115 is around the 84th percentile, while an IQ of
+            130 is around the 97.7th percentile.
           </p>
 
-          <h2>Questions about IQ percentiles</h2>
+          <p>
+            This means percentile differences become more noticeable at the
+            higher end of the scale. A small change in IQ score can represent
+            a larger change in relative rank when scores are near the extremes
+            of the distribution.
+          </p>
+
+          <h2>
+            IQ score vs IQ percentile
+          </h2>
+
+          <p>
+            An <strong>IQ score</strong> and an <strong>IQ percentile</strong>
+            describe related but different things. The IQ score is a
+            standardized number, while the percentile describes where that
+            number falls relative to a reference population.
+          </p>
+
+          <p>
+            For example, an IQ of 120 does not mean that a person answered 120%
+            of questions correctly. On the standard scale, it corresponds to
+            approximately the 90.9th percentile.
+          </p>
+
+          <h2>
+            IQ percentile and standard deviation
+          </h2>
+
+          <p>
+            Standard deviation is important when converting an IQ score to a
+            percentile. The standard IQ scale commonly uses a mean of 100 and
+            an SD of 15, but other IQ scales can use different standard
+            deviations.
+          </p>
+
+          <p>
+            Thinkora's calculator includes SD 15, 16 and 24 so you can select
+            the scale that matches the result you are trying to interpret.
+            Because a different standard deviation changes the spread of the
+            distribution, the same numerical IQ can produce a different
+            percentile on another scale.
+          </p>
+
+          <h2>
+            What percentile is an IQ of 100?
+          </h2>
+
+          <p>
+            On the standard IQ scale, an IQ of 100 corresponds to the
+            <strong>50th percentile</strong>. The mean is set at 100, so a
+            score of 100 represents the midpoint of the standard distribution.
+          </p>
+
+          <h2>
+            What percentile is an IQ of 115?
+          </h2>
+
+          <p>
+            On a scale with a mean of 100 and SD 15, an IQ of 115 is
+            approximately the <strong>84th percentile</strong>. It is one
+            standard deviation above the mean.
+          </p>
+
+          <h2>
+            What percentile is an IQ of 120?
+          </h2>
+
+          <p>
+            On the standard scale, an IQ of 120 is approximately the
+            <strong>90.9th percentile</strong>. This means the score is higher
+            than roughly 91% of the reference population.
+          </p>
+
+          <h2>
+            What percentile is an IQ of 130?
+          </h2>
+
+          <p>
+            An IQ of 130 on the standard scale is approximately the
+            <strong>97.7th percentile</strong>. In other words, the score is
+            higher than approximately 97.7% of the comparison distribution.
+          </p>
+
+          <h2>
+            IQ percentile calculator for online test results
+          </h2>
+
+          <p>
+            You can use this <strong>IQ percentile calculator</strong> after
+            receiving an IQ result from an online test. The calculator can
+            show the approximate percentile associated with the numerical
+            score when the same scale and standard deviation are used.
+          </p>
+
+          <p>
+            However, the percentile calculation itself does not make an online
+            IQ test clinically validated. Online tests can use different
+            questions, norms, scoring methods and testing conditions, so an
+            online IQ result should generally be treated as an estimate.
+          </p>
+
+          <p>
+            Thinkora's
+            <a href="/iq-test/">free online IQ test</a>
+            provides an estimated IQ score and percentile after 30 questions.
+            You can learn more about the meaning of different scores in our
+            <a href="/iq-scores/">IQ score guide</a>.
+          </p>
+
+          <h2>
+            IQ percentile and score rarity
+          </h2>
+
+          <p>
+            Percentiles can also help describe how common or uncommon a score
+            is within the reference distribution. For example, an IQ of 130
+            is around the 97.7th percentile on the standard scale, meaning
+            approximately 2.3% of the distribution is above that point.
+          </p>
+
+          <p>
+            These figures describe a statistical distribution rather than a
+            guarantee about a particular real-world population. The relevant
+            reference group and test norms matter when interpreting an actual
+            IQ score.
+          </p>
+
+          <h2>
+            Why different IQ tests can give different percentiles
+          </h2>
+
+          <p>
+            Different IQ tests may use different norm groups, scoring systems
+            and standard deviations. Even when two tests report a number called
+            an IQ score, their scales and reference data may not be identical.
+          </p>
+
+          <p>
+            This is why it is important to know the test and scale behind an IQ
+            result before converting it to a percentile. When the scale is
+            unknown, a percentile calculator can only provide an estimate based
+            on an assumed distribution.
+          </p>
+
+          <h2>
+            Questions about IQ percentiles
+          </h2>
 
           <div class="faq">
 
             <details>
-              <summary>What does an IQ percentile mean?</summary>
-              <p>
-                A percentile shows the share of people who score below you.
-                If your IQ is at the 90th percentile, you scored higher than
-                about 90 out of every 100 people in the comparison group.
-              </p>
-            </details>
 
-            <details>
-              <summary>What percentile is an IQ of 130?</summary>
-              <p>
-                On the standard scale (mean 100, standard deviation 15),
-                an IQ of 130 is at about the 97.7th percentile. Roughly
-                1 in 44 people score 130 or higher.
-              </p>
-            </details>
-
-            <details>
-              <summary>What IQ is the 50th percentile?</summary>
-              <p>
-                An IQ of 100. Tests are designed so that 100 is the median
-                and the mean of the comparison group.
-              </p>
-            </details>
-
-            <details>
               <summary>
-                Why do different tests give different percentiles for the same score?
+                What does an IQ percentile mean?
               </summary>
+
               <p>
-                Some tests use a different standard deviation. Most modern
-                tests use 15, some older Stanford&ndash;Binet editions used 16,
-                and the Cattell culture-fair scales use 24. The same number
-                means a different rank on each scale, so pick the standard
-                deviation your test uses.
+                An IQ percentile shows the percentage of people in the
+                comparison population who score below a particular IQ score.
+                For example, the 90th percentile means a score is higher than
+                approximately 90 percent of the comparison population.
               </p>
+
             </details>
 
             <details>
+
               <summary>
-                Can I use this to check my result from an online test?
+                What percentile is an IQ of 130?
               </summary>
+
               <p>
-                Yes, for a rough comparison. Online tests are not normed
-                against a large, representative sample, so treat the percentile
-                as an estimate, not a diagnosis.
+                On an IQ scale with a mean of 100 and standard deviation of 15,
+                an IQ of 130 is approximately at the 97.7th percentile.
               </p>
+
+            </details>
+
+            <details>
+
+              <summary>
+                What IQ is the 50th percentile?
+              </summary>
+
+              <p>
+                An IQ of 100 corresponds to the 50th percentile on the standard
+                IQ scale with a mean of 100.
+              </p>
+
+            </details>
+
+            <details>
+
+              <summary>
+                What is the difference between IQ score and IQ percentile?
+              </summary>
+
+              <p>
+                An IQ score is a standardized numerical score, while an IQ
+                percentile describes how that score compares with scores in a
+                reference population.
+              </p>
+
+            </details>
+
+            <details>
+
+              <summary>
+                Why can the same IQ score have different percentiles?
+              </summary>
+
+              <p>
+                The percentile depends on the IQ scale and its standard
+                deviation. A scale using a standard deviation of 15 can produce
+                a different percentile from a scale using another standard
+                deviation for the same numerical IQ.
+              </p>
+
+            </details>
+
+            <details>
+
+              <summary>
+                Can I use an IQ percentile calculator for an online IQ test?
+              </summary>
+
+              <p>
+                Yes. An IQ percentile calculator can provide a rough comparison
+                for an online IQ test result, but online IQ scores should
+                generally be treated as estimates rather than clinical
+                assessments.
+              </p>
+
             </details>
 
           </div>
@@ -587,9 +1037,12 @@
         </div>
 
       </div>
+
     </section>
 
   </main>
+
+  <!-- ================= FOOTER ================= -->
 
   <footer class="site-footer">
 
@@ -600,15 +1053,19 @@
         <div>
 
           <a class="logo" href="/">
+
             <svg viewBox="0 0 32 32" aria-hidden="true">
               <rect width="32" height="32" rx="9" fill="#5a3df0"/>
-              <path d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
-                    fill="none"
-                    stroke="#fff"
-                    stroke-width="3"
-                    stroke-linecap="round"/>
+              <path
+                d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+                fill="none"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"/>
             </svg>
+
             Thinkora
+
           </a>
 
           <p style="margin-top:12px">
@@ -622,9 +1079,25 @@
           <h3>Test</h3>
 
           <ul>
-            <li><a href="/iq-test/">IQ test</a></li>
-            <li><a href="/iq-percentile-calculator/">Percentile calculator</a></li>
-            <li><a href="/iq-scores/">IQ score guide</a></li>
+
+            <li>
+              <a href="/iq-test/">
+                IQ test
+              </a>
+            </li>
+
+            <li>
+              <a href="/iq-percentile-calculator/">
+                Percentile calculator
+              </a>
+            </li>
+
+            <li>
+              <a href="/iq-scores/">
+                IQ score guide
+              </a>
+            </li>
+
           </ul>
 
         </div>
@@ -634,12 +1107,43 @@
           <h3>Play</h3>
 
           <ul>
-            <li><a href="/reaction-time-test/">Reaction time</a></li>
-            <li><a href="/number-memory-test/">Number memory</a></li>
-            <li><a href="/pattern-memory-game/">Pattern memory</a></li>
-            <li><a href="/color-difference-test/">Color difference</a></li>
-            <li><a href="/mental-math-test/">Mental math</a></li>
-            <li><a href="/brain-games/">All games</a></li>
+
+            <li>
+              <a href="/reaction-time-test/">
+                Reaction time
+              </a>
+            </li>
+
+            <li>
+              <a href="/number-memory-test/">
+                Number memory
+              </a>
+            </li>
+
+            <li>
+              <a href="/pattern-memory-game/">
+                Pattern memory
+              </a>
+            </li>
+
+            <li>
+              <a href="/color-difference-test/">
+                Color difference
+              </a>
+            </li>
+
+            <li>
+              <a href="/mental-math-test/">
+                Mental math
+              </a>
+            </li>
+
+            <li>
+              <a href="/brain-games/">
+                All games
+              </a>
+            </li>
+
           </ul>
 
         </div>
@@ -649,11 +1153,37 @@
           <h3>Company</h3>
 
           <ul>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/methodology/">Methodology</a></li>
-            <li><a href="/contact/">Contact</a></li>
-            <li><a href="/privacy-policy/">Privacy policy</a></li>
-            <li><a href="/terms/">Terms of service</a></li>
+
+            <li>
+              <a href="/about/">
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="/methodology/">
+                Methodology
+              </a>
+            </li>
+
+            <li>
+              <a href="/contact/">
+                Contact
+              </a>
+            </li>
+
+            <li>
+              <a href="/privacy-policy/">
+                Privacy policy
+              </a>
+            </li>
+
+            <li>
+              <a href="/terms/">
+                Terms of service
+              </a>
+            </li>
+
           </ul>
 
         </div>
@@ -661,15 +1191,22 @@
       </div>
 
       <p class="disclaimer">
+
         <strong>Disclaimer:</strong>
+
         Thinkora provides estimated IQ scores for information and entertainment.
         Results are not clinically validated and should not be used for medical,
-        educational or professional decisions. &copy; 2026 Thinkora.
+        educational or professional decisions.
+
+        &copy; 2026 Thinkora.
+
       </p>
 
     </div>
 
   </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
 
   <script src="/js/main.js" defer></script>
   <script src="/js/nav.js" defer></script>
