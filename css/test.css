@@ -212,6 +212,7 @@
 .bar-row:nth-child(2) > .bar > span { transition-delay: 0.1s; }
 .bar-row:nth-child(3) > .bar > span { transition-delay: 0.2s; }
 .bar-row:nth-child(4) > .bar > span { transition-delay: 0.3s; }
+.bar-row:nth-child(5) > .bar > span { transition-delay: 0.4s; }
 .r-best { margin: 14px 0 0; color: var(--ink-soft); }
 
 .r-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; justify-content: center; }

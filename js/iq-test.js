@@ -11,10 +11,11 @@
   var SD_SCORE = 11;
 
   var DOMAIN_NAMES = {
-    spatial: "Spatial reasoning",
-    numerical: "Numerical reasoning",
-    logical: "Logical reasoning",
-    applied: "Applied reasoning"
+    spatial: "Shape and pattern sense",
+    numerical: "Number sense",
+    logical: "Deduction",
+    applied: "Everyday problem solving",
+    verbal: "Word reasoning"
   };
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -151,10 +152,8 @@
     QUESTIONS.push(q);
   }
 
-  /* ----- Numerical (8) ----- */
+  /* ----- Numerical (6) ----- */
   add("numerical", 1, "What number comes next? 3, 6, 9, 12, ?", ["14", "15", "16", "18"], 1, { ordered: true });
-  add("numerical", 1, "What number comes next? 5, 10, 20, 40, ?", ["60", "70", "80", "100"], 2, { ordered: true });
-  add("numerical", 2, "What number comes next? 1, 4, 9, 16, 25, ?", ["30", "34", "36", "49"], 2, { ordered: true });
   add("numerical", 2, "What number comes next? 4, 7, 8, 11, 12, 15, ?", ["16", "17", "18", "19"], 0, { ordered: true });
   add("numerical", 2, "What number comes next? 1, 2, 4, 7, 11, 16, ?", ["20", "21", "22", "23"], 2, { ordered: true });
   add("numerical", 3, "What number comes next? 2, 6, 12, 20, 30, ?", ["40", "42", "44", "48"], 1, { ordered: true });
@@ -162,8 +161,7 @@
   add("numerical", 2, "A train covers 150 km in 2.5 hours. At the same speed, how long will it take to cover 240 km?",
     ["3.5 hours", "4 hours", "4.5 hours", "5 hours"], 1, { ordered: true });
 
-  /* ----- Logical (7) ----- */
-  add("logical", 1, "Which one does not belong with the others?", ["Apple", "Banana", "Grape", "Carrot"], 3);
+  /* ----- Logical (6) ----- */
   add("logical", 1, "All bloops are razzies. All razzies are lazzies. Are all bloops lazzies?",
     ["Only sometimes", "Yes, always", "No, never", "It cannot be determined"], 1);
   add("logical", 2, "Sam finished before Tia. Uma finished after Tia. Vik finished before Sam. Who finished second?",
@@ -177,7 +175,7 @@
   add("logical", 3, "Five people (Ana, Ben, Cara, Dev and Eli) stand in a line. Cara is at the far right. Ben stands directly to the left of Ana, and Dev stands directly to the right of Ana. Eli does not stand next to Cara. Who is at the far left?",
     ["Ben", "Cara", "Dev", "Eli"], 3);
 
-  /* ----- Applied (7) ----- */
+  /* ----- Applied (5) ----- */
   add("applied", 1, "A recipe uses 3 eggs for 12 muffins. How many eggs are needed for 36 muffins?", ["6", "9", "12", "15"], 1, { ordered: true });
   add("applied", 1, "Bird is to nest as bee is to what?", ["Honey", "Sting", "Flower", "Hive"], 3);
   add("applied", 2, "A shirt costs $40 after a 20% discount. What was the original price?", ["$48", "$50", "$52", "$60"], 1, { ordered: true });
@@ -185,12 +183,17 @@
     ["1.5 hours", "2 hours", "2.5 hours", "4.5 hours"], 1, { ordered: true });
   add("applied", 2, "A meeting starts at 2:45 PM and lasts 1 hour 50 minutes. A 25-minute break follows it. When does the break end?",
     ["4:50 PM", "5:00 PM", "5:10 PM", "5:15 PM"], 1, { ordered: true });
-  add("applied", 3, "What is the angle between the hour hand and the minute hand of a clock at 3:15?",
-    ["0\u00b0", "7.5\u00b0", "15\u00b0", "22.5\u00b0"], 1, { ordered: true });
-  add("applied", 3, "You have 8 coins that look identical. One is slightly heavier. Using a balance scale, what is the smallest number of weighings that is guaranteed to find it?",
-    ["1", "2", "3", "4"], 1, { ordered: true });
+    
+  /* ----- Word reasoning (6) ----- */
+  add("verbal", 1, "Which word means the opposite of \"scarce\"?", ["Rare", "Plentiful", "Costly", "Hidden"], 1);
+  add("verbal", 1, "Scalpel is to surgeon as ladle is to what?", ["Cook", "Soup", "Spoon", "Kitchen"], 0);
+  add("verbal", 2, "Which word does not belong with the others?", ["Tributary", "Delta", "Estuary", "Plateau"], 3);
+  add("verbal", 2, "Choose the word that best completes the sentence: The speaker was so ______ that even people who disagreed with her listened to the end.",
+    ["tedious", "compelling", "hesitant", "careless"], 1);
+  add("verbal", 3, "Arrange the letters of the word PLANET in alphabetical order. Which letter is in the fourth position?", ["L", "N", "P", "T"], 1);
+  add("verbal", 3, "In a secret code, MOON is written as NPPO. How would STAR be written in the same code?", ["TUBS", "SUBT", "TVBS", "UVCT"], 0);
 
-  /* ----- Spatial (8) ----- */
+  /* ----- Spatial (7) ----- */
   add("spatial", 1, "The shape turns the same way each step. Which shape comes next?", [
     optGlyph(F_PATH, 0, false), optGlyph(F_PATH, 270, true), optGlyph(F_PATH, 270, false), optGlyph(F_PATH, 90, true)
   ], 2, { kind: "svg", visual: sequence([[0, false], [90, false], [180, false], null]),
@@ -224,10 +227,7 @@
       });
     })() });
 
-  add("spatial", 2, "Which option is the target shape turned around, not flipped over?", [
-    optGlyph(G_PATH, 45, true), optGlyph(G_PATH, 0, false), optGlyph(G_PATH, 0, true), optGlyph(G_PATH, 90, true)
-  ], 1, { kind: "svg", visual: target(G_PATH, 90), alt: "The target shape, an S-shaped block turned on its side" });
-
+  
   add("spatial", 3, "The shape turns by a bigger amount each step. Which shape comes next?", [
     optGlyph(F_PATH, 45, false), optGlyph(F_PATH, 90, false), optGlyph(F_PATH, 0, false), optGlyph(F_PATH, 90, true)
   ], 1, { kind: "svg", visual: sequence([[0, false], [45, false], [135, false], [270, false], null]),
