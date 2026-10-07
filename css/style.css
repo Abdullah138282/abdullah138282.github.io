@@ -10,6 +10,7 @@
   --ink: #1e2622;
   --ink-soft: #4f5a53;
   --line: #ddd5c3;
+  --line-strong: #b5ab92;
   --brand: #1f6b55;
   --brand-deep: #14493a;
   --brand-tint: #dcebe3;
@@ -37,6 +38,7 @@ html[data-theme="dark"] {
   --ink: #eef2ee;
   --ink-soft: #a9b5ae;
   --line: #2b3631;
+  --line-strong: #4a5a52;
   --brand: #5fc4a0;
   --brand-deep: #8adbbe;
   --brand-tint: #1f3b31;
@@ -247,7 +249,7 @@ a:hover {
   min-height: 48px;
 
   background: none;
-  border: 2px solid var(--line);
+  border: 2px solid var(--line-strong);
   border-radius: var(--radius-sm);
 
   color: var(--ink);
@@ -1024,22 +1026,9 @@ input[type="range"]::-moz-range-thumb {
 
 .js .split .w {
   display: inline-block;
-
-  opacity: 0;
-
-  transform:
-    translateY(0.55em);
-
-  animation:
-    word-in
-    0.75s
-    cubic-bezier(0.2, 0.8, 0.2, 1)
-    forwards;
-
-  animation-delay:
-    calc(
-      var(--i) * 70ms + 120ms
-    );
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 @keyframes word-in {
@@ -1051,21 +1040,9 @@ input[type="range"]::-moz-range-thumb {
 
 .js .hero-copy p,
 .js .hero-actions {
-  opacity: 0;
-
-  transform:
-    translateY(18px);
-
-  animation:
-    word-in
-    0.8s
-    cubic-bezier(0.2, 0.8, 0.2, 1)
-    0.75s
-    forwards;
-}
-
-.js .hero-actions {
-  animation-delay: 0.95s;
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .js .curve-card {
@@ -1120,19 +1097,19 @@ input[type="range"]::-moz-range-thumb {
   opacity: 0;
 
   transform:
-    translateY(32px);
+    translateY(14px);
 
   transition:
-    opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
 
   transition-delay:
-    calc(var(--d, 0) * 110ms);
+    calc(var(--d, 0) * 50ms);
 }
 
 .js [data-reveal="left"] {
   transform:
-    translateX(-36px);
+    translateX(-14px);
 }
 
 .js [data-reveal="scale"] {

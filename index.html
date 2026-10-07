@@ -202,90 +202,6 @@
 
     }
 
-
-    /* ==========================================================
-       THEME TOGGLE
-       ========================================================== */
-
-    .theme-item {
-      display: flex;
-      align-items: center;
-    }
-
-    .theme-toggle {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      gap: 8px;
-
-      min-height: 40px;
-
-      padding: 8px 12px;
-
-      border: 1px solid var(--line);
-      border-radius: 10px;
-
-      background: transparent;
-
-      color: var(--ink);
-
-      font: 600 0.95rem var(--font-body);
-
-      cursor: pointer;
-
-      transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .theme-toggle:hover {
-      background: var(--brand-tint);
-      color: var(--brand-deep);
-    }
-
-    .theme-icon {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      width: 18px;
-      height: 18px;
-
-      font-size: 18px;
-      line-height: 1;
-    }
-
-    .theme-text {
-      line-height: 1;
-    }
-
-    @media (max-width: 767px) {
-
-      .theme-item {
-        width: 100%;
-      }
-
-      .theme-toggle {
-        width: 100%;
-
-        min-height: 48px;
-
-        justify-content: flex-start;
-
-        padding: 0 14px;
-
-        border-left: 0;
-        border-right: 0;
-
-        border-radius: 0;
-      }
-
-    }
-
   </style>
 
   <!-- Structured data -->
@@ -386,7 +302,7 @@
             aria-pressed="false"
           >
 
-            <span class="theme-icon" aria-hidden="true">☾</span>
+            <span class="theme-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span>
 
             <span class="theme-text">Dark</span>
 
