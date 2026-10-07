@@ -1,4 +1,4 @@
-/* Thinkora — mental math test */
+/* Thinkora - mental math test */
 (function () {
   "use strict";
   function $(id) { return document.getElementById(id); }

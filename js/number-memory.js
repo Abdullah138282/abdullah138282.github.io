@@ -1,4 +1,4 @@
-/* Thinkora — number memory test */
+/* Thinkora - number memory test */
 (function () {
   "use strict";
 

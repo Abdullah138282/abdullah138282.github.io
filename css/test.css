@@ -1,5 +1,5 @@
 /* ==========================================================
-   Thinkora — IQ test page styles (loads after style.css)
+   Thinkora - IQ test page styles (loads after style.css)
    ========================================================== */
 
 [hidden] { display: none !important; }
@@ -21,7 +21,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 26px 18px 30px;
-  box-shadow: 0 40px 80px -50px rgba(90, 61, 240, 0.5);
+  box-shadow: 0 40px 80px -50px rgba(31, 107, 85, 0.5);
 }
 
 /* ---------- Start screen ---------- */
@@ -43,7 +43,7 @@
 .t-fact strong {
   display: block;
   font: 800 clamp(1.6rem, 5vw, 2.2rem) var(--font-display);
-  color: var(--violet-deep);
+  color: var(--brand-deep);
   line-height: 1.1;
 }
 .t-fact span { font-size: 0.9rem; color: var(--ink-soft); }
@@ -70,16 +70,16 @@
   font-variant-numeric: tabular-nums;
   padding: 6px 16px;
   border: 2px solid var(--line);
-  border-radius: 999px;
+  border-radius: 8px;
   min-width: 96px;
   text-align: center;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
-.t-timer.low { color: var(--coral); border-color: var(--coral); }
+.t-timer.low { color: var(--accent); border-color: var(--accent); }
 
 .t-progress {
   height: 8px;
-  background: var(--violet-tint);
+  background: var(--brand-tint);
   border-radius: 99px;
   overflow: hidden;
   margin-bottom: 26px;
@@ -87,7 +87,7 @@
 .t-progress span {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, var(--violet), var(--coral));
+  background: var(--brand);
   transform-origin: left;
   transform: scaleX(0);
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -114,12 +114,12 @@
 /* SVG parts used by the picture puzzles */
 .sv-f { fill: var(--ink); }
 .sv-box { fill: var(--surface); stroke: var(--line); stroke-width: 2; }
-.sv-q { font: 800 34px var(--font-display); fill: var(--violet); text-anchor: middle; }
-.sv-on { fill: var(--violet); }
-.sv-off { fill: var(--violet-tint); }
-.c-violet { fill: var(--violet); }
-.c-coral { fill: var(--coral); }
-.c-mint { fill: var(--mint); }
+.sv-q { font: 800 34px var(--font-display); fill: var(--brand); text-anchor: middle; }
+.sv-on { fill: var(--brand); }
+.sv-off { fill: var(--brand-tint); }
+.c-violet { fill: var(--brand); }
+.c-coral { fill: var(--accent); }
+.c-mint { fill: var(--ok); }
 
 /* Answer buttons */
 .t-options { display: grid; gap: 12px; grid-template-columns: 1fr; }
@@ -140,9 +140,9 @@
   cursor: pointer;
   transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
 }
-.opt:hover { border-color: var(--violet); }
+.opt:hover { border-color: var(--brand); }
 .opt:active { transform: scale(0.98); }
-.opt.selected { border-color: var(--violet); background: var(--violet-tint); }
+.opt.selected { border-color: var(--brand); background: var(--brand-tint); }
 
 .opt-key {
   flex: none;
@@ -153,7 +153,7 @@
   font: 800 0.9rem var(--font-display);
   color: var(--ink-soft);
 }
-.opt.selected .opt-key { background: var(--violet); color: #fff; }
+.opt.selected .opt-key { background: var(--brand); color: #fff; }
 
 .t-options.is-svg .opt { flex-direction: column; padding: 10px 10px 14px; gap: 8px; }
 .t-options.is-svg .opt-body { width: 100%; display: flex; justify-content: center; }
@@ -166,7 +166,7 @@
   margin-top: 26px;
 }
 .t-nav .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.t-msg { min-height: 1.5em; margin: 14px 0 0; color: var(--coral); font-weight: 600; font-size: 0.95rem; }
+.t-msg { min-height: 1.5em; margin: 14px 0 0; color: var(--accent); font-weight: 600; font-size: 0.95rem; }
 
 /* ---------- Result screen ---------- */
 .r-head { text-align: center; padding-bottom: 8px; }
@@ -174,7 +174,7 @@
 .r-score {
   font: 800 clamp(5rem, 22vw, 8rem)/1 var(--font-display);
   letter-spacing: -0.05em;
-  color: var(--violet-deep);
+  color: var(--brand-deep);
   font-variant-numeric: tabular-nums;
 }
 .r-label { font: 700 1.5rem var(--font-display); margin: 0 auto 6px; }
@@ -182,7 +182,7 @@
 .r-warn {
   margin: 14px auto 0;
   padding: 12px 16px;
-  border: 2px solid var(--coral);
+  border: 2px solid var(--accent);
   border-radius: var(--radius-md);
   color: var(--ink);
   max-width: 560px;
@@ -199,11 +199,11 @@
 .bar-row { margin-bottom: 16px; }
 .bar-row:last-child { margin-bottom: 0; }
 .bar-top { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 6px; }
-.bar { height: 12px; border-radius: 99px; background: var(--violet-tint); overflow: hidden; }
+.bar { height: 12px; border-radius: 99px; background: var(--brand-tint); overflow: hidden; }
 .bar > span {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, var(--violet), var(--coral));
+  background: var(--brand);
   transform-origin: left;
   transform: scaleX(0);
   transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -228,7 +228,7 @@ body.testing .seo-content { display: none; }
 .table-wrap { overflow-x: auto; margin: 18px 0 8px; border: 1px solid var(--line); border-radius: var(--radius-md); }
 table { width: 100%; border-collapse: collapse; background: var(--surface); min-width: 480px; }
 th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); }
-th { font: 700 0.95rem var(--font-display); background: var(--violet-tint); }
+th { font: 700 0.95rem var(--font-display); background: var(--brand-tint); }
 tr:last-child td { border-bottom: 0; }
 
 .breadcrumb { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 16px; max-width: 900px; margin-left: auto; margin-right: auto; }

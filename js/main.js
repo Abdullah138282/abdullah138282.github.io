@@ -1,4 +1,4 @@
-/* Thinkora — main.js */
+/* Thinkora - main.js */
 window.__thinkoraReady = true;
 
 /* ---------- Mobile navigation ---------- */
@@ -326,7 +326,7 @@ thinkoraAfterFirstPaint(function () {
   })();
 
   /* ==========================================================
-     POLISH LAYER — scroll effects
+     POLISH LAYER - scroll effects
      ========================================================== */
 
   (function () {

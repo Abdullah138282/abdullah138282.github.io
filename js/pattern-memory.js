@@ -1,4 +1,4 @@
-/* Thinkora — pattern memory game */
+/* Thinkora - pattern memory game */
 (function () {
   "use strict";
   function $(id) { return document.getElementById(id); }

@@ -185,17 +185,17 @@
           var(--surface, #ffffff);
 
         color:
-          var(--ink, #17152b);
+          var(--ink, #3a443e);
 
         border:
           1px solid
-          var(--line, #e6e3f0);
+          var(--line, #e2dac7);
 
         border-radius: 16px;
 
         box-shadow:
           0 18px 45px
-          rgba(28, 26, 51, 0.18);
+          rgba(30, 38, 34, 0.18);
 
       }
 
@@ -215,7 +215,7 @@
         border-radius: 12px;
 
         background:
-          var(--violet-tint, #f0edff);
+          var(--brand-tint, #efe9da);
 
         font-size: 20px;
 
@@ -263,7 +263,7 @@
         color:
           var(
             --ink-soft,
-            #66627a
+            #3a443e
           );
 
         line-height: 1.4;
@@ -283,8 +283,8 @@
 
         background:
           var(
-            --violet,
-            #5a3df0
+            --brand,
+            #1f6b55
           );
 
         color: #ffffff;
@@ -337,7 +337,7 @@
         color:
           var(
             --ink-soft,
-            #66627a
+            #3a443e
           );
 
         font-size: 20px;
@@ -648,23 +648,16 @@
      START
      ============================================================ */
 
-  window.addEventListener(
-    "DOMContentLoaded",
-    function () {
+  function start() {
+    setupNotifications().catch(function (error) {
+      console.error("[Thinkora] Notification initialization failed:", error);
+    });
+  }
 
-      setupNotifications()
-        .catch(
-          function (error) {
-
-            console.error(
-              "[Thinkora] Notification initialization failed:",
-              error
-            );
-
-          }
-        );
-
-    }
-  );
+  if (document.readyState === "loading") {
+    window.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
 
 })();

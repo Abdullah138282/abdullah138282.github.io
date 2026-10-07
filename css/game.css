@@ -1,4 +1,4 @@
-/* Thinkora — game pages (loads after style.css and test.css) */
+/* Thinkora - game pages (loads after style.css and test.css) */
 
 .g-pad {
   display: flex;
@@ -11,7 +11,7 @@
   padding: 24px;
   border: 0;
   border-radius: var(--radius-lg);
-  background: var(--violet);
+  background: var(--brand);
   color: #fff;
   text-align: center;
   cursor: pointer;
@@ -22,8 +22,8 @@
 }
 .g-pad .g-big { font: 800 clamp(2rem, 8vw, 3.4rem)/1.1 var(--font-display); letter-spacing: -0.03em; }
 .g-pad .g-sub { font: 500 1.05rem var(--font-body); opacity: 0.9; }
-.g-pad[data-state="waiting"] { background: var(--coral); }
-.g-pad[data-state="ready"] { background: var(--mint); }
+.g-pad[data-state="waiting"] { background: var(--accent); }
+.g-pad[data-state="ready"] { background: var(--ok); }
 .g-pad[data-state="early"] { background: var(--ink); }
 
 .g-rounds { display: flex; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; }
@@ -31,9 +31,9 @@
   flex: 1;
   height: 8px;
   border-radius: 99px;
-  background: var(--violet-tint);
+  background: var(--brand-tint);
 }
-.g-rounds li.done { background: var(--violet); }
+.g-rounds li.done { background: var(--brand); }
 
 .g-status { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; }
 .g-status span:last-child { color: var(--ink-soft); }
@@ -43,8 +43,8 @@
 .g-times { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 14px 0 22px; padding: 0; list-style: none; }
 .g-times li {
   padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--violet-tint);
+  border-radius: 8px;
+  background: var(--brand-tint);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }

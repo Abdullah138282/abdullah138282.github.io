@@ -1,4 +1,4 @@
-/* Thinkora — color difference test */
+/* Thinkora - color difference test */
 (function () {
   "use strict";
   function $(id) { return document.getElementById(id); }

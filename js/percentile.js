@@ -1,4 +1,4 @@
-/* Thinkora — IQ percentile calculator */
+/* Thinkora - IQ percentile calculator */
 (function () {
   "use strict";
 

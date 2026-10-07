@@ -25,15 +25,15 @@
 }
 
 :root {
-  --violet: #5a3df0;
-  --violet-deep: #4930d4;
-  --violet-soft: #f0edff;
+  --brand: #1f6b55;
+  --brand-deep: #3a443e;
+  --brand-soft: #efe9da;
 
-  --bg: #f7f6fb;
+  --bg: #f6f2e8;
   --surface: #ffffff;
-  --ink: #19172a;
-  --ink-soft: #686477;
-  --line: #e5e2ef;
+  --ink: #3a443e;
+  --ink-soft: #78807a;
+  --line: #e2dac7;
 
   --success-bg: #edf8f1;
   --success-text: #24713a;
@@ -59,16 +59,8 @@ body {
   color: var(--ink);
 
   background:
-    radial-gradient(
-      circle at 15% 10%,
-      rgba(90, 61, 240, 0.10),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 85% 90%,
-      rgba(90, 61, 240, 0.07),
-      transparent 30%
-    ),
+    var(--brand),
+    var(--brand),
     var(--bg);
 
   display: flex;
@@ -96,8 +88,8 @@ body {
   padding: 34px;
 
   box-shadow:
-    0 28px 70px rgba(40, 34, 80, 0.10),
-    0 8px 24px rgba(40, 34, 80, 0.04);
+    0 28px 70px rgba(30, 38, 34, 0.10),
+    0 8px 24px rgba(30, 38, 34, 0.04);
 }
 
 
@@ -120,7 +112,7 @@ body {
   font-weight: 800;
   letter-spacing: -0.7px;
 
-  color: var(--violet);
+  color: var(--brand);
 }
 
 h1 {
@@ -201,20 +193,20 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: #aaa6b7;
+  color: #c7bfab;
 }
 
 input:hover,
 textarea:hover {
-  border-color: #cbc6dc;
+  border-color: #c7bfab;
 }
 
 input:focus,
 textarea:focus {
-  border-color: var(--violet);
+  border-color: var(--brand);
 
   box-shadow:
-    0 0 0 4px rgba(90, 61, 240, 0.11);
+    0 0 0 4px rgba(31, 107, 85, 0.11);
 
   background: #fff;
 }
@@ -241,15 +233,11 @@ textarea {
 
   overflow: hidden;
 
-  border: 1px solid #e4dfff;
+  border: 1px solid #e2dac7;
   border-radius: 16px;
 
   background:
-    linear-gradient(
-      135deg,
-      #f5f2ff,
-      #eeeaff
-    );
+    var(--brand);
 
   text-align: center;
 }
@@ -267,7 +255,7 @@ textarea {
 
   border-radius: 50%;
 
-  background: rgba(90, 61, 240, 0.08);
+  background: rgba(31, 107, 85, 0.08);
 }
 
 .count-label {
@@ -303,7 +291,7 @@ textarea {
 
   letter-spacing: -1px;
 
-  color: var(--violet);
+  color: var(--brand);
 }
 
 
@@ -323,7 +311,7 @@ button {
   border: 1px solid transparent;
   border-radius: 12px;
 
-  background: var(--violet);
+  background: var(--brand);
 
   color: #ffffff;
 
@@ -338,7 +326,7 @@ button {
   cursor: pointer;
 
   box-shadow:
-    0 8px 20px rgba(90, 61, 240, 0.20);
+    0 8px 20px rgba(31, 107, 85, 0.20);
 
   transition:
     transform 0.18s ease,
@@ -348,27 +336,27 @@ button {
 }
 
 button:hover {
-  background: var(--violet-deep);
+  background: var(--brand-deep);
 
   transform: translateY(-1px);
 
   box-shadow:
-    0 11px 25px rgba(90, 61, 240, 0.25);
+    0 11px 25px rgba(31, 107, 85, 0.25);
 }
 
 button:active {
   transform: translateY(0);
 
   box-shadow:
-    0 5px 14px rgba(90, 61, 240, 0.18);
+    0 5px 14px rgba(31, 107, 85, 0.18);
 }
 
 button:focus-visible {
   outline: none;
 
   box-shadow:
-    0 0 0 4px rgba(90, 61, 240, 0.16),
-    0 8px 20px rgba(90, 61, 240, 0.20);
+    0 0 0 4px rgba(31, 107, 85, 0.16),
+    0 8px 20px rgba(31, 107, 85, 0.20);
 }
 
 button:disabled {
@@ -397,7 +385,7 @@ button:disabled {
 
   border-radius: 12px;
 
-  background: #f7f6fa;
+  background: #f6f2e8;
 
   color: var(--ink-soft);
 
@@ -433,7 +421,7 @@ button:disabled {
 .note {
   margin: 22px 2px 0;
 
-  color: #898494;
+  color: #78807a;
 
   font-size: 12px;
   line-height: 1.6;
@@ -533,7 +521,7 @@ button:disabled {
         id="subscriber-count"
         class="count"
       >
-        —
+        -
       </span>
 
     </div>
@@ -723,7 +711,7 @@ button:disabled {
       } catch (error) {
 
         countDisplay.textContent =
-          "—";
+          "-";
 
         showStatus(
           error.message ||

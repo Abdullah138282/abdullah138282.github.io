@@ -1,5 +1,5 @@
 /* ==========================================================
-   Thinkora — responsive navigation + theme
+   Thinkora - responsive navigation + theme
    ========================================================== */
 
 

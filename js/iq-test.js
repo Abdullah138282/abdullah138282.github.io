@@ -1,4 +1,4 @@
-/* Thinkora — IQ test (30 original questions) */
+/* Thinkora - IQ test (30 original questions) */
 (function () {
   "use strict";
 

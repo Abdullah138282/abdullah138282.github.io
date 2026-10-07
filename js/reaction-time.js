@@ -1,4 +1,4 @@
-/* Thinkora — reaction time test */
+/* Thinkora - reaction time test */
 (function () {
   "use strict";
 

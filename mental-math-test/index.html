@@ -7,27 +7,37 @@
   <title>Mental Math Test: Free 60-Second Math Challenge | Thinkora</title>
   <meta name="description" content="Take a free mental math test online. Solve addition, subtraction and multiplication problems in 60 seconds and see how many correct answers you can get.">
   <link rel="canonical" href="https://abdullah138282.github.io/mental-math-test/">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#5a3df0">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mental Math Test: Free 60-Second Math Challenge | Thinkora">
-  <meta property="og:description" content="Solve as many mental math problems as possible in 60 seconds. Free to play with no sign-up required.">
+  <meta property="og:description" content="Take a free mental math test online. Solve addition, subtraction and multiplication problems in 60 seconds and see how many correct answers you can get.">
   <meta property="og:url" content="https://abdullah138282.github.io/mental-math-test/">
   <meta property="og:site_name" content="Thinkora">
   <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://abdullah138282.github.io/images/og-thinkora.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Thinkora: free IQ test, brain games and percentile calculator">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mental Math Test: Free 60-Second Math Challenge | Thinkora">
-  <meta name="twitter:description" content="Solve addition, subtraction and multiplication problems in this free 60-second mental math test.">
+  <meta name="twitter:description" content="Take a free mental math test online. Solve addition, subtraction and multiplication problems in 60 seconds and see how many correct answers you can get.">
+  <meta name="twitter:image" content="https://abdullah138282.github.io/images/og-thinkora.png">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235a3df0'/%3E%3Cpath d='M4 25 C11 25 11 7 16 7 S21 25 28 25' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1f6b55">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <script>
+    if (location.protocol === "http:" && !/^(localhost|127\.)/.test(location.hostname)) { location.replace("https:" + location.href.substring(location.protocol.length)); }
     document.documentElement.classList.add("js");
 
     setTimeout(function () {
@@ -78,7 +88,7 @@
     .t-bar {
       height: 8px;
       border-radius: 99px;
-      background: var(--violet-tint);
+      background: var(--brand-tint);
       overflow: hidden;
       margin-bottom: 16px;
     }
@@ -87,7 +97,7 @@
       display: block;
       height: 100%;
       width: 100%;
-      background: linear-gradient(90deg, var(--violet), var(--coral));
+      background: var(--brand);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -105,7 +115,7 @@
       align-items: center;
       justify-content: center;
       gap: 18px;
-      background: var(--violet);
+      background: var(--brand);
       color: #fff;
       text-align: center;
     }
@@ -123,28 +133,28 @@
       border: 3px solid transparent;
       border-radius: var(--radius-md);
       background: #fff;
-      color: #1c1a33;
+      color: #1e2622;
       font: 800 1.8rem var(--font-display);
       text-align: center;
     }
 
     .m-field:focus {
-      outline: 3px solid var(--coral);
+      outline: 3px solid var(--accent);
     }
 
     .m-field.bad {
-      border-color: var(--coral);
+      border-color: var(--accent);
       animation: shake 0.3s;
     }
 
     .btn-light {
       background: #fff;
-      color: var(--violet-deep);
+      color: var(--brand-deep);
     }
 
     .btn-light:hover {
-      background: var(--violet-tint);
-      color: var(--violet-deep);
+      background: var(--brand-tint);
+      color: var(--brand-deep);
     }
   </style>
 
@@ -238,8 +248,6 @@
     ]
   }
   </script>
-
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -253,7 +261,7 @@
 
       <a class="logo" href="/" aria-label="Thinkora home">
         <svg viewBox="0 0 32 32" aria-hidden="true">
-          <rect width="32" height="32" rx="9" fill="#5a3df0"/>
+          <rect width="32" height="32" rx="9" fill="#1f6b55"/>
           <path
             d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
             fill="none"
@@ -828,7 +836,7 @@
                 width="32"
                 height="32"
                 rx="9"
-                fill="#5a3df0"/>
+                fill="#1f6b55"/>
 
               <path
                 d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
@@ -984,6 +992,7 @@
   <script src="/js/main.js" defer></script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/mental-math.js" defer></script>
+  <script src="/js/consent.js" defer></script>
 
 </body>
 </html>

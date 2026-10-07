@@ -1,0 +1,31 @@
+# Thinkora
+
+> Thinkora is a free website with an online IQ test, brain games and an IQ percentile calculator. Results are estimates for information and entertainment, not a clinical assessment. No account or email is required.
+
+## Tests and tools
+- [Free IQ test](https://abdullah138282.github.io/iq-test/): 30 original questions on spatial, numerical, logical and applied reasoning, with an estimated IQ, percentile and skill breakdown.
+- [IQ percentile calculator](https://abdullah138282.github.io/iq-percentile-calculator/): convert an IQ score to a percentile.
+- [IQ score chart](https://abdullah138282.github.io/iq-scores/): score ranges, percentiles and classifications.
+
+## Brain games
+- [Brain games overview](https://abdullah138282.github.io/brain-games/)
+- [Reaction time test](https://abdullah138282.github.io/reaction-time-test/)
+- [Number memory test](https://abdullah138282.github.io/number-memory-test/)
+- [Pattern memory game](https://abdullah138282.github.io/pattern-memory-game/)
+- [Color difference test](https://abdullah138282.github.io/color-difference-test/)
+- [Mental math test](https://abdullah138282.github.io/mental-math-test/)
+
+## Articles
+- [What is a good IQ score?](https://abdullah138282.github.io/blog/what-is-a-good-iq-score/)
+- [How is IQ calculated?](https://abdullah138282.github.io/blog/how-iq-is-calculated/)
+- [Are online IQ tests accurate?](https://abdullah138282.github.io/blog/are-online-iq-tests-accurate/)
+- [The Flynn effect explained](https://abdullah138282.github.io/blog/flynn-effect-explained/)
+- [Can you increase your IQ?](https://abdullah138282.github.io/blog/can-you-increase-your-iq/)
+- [Reaction time test results explained](https://abdullah138282.github.io/blog/reaction-time-test-results-explained/)
+
+## About and policies
+- [About Thinkora](https://abdullah138282.github.io/about/)
+- [Methodology](https://abdullah138282.github.io/methodology/)
+- [Contact](https://abdullah138282.github.io/contact/)
+- [Privacy policy](https://abdullah138282.github.io/privacy-policy/)
+- [Terms of service](https://abdullah138282.github.io/terms/)
