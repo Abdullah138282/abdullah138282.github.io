@@ -822,7 +822,7 @@ input[type="range"]::-moz-range-thumb {
     column-gap: 48px;
   }
 
-  .domain:nth-last-child(2) {
+  .domain:nth-last-child(2):nth-child(odd) {
     border-bottom: 1px solid var(--line);
   }
 

@@ -1,19 +1,20 @@
-/* Thinkora - IQ test (30 original questions) */
+/* Thinkora - IQ test (38 original questions) */
 (function () {
   "use strict";
 
   /* ---------------- Settings ---------------- */
-  var TOTAL_SECONDS = 20 * 60;
+  var TOTAL_SECONDS = 25 * 60;
   var OPTION_COUNT = 4;
   // Scoring assumptions (see the Methodology page): a typical adult is expected to
   // land near MEAN_SCORE, with SD_SCORE points of spread. Recalibrate with real data later.
-  var MEAN_SCORE = 27;
-  var SD_SCORE = 11;
+  var MEAN_SCORE = 35;   // scaled up from the earlier 30-question assumption (27) in proportion to total points
+  var SD_SCORE = 14;     // scaled from 11 the same way; still an assumption, not measured
 
   var DOMAIN_NAMES = {
     spatial: "Spatial reasoning",
     numerical: "Numerical reasoning",
     logical: "Logical reasoning",
+    verbal: "Verbal reasoning",
     applied: "Applied reasoning"
   };
 
@@ -142,7 +143,7 @@
   }
   function optGrid(cells) { return svg(80, 80, miniGrid(cells, 4, 4, 24), 110); }
 
-  /* ---------------- The 30 questions ---------------- */
+  /* ---------------- The 38 questions ---------------- */
   var QUESTIONS = [];
   function add(domain, diff, prompt, options, correct, extra) {
     var q = { domain: domain, diff: diff, prompt: prompt, options: options, correct: correct,
@@ -150,6 +151,16 @@
     for (var k in extra) q[k] = extra[k];
     QUESTIONS.push(q);
   }
+
+  /* ----- Verbal (8) ----- */
+  add("verbal", 1, "Which word means the opposite of \u201cancient\u201d?", ["Modern", "Heavy", "Silent", "Distant"], 0);
+  add("verbal", 1, "Which word does not belong with the others?", ["Pepper", "Salt", "Cinnamon", "Hammer"], 3);
+  add("verbal", 2, "All bloggers are writers. Some writers are poets. Which statement must be true?", ["All bloggers are poets", "Some bloggers are poets", "No blogger is a poet", "None of these has to be true"], 3);
+  add("verbal", 2, "Choose the word that best completes the sentence: The theory was so ______ that even its supporters struggled to explain it to others.", ["clear", "convoluted", "popular", "brief"], 1);
+  add("verbal", 2, "A drought is a long shortage of rain. A famine is a long shortage of what?", ["Food", "Hunger", "Soil", "Disease"], 0);
+  add("verbal", 3, "Which word is closest in meaning to \u201cephemeral\u201d?", ["Lasting", "Fleeting", "Fragile", "Ornate"], 1);
+  add("verbal", 3, "Which word is the best opposite of \u201ccandid\u201d?", ["Evasive", "Honest", "Blunt", "Rude"], 0);
+  add("verbal", 3, "Which word cannot be spelled using only the letters in ORCHESTRA? Each letter can be used no more often than it appears.", ["Chart", "Horse", "Cheese", "Torch"], 2);
 
   /* ----- Numerical (8) ----- */
   add("numerical", 1, "What number comes next? 3, 6, 9, 12, ?", ["14", "15", "16", "18"], 1, { ordered: true });
