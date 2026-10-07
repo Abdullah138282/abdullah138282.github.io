@@ -275,27 +275,39 @@
 }
 
 
-/* ---------- Mobile + tablet theme button ---------- */
+/* ---------- Header actions: theme toggle stays visible on mobile ---------- */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 @media (max-width: 1023px) {
 
-  .theme-item {
-    width: 100%;
+  .theme-toggle {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0;
+    border: 2px solid var(--line);
+    border-radius: var(--radius-sm);
   }
 
-  .theme-toggle {
-    width: 100%;
+  .theme-text {
+    display: none;
+  }
 
-    min-height: 48px;
+}
 
-    justify-content: flex-start;
+@media (min-width: 1024px) {
 
-    padding: 0 14px;
+  .site-nav {
+    margin-left: auto;
+    margin-right: 20px;
+  }
 
-    border-left: 0;
-    border-right: 0;
-
-    border-radius: 0;
+  .header-actions {
+    order: 2;
   }
 
 }
