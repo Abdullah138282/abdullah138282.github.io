@@ -284,7 +284,7 @@
         background:
           var(
             --brand,
-            #202020
+            #03071e
           );
 
         color: #ffffff;

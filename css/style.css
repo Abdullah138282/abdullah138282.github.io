@@ -5,18 +5,19 @@
 /* ---------- Theme variables ---------- */
 
 :root {
-  --bg: #d6d6d6;
-  --surface: #ececec;
-  --ink: #202020;
-  --ink-soft: #454545;
-  --line: #b8b8b8;
-  --line-strong: #8a8a8a;
-  --brand: #ffd100;
-  --brand-deep: #202020;
-  --brand-tint: #fff4a8;
-  --accent: #b42318;
+  --bg: #fdf3e1;
+  --surface: #ffffff;
+  --ink: #03071e;
+  --ink-soft: #4a424a;
+  --line: #e8cfa8;
+  --line-strong: #c9a46a;
+  --brand: #ffba08;
+  --brand-deep: #9d0208;
+  --brand-tint: #ffe3a3;
+  --accent: #d00000;
   --ok: #2f855a;
-  --on-brand: #202020;
+  --bar: #dc2f02;
+  --on-brand: #03071e;
 
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "DM Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -33,17 +34,18 @@
 /* ---------- Dark theme ---------- */
 
 html[data-theme="dark"] {
-  --bg: #202020;
-  --surface: #333533;
-  --ink: #ececec;
-  --ink-soft: #bdbdbd;
-  --line: #4a4c49;
-  --line-strong: #6b6d69;
-  --brand: #ffee32;
-  --brand-deep: #ffee32;
-  --brand-tint: #4a4510;
-  --accent: #ff8a7a;
-  --on-brand: #202020;
+  --bg: #03071e;
+  --surface: #370617;
+  --ink: #fff1db;
+  --ink-soft: #dcc7b3;
+  --line: #5a1424;
+  --line-strong: #8a2a3a;
+  --brand: #faa307;
+  --brand-deep: #ffba08;
+  --brand-tint: #4a1020;
+  --accent: #ff6b4a;
+  --bar: #f48c06;
+  --on-brand: #03071e;
 
   color-scheme: dark;
 }
@@ -340,7 +342,7 @@ a:hover {
 
   box-shadow:
     0 40px 80px -40px
-    rgba(32, 32, 32, 0.45);
+    rgba(3, 7, 30, 0.45);
 
   transition:
     background-color 0.25s ease,
@@ -552,7 +554,7 @@ input[type="range"]::-moz-range-thumb {
 
   box-shadow:
     0 26px 50px -28px
-    rgba(32, 32, 32, 0.55);
+    rgba(3, 7, 30, 0.55);
 }
 
 .tool p {
@@ -566,9 +568,9 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .tool-feature {
-  background: #333533;
+  background: #370617;
 
-  border-color: #333533;
+  border-color: #370617;
   color: #fff;
 
   min-height: 300px;
@@ -576,14 +578,14 @@ input[type="range"]::-moz-range-thumb {
 
 .tool-feature:hover {
   color: #fff;
-  border-color: #202020;
+  border-color: #6a040f;
 
-  background: #202020;
+  background: #6a040f;
 }
 
 .tool-feature p,
 .tool-feature .tool-link {
-  color: #d6d6d6;
+  color: #f3e6d2;
 }
 
 .tool-feature h3 {
@@ -746,11 +748,11 @@ input[type="range"]::-moz-range-thumb {
   padding: 48px 0 32px;
 
   background: var(--ink);
-  color: #d6d6d6;
+  color: #f3e6d2;
 }
 
 .site-footer a {
-  color: #d6d6d6;
+  color: #f3e6d2;
   text-decoration: none;
 }
 
@@ -788,10 +790,10 @@ input[type="range"]::-moz-range-thumb {
   margin-top: 32px;
   padding-top: 20px;
 
-  border-top: 1px solid #4a4c49;
+  border-top: 1px solid #6a040f;
 
   font-size: 0.9rem;
-  color: #bdbdbd;
+  color: #dcc7b3;
 }
 
 /* ==========================================================
@@ -926,7 +928,7 @@ input[type="range"]::-moz-range-thumb {
 .site-header.scrolled {
   box-shadow:
     0 10px 30px -18px
-    rgba(32, 32, 32, 0.45);
+    rgba(3, 7, 30, 0.45);
 }
 
 .hero {
@@ -1088,7 +1090,7 @@ input[type="range"]::-moz-range-thumb {
 .btn {
   box-shadow:
     0 0 0 0
-    rgba(32, 32, 32, 0);
+    rgba(3, 7, 30, 0);
 }
 
 .btn-primary:hover {
@@ -1388,7 +1390,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 24px;
 
   background:
-    rgba(180, 35, 24, 0.85);
+    rgba(220, 47, 2, 0.85);
 
   animation:
     float-rot
@@ -1575,7 +1577,7 @@ html[data-theme="dark"] .tool:hover {
 }
 
 html[data-theme="dark"] .site-footer {
-  background: #4a4c49;
+  background: #370617;
 }
 
 /* ==========================================================
@@ -1658,8 +1660,8 @@ html[data-theme="dark"] .site-footer {
   .hero-image:hover {
     transform: translateY(-5px);
     box-shadow:
-      0 30px 70px rgba(32, 32, 32, 0.20),
-      0 10px 28px rgba(32, 32, 32, 0.12);
+      0 30px 70px rgba(3, 7, 30, 0.20),
+      0 10px 28px rgba(3, 7, 30, 0.12);
   }
 }
 
@@ -1671,7 +1673,7 @@ html[data-theme="dark"] .site-footer {
 }
 
 [data-theme="dark"] .hero-image::before {
-  background: rgba(255, 238, 50, 0.18);
+  background: rgba(250, 163, 7, 0.18);
 }
 
 /* Mobile */
@@ -1687,8 +1689,8 @@ html[data-theme="dark"] .site-footer {
     max-width: 100%;
     border-radius: 22px;
     box-shadow:
-      0 18px 40px rgba(32, 32, 32, 0.14),
-      0 6px 18px rgba(32, 32, 32, 0.08);
+      0 18px 40px rgba(3, 7, 30, 0.14),
+      0 6px 18px rgba(3, 7, 30, 0.08);
   }
 }
 /* Decorative blobs removed: flat colour only */

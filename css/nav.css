@@ -156,7 +156,7 @@
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
 
-    box-shadow: 0 24px 48px -24px rgba(32, 32, 32, 0.45);
+    box-shadow: 0 24px 48px -24px rgba(3, 7, 30, 0.45);
 
     z-index: 60;
   }
