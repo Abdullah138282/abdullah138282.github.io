@@ -3,7 +3,7 @@
 > Thinkora is a free website with an online IQ test, brain games and an IQ percentile calculator. Results are estimates for information and entertainment, not a clinical assessment. No account or email is required.
 
 ## Tests and tools
-- [Free IQ test](https://abdullah138282.github.io/iq-test/): 30 original questions on shape and pattern sense, number sense, deduction, word reasoning and everyday problem solving, with an estimated IQ, percentile and skill breakdown.
+- [Free IQ test](https://abdullah138282.github.io/iq-test/): 30 original questions on spatial, numerical, logical and applied reasoning, with an estimated IQ, percentile and skill breakdown.
 - [IQ percentile calculator](https://abdullah138282.github.io/iq-percentile-calculator/): convert an IQ score to a percentile.
 - [IQ score chart](https://abdullah138282.github.io/iq-scores/): score ranges, percentiles and classifications.
 

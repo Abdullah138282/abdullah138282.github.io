@@ -10,16 +10,11 @@
   var MEAN_SCORE = 27;
   var SD_SCORE = 11;
 
-  var I = window.THINKORA_I18N || {};
-  var T = I.test || {};
-  function tx(key, fallback) { return T[key] !== undefined ? T[key] : fallback; }
-
-  var DOMAIN_NAMES = I.domains || {
-    spatial: "Shape and pattern sense",
-    numerical: "Number sense",
-    logical: "Deduction",
-    applied: "Everyday problem solving",
-    verbal: "Word reasoning"
+  var DOMAIN_NAMES = {
+    spatial: "Spatial reasoning",
+    numerical: "Numerical reasoning",
+    logical: "Logical reasoning",
+    applied: "Applied reasoning"
   };
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -48,14 +43,13 @@
   }
 
   function ratingLabel(iq) {
-    var R = I.ratings || ["Very superior", "Superior", "High average", "Average", "Low average", "Borderline", "Extremely low"];
-    if (iq >= 130) return R[0];
-    if (iq >= 120) return R[1];
-    if (iq >= 110) return R[2];
-    if (iq >= 90) return R[3];
-    if (iq >= 80) return R[4];
-    if (iq >= 70) return R[5];
-    return R[6];
+    if (iq >= 130) return "Very superior";
+    if (iq >= 120) return "Superior";
+    if (iq >= 110) return "High average";
+    if (iq >= 90) return "Average";
+    if (iq >= 80) return "Low average";
+    if (iq >= 70) return "Borderline";
+    return "Extremely low";
   }
 
   /* ---------------- SVG builders for the picture puzzles ---------------- */
@@ -157,8 +151,10 @@
     QUESTIONS.push(q);
   }
 
-  /* ----- Numerical (6) ----- */
+  /* ----- Numerical (8) ----- */
   add("numerical", 1, "What number comes next? 3, 6, 9, 12, ?", ["14", "15", "16", "18"], 1, { ordered: true });
+  add("numerical", 1, "What number comes next? 5, 10, 20, 40, ?", ["60", "70", "80", "100"], 2, { ordered: true });
+  add("numerical", 2, "What number comes next? 1, 4, 9, 16, 25, ?", ["30", "34", "36", "49"], 2, { ordered: true });
   add("numerical", 2, "What number comes next? 4, 7, 8, 11, 12, 15, ?", ["16", "17", "18", "19"], 0, { ordered: true });
   add("numerical", 2, "What number comes next? 1, 2, 4, 7, 11, 16, ?", ["20", "21", "22", "23"], 2, { ordered: true });
   add("numerical", 3, "What number comes next? 2, 6, 12, 20, 30, ?", ["40", "42", "44", "48"], 1, { ordered: true });
@@ -166,7 +162,8 @@
   add("numerical", 2, "A train covers 150 km in 2.5 hours. At the same speed, how long will it take to cover 240 km?",
     ["3.5 hours", "4 hours", "4.5 hours", "5 hours"], 1, { ordered: true });
 
-  /* ----- Logical (6) ----- */
+  /* ----- Logical (7) ----- */
+  add("logical", 1, "Which one does not belong with the others?", ["Apple", "Banana", "Grape", "Carrot"], 3);
   add("logical", 1, "All bloops are razzies. All razzies are lazzies. Are all bloops lazzies?",
     ["Only sometimes", "Yes, always", "No, never", "It cannot be determined"], 1);
   add("logical", 2, "Sam finished before Tia. Uma finished after Tia. Vik finished before Sam. Who finished second?",
@@ -180,7 +177,7 @@
   add("logical", 3, "Five people (Ana, Ben, Cara, Dev and Eli) stand in a line. Cara is at the far right. Ben stands directly to the left of Ana, and Dev stands directly to the right of Ana. Eli does not stand next to Cara. Who is at the far left?",
     ["Ben", "Cara", "Dev", "Eli"], 3);
 
-  /* ----- Applied (5) ----- */
+  /* ----- Applied (7) ----- */
   add("applied", 1, "A recipe uses 3 eggs for 12 muffins. How many eggs are needed for 36 muffins?", ["6", "9", "12", "15"], 1, { ordered: true });
   add("applied", 1, "Bird is to nest as bee is to what?", ["Honey", "Sting", "Flower", "Hive"], 3);
   add("applied", 2, "A shirt costs $40 after a 20% discount. What was the original price?", ["$48", "$50", "$52", "$60"], 1, { ordered: true });
@@ -188,17 +185,12 @@
     ["1.5 hours", "2 hours", "2.5 hours", "4.5 hours"], 1, { ordered: true });
   add("applied", 2, "A meeting starts at 2:45 PM and lasts 1 hour 50 minutes. A 25-minute break follows it. When does the break end?",
     ["4:50 PM", "5:00 PM", "5:10 PM", "5:15 PM"], 1, { ordered: true });
-    
-  /* ----- Word reasoning (6) ----- */
-  add("verbal", 1, "Which word means the opposite of \"scarce\"?", ["Rare", "Plentiful", "Costly", "Hidden"], 1);
-  add("verbal", 1, "Scalpel is to surgeon as ladle is to what?", ["Cook", "Soup", "Spoon", "Kitchen"], 0);
-  add("verbal", 2, "Which word does not belong with the others?", ["Tributary", "Delta", "Estuary", "Plateau"], 3);
-  add("verbal", 2, "Choose the word that best completes the sentence: The speaker was so ______ that even people who disagreed with her listened to the end.",
-    ["tedious", "compelling", "hesitant", "careless"], 1);
-  add("verbal", 3, "Arrange the letters of the word PLANET in alphabetical order. Which letter is in the fourth position?", ["L", "N", "P", "T"], 1);
-  add("verbal", 3, "In a secret code, MOON is written as NPPO. How would STAR be written in the same code?", ["TUBS", "SUBT", "TVBS", "UVCT"], 0);
+  add("applied", 3, "What is the angle between the hour hand and the minute hand of a clock at 3:15?",
+    ["0\u00b0", "7.5\u00b0", "15\u00b0", "22.5\u00b0"], 1, { ordered: true });
+  add("applied", 3, "You have 8 coins that look identical. One is slightly heavier. Using a balance scale, what is the smallest number of weighings that is guaranteed to find it?",
+    ["1", "2", "3", "4"], 1, { ordered: true });
 
-  /* ----- Spatial (7) ----- */
+  /* ----- Spatial (8) ----- */
   add("spatial", 1, "The shape turns the same way each step. Which shape comes next?", [
     optGlyph(F_PATH, 0, false), optGlyph(F_PATH, 270, true), optGlyph(F_PATH, 270, false), optGlyph(F_PATH, 90, true)
   ], 2, { kind: "svg", visual: sequence([[0, false], [90, false], [180, false], null]),
@@ -232,7 +224,10 @@
       });
     })() });
 
-  
+  add("spatial", 2, "Which option is the target shape turned around, not flipped over?", [
+    optGlyph(G_PATH, 45, true), optGlyph(G_PATH, 0, false), optGlyph(G_PATH, 0, true), optGlyph(G_PATH, 90, true)
+  ], 1, { kind: "svg", visual: target(G_PATH, 90), alt: "The target shape, an S-shaped block turned on its side" });
+
   add("spatial", 3, "The shape turns by a bigger amount each step. Which shape comes next?", [
     optGlyph(F_PATH, 45, false), optGlyph(F_PATH, 90, false), optGlyph(F_PATH, 0, false), optGlyph(F_PATH, 90, true)
   ], 1, { kind: "svg", visual: sequence([[0, false], [45, false], [135, false], [270, false], null]),
@@ -248,24 +243,12 @@
       miniGrid([[2, 2], [2, 1], [1, 1]], 180, 15, 20) +
       frame(294, 45, 64) + qmark(294, 45), 420) });
 
-  /* ---------------- Optional translated question pack ---------------- */
-  if (I.questions && I.questions.length === QUESTIONS.length) {
-    QUESTIONS.forEach(function (q, i) {
-      var t = I.questions[i];
-      if (!t) return;
-      if (t.p) q.prompt = t.p;
-      if (t.o && q.kind === "text") q.options = t.o;
-      if (t.c !== undefined) q.correct = t.c;
-      if (t.alt) q.alt = t.alt;
-    });
-  }
-
   /* ---------------- Test state ---------------- */
   var el = {
     start: $("screen-start"), test: $("screen-test"), result: $("screen-result"),
     startBtn: $("start-btn"),
     count: $("t-count"), domain: $("t-domain"), timer: $("t-timer"), bar: $("t-bar"),
-    body: $("t-body"), prompt: $("t-prompt"), visual: $("t-visual"), options: $("t-options"),
+    prompt: $("t-prompt"), visual: $("t-visual"), options: $("t-options"),
     back: $("t-back"), next: $("t-next"), msg: $("t-msg"), live: $("t-live")
   };
   if (!el.startBtn) return;
@@ -313,10 +296,8 @@
       warned5: false, warned1: false, confirmFinish: false
     };
     show(el.test);
-    reserveBodyHeight();
     render();
     tick();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { reserveBodyHeight(); });
     state.timerId = setInterval(tick, 250);
     window.onbeforeunload = function (e) { e.preventDefault(); e.returnValue = ""; };
   }
@@ -330,20 +311,23 @@
     var left = Math.max(0, Math.round((state.endAt - Date.now()) / 1000));
     el.timer.textContent = fmt(left);
     el.timer.classList.toggle("low", left <= 120);
-    if (left <= 300 && !state.warned5) { state.warned5 = true; el.live.textContent = tx("min5", "5 minutes left."); }
-    if (left <= 60 && !state.warned1) { state.warned1 = true; el.live.textContent = tx("min1", "1 minute left."); }
+    if (left <= 300 && !state.warned5) { state.warned5 = true; el.live.textContent = "5 minutes left."; }
+    if (left <= 60 && !state.warned1) { state.warned1 = true; el.live.textContent = "1 minute left."; }
     if (left <= 0) finish(true);
   }
 
-  function fillBody(it) {
-    var q = it.q;
+  function render() {
+    var it = state.qs[state.idx], q = it.q;
+    el.count.textContent = "Question " + (state.idx + 1) + " of " + state.qs.length;
+    el.domain.textContent = DOMAIN_NAMES[q.domain];
+    el.bar.style.transform = "scaleX(" + ((state.idx + 1) / state.qs.length) + ")";
     el.prompt.textContent = q.prompt;
 
     if (q.visual) {
       el.visual.hidden = false;
       el.visual.innerHTML = q.visual;
       el.visual.setAttribute("role", "img");
-      el.visual.setAttribute("aria-label", q.alt || tx("puzzle", "Puzzle diagram"));
+      el.visual.setAttribute("aria-label", q.alt || "Puzzle diagram");
     } else {
       el.visual.hidden = true;
       el.visual.innerHTML = "";
@@ -357,39 +341,12 @@
       var sel = it.chosen === pos;
       html += '<button type="button" class="opt' + (sel ? " selected" : "") + '" role="radio" aria-checked="' +
         (sel ? "true" : "false") + '" data-pos="' + pos + '"' +
-        (q.kind === "svg" ? ' aria-label="' + tx("option", "Option") + " " + letter + '"' : "") + ">" +
+        (q.kind === "svg" ? ' aria-label="Option ' + letter + '"' : "") + ">" +
         '<span class="opt-key" aria-hidden="true">' + letter + "</span>" +
         '<span class="opt-body">' + body + "</span></button>";
     }
     el.options.innerHTML = html;
     el.options.classList.toggle("is-svg", q.kind === "svg");
-  }
-
-  // Keep the Back / Next buttons in the same place on every question:
-  // measure the tallest question and reserve that much room.
-  function reserveBodyHeight() {
-    if (!state || el.test.hidden) return;
-    var keep = state.idx, max = 0;
-    el.body.style.minHeight = "0px";
-    state.qs.forEach(function (it) {
-      fillBody(it);
-      max = Math.max(max, el.body.offsetHeight);
-    });
-    fillBody(state.qs[keep]);
-    el.body.style.minHeight = max + "px";
-  }
-  var resizeTimer = 0;
-  window.addEventListener("resize", function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(reserveBodyHeight, 150);
-  });
-
-  function render() {
-    var it = state.qs[state.idx], q = it.q;
-    el.count.textContent = T.question ? T.question(state.idx + 1, state.qs.length) : "Question " + (state.idx + 1) + " of " + state.qs.length;
-    el.domain.textContent = DOMAIN_NAMES[q.domain];
-    el.bar.style.transform = "scaleX(" + ((state.idx + 1) / state.qs.length) + ")";
-    fillBody(it);
 
     el.back.disabled = state.idx === 0;
     updateNext();
@@ -401,7 +358,7 @@
   function updateNext() {
     var it = state.qs[state.idx];
     var last = state.idx === state.qs.length - 1;
-    el.next.textContent = last ? tx("finish", "Finish test") : (it.chosen === null ? tx("skip", "Skip") : tx("next", "Next"));
+    el.next.textContent = last ? "Finish test" : (it.chosen === null ? "Skip" : "Next");
     el.next.classList.toggle("btn-primary", it.chosen !== null || last);
     el.next.classList.toggle("btn-ghost", it.chosen === null && !last);
   }
@@ -426,7 +383,7 @@
     var left = unanswered();
     if (left > 0 && !state.confirmFinish) {
       state.confirmFinish = true;
-      el.msg.textContent = T.unanswered ? T.unanswered(left) : "You have " + left + " unanswered question" + (left === 1 ? "" : "s") +
+      el.msg.textContent = "You have " + left + " unanswered question" + (left === 1 ? "" : "s") +
         ". Press Finish test again to submit anyway, or use Back to answer them.";
       return;
     }
@@ -519,16 +476,15 @@
 
     $("r-label").textContent = ratingLabel(res.iq);
     var pctTxt = res.pct > 99.9 ? "99.9" : res.pct < 0.1 ? "0.1" : (res.pct < 10 || res.pct > 90) ? res.pct.toFixed(1) : String(Math.round(res.pct));
-    $("r-pct").textContent = T.pct ? T.pct(pctTxt) : "You scored higher than about " + pctTxt + "% of people.";
-    $("r-range").textContent = T.range ? T.range(clamp(res.iq - 8, 55, 145), clamp(res.iq + 8, 55, 145)) : "Likely range: " + clamp(res.iq - 8, 55, 145) + " to " + clamp(res.iq + 8, 55, 145) + ". Online estimates can be off by several points.";
-    $("r-time").textContent = T.time ? T.time(timedOut, res.right, state.qs.length, res.answered, fmt(used)) :
-      (timedOut ? "Time ran out. " : "") + res.right + " of " + state.qs.length +
+    $("r-pct").textContent = "You scored higher than about " + pctTxt + "% of people.";
+    $("r-range").textContent = "Likely range: " + clamp(res.iq - 8, 55, 145) + " to " + clamp(res.iq + 8, 55, 145) + ". Online estimates can be off by several points.";
+    $("r-time").textContent = (timedOut ? "Time ran out. " : "") + res.right + " of " + state.qs.length +
       " correct, " + res.answered + " answered, " + fmt(used) + " used.";
 
     var warn = $("r-warn");
     if (res.answered < 10) {
       warn.hidden = false;
-      warn.textContent = T.warn ? T.warn(res.answered, state.qs.length) : "You answered only " + res.answered + " of " + state.qs.length +
+      warn.textContent = "You answered only " + res.answered + " of " + state.qs.length +
         " questions, so this estimate is not reliable. Retake the test and answer as many as you can.";
     } else {
       warn.hidden = true;
@@ -544,7 +500,7 @@
         '%</strong></div><div class="bar"><span style="--w:' + (p / 100) + '"></span></div></div>';
     });
     $("r-bars").innerHTML = bars;
-    $("r-best").textContent = res.answered >= 10 ? (T.best ? T.best(DOMAIN_NAMES[best.k].toLowerCase()) : "Your strongest skill was " + DOMAIN_NAMES[best.k].toLowerCase() + ".") : "";
+    $("r-best").textContent = res.answered >= 10 ? "Your strongest skill was " + DOMAIN_NAMES[best.k].toLowerCase() + "." : "";
 
     // Trigger the bar animation on the next frame
     requestAnimationFrame(function () {

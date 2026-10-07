@@ -163,10 +163,8 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 26px;
+  margin-top: 12px;
 }
-.t-body { display: flow-root; }
-.t-nav .btn { min-width: 112px; }
 .t-nav .btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .t-msg { min-height: 1.5em; margin: 14px 0 0; color: var(--accent); font-weight: 600; font-size: 0.95rem; }
 
@@ -214,7 +212,6 @@
 .bar-row:nth-child(2) > .bar > span { transition-delay: 0.1s; }
 .bar-row:nth-child(3) > .bar > span { transition-delay: 0.2s; }
 .bar-row:nth-child(4) > .bar > span { transition-delay: 0.3s; }
-.bar-row:nth-child(5) > .bar > span { transition-delay: 0.4s; }
 .r-best { margin: 14px 0 0; color: var(--ink-soft); }
 
 .r-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; justify-content: center; }
@@ -236,6 +233,20 @@ tr:last-child td { border-bottom: 0; }
 
 .breadcrumb { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 16px; max-width: 900px; margin-left: auto; margin-right: auto; }
 .breadcrumb a { color: var(--ink-soft); }
+
+/* ---------- Phones: keep Back / Skip always reachable ---------- */
+@media (max-width: 639px) {
+  .t-nav {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    margin: 8px -18px 0;
+    padding: 12px 18px calc(14px + env(safe-area-inset-bottom, 0px));
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+}
 
 /* ---------- Bigger screens ---------- */
 @media (min-width: 640px) {
