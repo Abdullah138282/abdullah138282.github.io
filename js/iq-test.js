@@ -248,7 +248,7 @@
     start: $("screen-start"), test: $("screen-test"), result: $("screen-result"),
     startBtn: $("start-btn"),
     count: $("t-count"), domain: $("t-domain"), timer: $("t-timer"), bar: $("t-bar"),
-    prompt: $("t-prompt"), visual: $("t-visual"), options: $("t-options"),
+    body: $("t-body"), prompt: $("t-prompt"), visual: $("t-visual"), options: $("t-options"),
     back: $("t-back"), next: $("t-next"), msg: $("t-msg"), live: $("t-live")
   };
   if (!el.startBtn) return;
@@ -296,8 +296,10 @@
       warned5: false, warned1: false, confirmFinish: false
     };
     show(el.test);
+    reserveBodyHeight();
     render();
     tick();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { reserveBodyHeight(); });
     state.timerId = setInterval(tick, 250);
     window.onbeforeunload = function (e) { e.preventDefault(); e.returnValue = ""; };
   }
@@ -316,11 +318,8 @@
     if (left <= 0) finish(true);
   }
 
-  function render() {
-    var it = state.qs[state.idx], q = it.q;
-    el.count.textContent = "Question " + (state.idx + 1) + " of " + state.qs.length;
-    el.domain.textContent = DOMAIN_NAMES[q.domain];
-    el.bar.style.transform = "scaleX(" + ((state.idx + 1) / state.qs.length) + ")";
+  function fillBody(it) {
+    var q = it.q;
     el.prompt.textContent = q.prompt;
 
     if (q.visual) {
@@ -347,6 +346,33 @@
     }
     el.options.innerHTML = html;
     el.options.classList.toggle("is-svg", q.kind === "svg");
+  }
+
+  // Keep the Back / Next buttons in the same place on every question:
+  // measure the tallest question and reserve that much room.
+  function reserveBodyHeight() {
+    if (!state || el.test.hidden) return;
+    var keep = state.idx, max = 0;
+    el.body.style.minHeight = "0px";
+    state.qs.forEach(function (it) {
+      fillBody(it);
+      max = Math.max(max, el.body.offsetHeight);
+    });
+    fillBody(state.qs[keep]);
+    el.body.style.minHeight = max + "px";
+  }
+  var resizeTimer = 0;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(reserveBodyHeight, 150);
+  });
+
+  function render() {
+    var it = state.qs[state.idx], q = it.q;
+    el.count.textContent = "Question " + (state.idx + 1) + " of " + state.qs.length;
+    el.domain.textContent = DOMAIN_NAMES[q.domain];
+    el.bar.style.transform = "scaleX(" + ((state.idx + 1) / state.qs.length) + ")";
+    fillBody(it);
 
     el.back.disabled = state.idx === 0;
     updateNext();

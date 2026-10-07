@@ -165,6 +165,8 @@
   gap: 12px;
   margin-top: 26px;
 }
+.t-body { display: flow-root; }
+.t-nav .btn { min-width: 112px; }
 .t-nav .btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .t-msg { min-height: 1.5em; margin: 14px 0 0; color: var(--accent); font-weight: 600; font-size: 0.95rem; }
 
