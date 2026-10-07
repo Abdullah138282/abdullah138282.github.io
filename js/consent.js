@@ -57,14 +57,15 @@
     banner.className = "consent";
     banner.setAttribute("role", "dialog");
     banner.setAttribute("aria-labelledby", "consent-title");
+    var C = (window.THINKORA_I18N || {}).consent || {};
     banner.innerHTML =
-      '<h2 id="consent-title">Your privacy choices</h2>' +
-      "<p>Thinkora stores your light or dark mode choice on your device. " +
+      '<h2 id="consent-title">' + (C.title || "Your privacy choices") + "</h2>" +
+      (C.body || ("<p>Thinkora stores your light or dark mode choice on your device. " +
       "If you accept optional services, we also load Google Firebase so you can turn on browser notifications. " +
-      'Read the <a href="/privacy-policy/#cookies">privacy policy</a>.</p>' +
+      'Read the <a href="/privacy-policy/#cookies">privacy policy</a>.</p>')) +
       '<div class="consent-actions">' +
-      '<button type="button" class="btn btn-primary" data-choice="all">Accept optional</button>' +
-      '<button type="button" class="btn btn-ghost" data-choice="essential">Essential only</button>' +
+      '<button type="button" class="btn btn-primary" data-choice="all">' + (C.accept || "Accept optional") + "</button>" +
+      '<button type="button" class="btn btn-ghost" data-choice="essential">' + (C.essential || "Essential only") + "</button>" +
       "</div>";
     banner.addEventListener("click", function (e) {
       var b = e.target.closest("[data-choice]");
@@ -79,7 +80,7 @@
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "consent-open";
-    btn.textContent = "Cookie settings";
+    btn.textContent = ((window.THINKORA_I18N || {}).consent || {}).settings || "Cookie settings";
     btn.addEventListener("click", openBanner);
     footer.appendChild(btn);
   }

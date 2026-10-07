@@ -123,14 +123,16 @@ thinkoraAfterFirstPaint(function () {
     }
 
     function label(iq) {
-      if (iq >= 130) return "Very superior";
-      if (iq >= 120) return "Superior";
-      if (iq >= 110) return "High average";
-      if (iq >= 90) return "Average";
-      if (iq >= 80) return "Low average";
-      if (iq >= 70) return "Borderline";
+      var R = (window.THINKORA_I18N || {}).ratings ||
+        ["Very superior", "Superior", "High average", "Average", "Low average", "Borderline", "Extremely low"];
+      if (iq >= 130) return R[0];
+      if (iq >= 120) return R[1];
+      if (iq >= 110) return R[2];
+      if (iq >= 90) return R[3];
+      if (iq >= 80) return R[4];
+      if (iq >= 70) return R[5];
 
-      return "Extremely low";
+      return R[6];
     }
 
     function make(tag, attrs) {
@@ -302,9 +304,9 @@ thinkoraAfterFirstPaint(function () {
       textEl.innerHTML =
         "<strong>" +
         label(v) +
-        "</strong><br>Higher than about " +
+        "</strong><br>" + (((window.THINKORA_I18N || {}).slider || {}).higher || "Higher than about ") +
         pctText +
-        "% of people";
+        (((window.THINKORA_I18N || {}).slider || {}).people || "% of people");
 
       slider.setAttribute(
         "aria-valuetext",
@@ -313,7 +315,7 @@ thinkoraAfterFirstPaint(function () {
         label(v) +
         ", " +
         pctText +
-        " percent"
+        (((window.THINKORA_I18N || {}).slider || {}).percent || " percent")
       );
     }
 

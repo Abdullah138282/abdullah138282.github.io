@@ -87,7 +87,7 @@
 
     toggle.setAttribute(
       "aria-label",
-      isDark ? "Switch to light mode" : "Switch to dark mode"
+      isDark ? ((window.THINKORA_I18N||{}).toLight || "Switch to light mode") : ((window.THINKORA_I18N||{}).toDark || "Switch to dark mode")
     );
 
     if (icon) {
@@ -95,7 +95,7 @@
     }
 
     if (text) {
-      text.textContent = isDark ? "Light" : "Dark";
+      text.textContent = isDark ? ((window.THINKORA_I18N||{}).light || "Light") : ((window.THINKORA_I18N||{}).dark || "Dark");
     }
 
     try {

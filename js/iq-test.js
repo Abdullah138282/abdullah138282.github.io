@@ -10,7 +10,11 @@
   var MEAN_SCORE = 27;
   var SD_SCORE = 11;
 
-  var DOMAIN_NAMES = {
+  var I = window.THINKORA_I18N || {};
+  var T = I.test || {};
+  function tx(key, fallback) { return T[key] !== undefined ? T[key] : fallback; }
+
+  var DOMAIN_NAMES = I.domains || {
     spatial: "Shape and pattern sense",
     numerical: "Number sense",
     logical: "Deduction",
@@ -44,13 +48,14 @@
   }
 
   function ratingLabel(iq) {
-    if (iq >= 130) return "Very superior";
-    if (iq >= 120) return "Superior";
-    if (iq >= 110) return "High average";
-    if (iq >= 90) return "Average";
-    if (iq >= 80) return "Low average";
-    if (iq >= 70) return "Borderline";
-    return "Extremely low";
+    var R = I.ratings || ["Very superior", "Superior", "High average", "Average", "Low average", "Borderline", "Extremely low"];
+    if (iq >= 130) return R[0];
+    if (iq >= 120) return R[1];
+    if (iq >= 110) return R[2];
+    if (iq >= 90) return R[3];
+    if (iq >= 80) return R[4];
+    if (iq >= 70) return R[5];
+    return R[6];
   }
 
   /* ---------------- SVG builders for the picture puzzles ---------------- */
@@ -243,6 +248,18 @@
       miniGrid([[2, 2], [2, 1], [1, 1]], 180, 15, 20) +
       frame(294, 45, 64) + qmark(294, 45), 420) });
 
+  /* ---------------- Optional translated question pack ---------------- */
+  if (I.questions && I.questions.length === QUESTIONS.length) {
+    QUESTIONS.forEach(function (q, i) {
+      var t = I.questions[i];
+      if (!t) return;
+      if (t.p) q.prompt = t.p;
+      if (t.o && q.kind === "text") q.options = t.o;
+      if (t.c !== undefined) q.correct = t.c;
+      if (t.alt) q.alt = t.alt;
+    });
+  }
+
   /* ---------------- Test state ---------------- */
   var el = {
     start: $("screen-start"), test: $("screen-test"), result: $("screen-result"),
@@ -313,8 +330,8 @@
     var left = Math.max(0, Math.round((state.endAt - Date.now()) / 1000));
     el.timer.textContent = fmt(left);
     el.timer.classList.toggle("low", left <= 120);
-    if (left <= 300 && !state.warned5) { state.warned5 = true; el.live.textContent = "5 minutes left."; }
-    if (left <= 60 && !state.warned1) { state.warned1 = true; el.live.textContent = "1 minute left."; }
+    if (left <= 300 && !state.warned5) { state.warned5 = true; el.live.textContent = tx("min5", "5 minutes left."); }
+    if (left <= 60 && !state.warned1) { state.warned1 = true; el.live.textContent = tx("min1", "1 minute left."); }
     if (left <= 0) finish(true);
   }
 
@@ -326,7 +343,7 @@
       el.visual.hidden = false;
       el.visual.innerHTML = q.visual;
       el.visual.setAttribute("role", "img");
-      el.visual.setAttribute("aria-label", q.alt || "Puzzle diagram");
+      el.visual.setAttribute("aria-label", q.alt || tx("puzzle", "Puzzle diagram"));
     } else {
       el.visual.hidden = true;
       el.visual.innerHTML = "";
@@ -340,7 +357,7 @@
       var sel = it.chosen === pos;
       html += '<button type="button" class="opt' + (sel ? " selected" : "") + '" role="radio" aria-checked="' +
         (sel ? "true" : "false") + '" data-pos="' + pos + '"' +
-        (q.kind === "svg" ? ' aria-label="Option ' + letter + '"' : "") + ">" +
+        (q.kind === "svg" ? ' aria-label="' + tx("option", "Option") + " " + letter + '"' : "") + ">" +
         '<span class="opt-key" aria-hidden="true">' + letter + "</span>" +
         '<span class="opt-body">' + body + "</span></button>";
     }
@@ -369,7 +386,7 @@
 
   function render() {
     var it = state.qs[state.idx], q = it.q;
-    el.count.textContent = "Question " + (state.idx + 1) + " of " + state.qs.length;
+    el.count.textContent = T.question ? T.question(state.idx + 1, state.qs.length) : "Question " + (state.idx + 1) + " of " + state.qs.length;
     el.domain.textContent = DOMAIN_NAMES[q.domain];
     el.bar.style.transform = "scaleX(" + ((state.idx + 1) / state.qs.length) + ")";
     fillBody(it);
@@ -384,7 +401,7 @@
   function updateNext() {
     var it = state.qs[state.idx];
     var last = state.idx === state.qs.length - 1;
-    el.next.textContent = last ? "Finish test" : (it.chosen === null ? "Skip" : "Next");
+    el.next.textContent = last ? tx("finish", "Finish test") : (it.chosen === null ? tx("skip", "Skip") : tx("next", "Next"));
     el.next.classList.toggle("btn-primary", it.chosen !== null || last);
     el.next.classList.toggle("btn-ghost", it.chosen === null && !last);
   }
@@ -409,7 +426,7 @@
     var left = unanswered();
     if (left > 0 && !state.confirmFinish) {
       state.confirmFinish = true;
-      el.msg.textContent = "You have " + left + " unanswered question" + (left === 1 ? "" : "s") +
+      el.msg.textContent = T.unanswered ? T.unanswered(left) : "You have " + left + " unanswered question" + (left === 1 ? "" : "s") +
         ". Press Finish test again to submit anyway, or use Back to answer them.";
       return;
     }
@@ -502,15 +519,16 @@
 
     $("r-label").textContent = ratingLabel(res.iq);
     var pctTxt = res.pct > 99.9 ? "99.9" : res.pct < 0.1 ? "0.1" : (res.pct < 10 || res.pct > 90) ? res.pct.toFixed(1) : String(Math.round(res.pct));
-    $("r-pct").textContent = "You scored higher than about " + pctTxt + "% of people.";
-    $("r-range").textContent = "Likely range: " + clamp(res.iq - 8, 55, 145) + " to " + clamp(res.iq + 8, 55, 145) + ". Online estimates can be off by several points.";
-    $("r-time").textContent = (timedOut ? "Time ran out. " : "") + res.right + " of " + state.qs.length +
+    $("r-pct").textContent = T.pct ? T.pct(pctTxt) : "You scored higher than about " + pctTxt + "% of people.";
+    $("r-range").textContent = T.range ? T.range(clamp(res.iq - 8, 55, 145), clamp(res.iq + 8, 55, 145)) : "Likely range: " + clamp(res.iq - 8, 55, 145) + " to " + clamp(res.iq + 8, 55, 145) + ". Online estimates can be off by several points.";
+    $("r-time").textContent = T.time ? T.time(timedOut, res.right, state.qs.length, res.answered, fmt(used)) :
+      (timedOut ? "Time ran out. " : "") + res.right + " of " + state.qs.length +
       " correct, " + res.answered + " answered, " + fmt(used) + " used.";
 
     var warn = $("r-warn");
     if (res.answered < 10) {
       warn.hidden = false;
-      warn.textContent = "You answered only " + res.answered + " of " + state.qs.length +
+      warn.textContent = T.warn ? T.warn(res.answered, state.qs.length) : "You answered only " + res.answered + " of " + state.qs.length +
         " questions, so this estimate is not reliable. Retake the test and answer as many as you can.";
     } else {
       warn.hidden = true;
@@ -526,7 +544,7 @@
         '%</strong></div><div class="bar"><span style="--w:' + (p / 100) + '"></span></div></div>';
     });
     $("r-bars").innerHTML = bars;
-    $("r-best").textContent = res.answered >= 10 ? "Your strongest skill was " + DOMAIN_NAMES[best.k].toLowerCase() + "." : "";
+    $("r-best").textContent = res.answered >= 10 ? (T.best ? T.best(DOMAIN_NAMES[best.k].toLowerCase()) : "Your strongest skill was " + DOMAIN_NAMES[best.k].toLowerCase() + ".") : "";
 
     // Trigger the bar animation on the next frame
     requestAnimationFrame(function () {
