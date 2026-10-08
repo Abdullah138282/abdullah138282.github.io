@@ -14,6 +14,8 @@
 - [Pattern memory game](https://abdullah138282.github.io/pattern-memory-game/)
 - [Color difference test](https://abdullah138282.github.io/color-difference-test/)
 - [Mental math test](https://abdullah138282.github.io/mental-math-test/)
+- [Anagram speed test](https://abdullah138282.github.io/anagram-speed-test/): unscramble words in 60 seconds
+- [Vocabulary test](https://abdullah138282.github.io/vocabulary-test/): 20 word-meaning questions at three levels
 
 ## Articles
 - [What is a good IQ score?](https://abdullah138282.github.io/blog/what-is-a-good-iq-score/)

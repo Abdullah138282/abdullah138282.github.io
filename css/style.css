@@ -1512,7 +1512,7 @@ input[type="range"]::-moz-range-thumb {
   background:
     var(--brand);
 
-  color: #fff;
+  color: var(--on-brand);
 }
 
 .domain dd {
