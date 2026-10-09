@@ -5,6 +5,7 @@
 ## Tests and tools
 - [Free IQ test](https://abdullah138282.github.io/iq-test/): 38 original questions on spatial, numerical, logical, verbal and applied reasoning, with an estimated IQ, percentile and skill breakdown.
 - [IQ percentile calculator](https://abdullah138282.github.io/iq-percentile-calculator/): convert an IQ score to a percentile.
+- [Mental age calculator](https://abdullah138282.github.io/mental-age-calculator/): mental age from IQ and actual age, and ratio IQ.
 - [IQ score chart](https://abdullah138282.github.io/iq-scores/): score ranges, percentiles and classifications.
 
 ## Brain games
@@ -16,6 +17,7 @@
 - [Mental math test](https://abdullah138282.github.io/mental-math-test/)
 - [Anagram speed test](https://abdullah138282.github.io/anagram-speed-test/): unscramble words in 60 seconds
 - [Vocabulary test](https://abdullah138282.github.io/vocabulary-test/): 20 word-meaning questions at three levels
+- [Reading speed test](https://abdullah138282.github.io/reading-speed-test/): words per minute and comprehension on a short passage
 
 ## Articles
 - [What is a good IQ score?](https://abdullah138282.github.io/blog/what-is-a-good-iq-score/)

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Mental Age Calculator: Find Mental Age From IQ and Age | Thinkora</title>
+  <meta name="description" content="Use this free mental age calculator to find mental age from an IQ score and actual age, or work out the ratio IQ from mental age. Includes the formula and its limits.">
+  <link rel="canonical" href="https://abdullah138282.github.io/mental-age-calculator/">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mental Age Calculator: Find Mental Age From IQ and Age | Thinkora">
+  <meta property="og:description" content="Use this free mental age calculator to find mental age from an IQ score and actual age, or work out the ratio IQ from mental age. Includes the formula and its limits.">
+  <meta property="og:url" content="https://abdullah138282.github.io/mental-age-calculator/">
+  <meta property="og:site_name" content="Thinkora">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://abdullah138282.github.io/images/og-thinkora.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Thinkora: free IQ test, brain games and percentile calculator">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mental Age Calculator: Find Mental Age From IQ and Age | Thinkora">
+  <meta name="twitter:description" content="Use this free mental age calculator to find mental age from an IQ score and actual age, or work out the ratio IQ from mental age. Includes the formula and its limits.">
+  <meta name="twitter:image" content="https://abdullah138282.github.io/images/og-thinkora.png">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#03071e">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap"></noscript>
+
+  <script>
+    if (location.protocol === "http:" && !/^(localhost|127\.)/.test(location.hostname)) { location.replace("https:" + location.href.substring(location.protocol.length)); }
+    document.documentElement.classList.add("js");
+
+    setTimeout(function () {
+      if (!window.__thinkoraReady) {
+        document.documentElement.classList.remove("js");
+      }
+    }, 2500);
+  </script>
+
+  <!-- Theme boot: prevents light/dark flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("thinkora-theme");
+
+        if (saved === "dark" || saved === "light") {
+          document.documentElement.setAttribute("data-theme", saved);
+        } else if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/pages.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Thinkora Mental Age Calculator",
+      "url": "https://abdullah138282.github.io/mental-age-calculator/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "description": "A free calculator that works out mental age from an IQ score and actual age using the classic ratio formula, and ratio IQ from mental age.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://abdullah138282.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mental age calculator",
+          "item": "https://abdullah138282.github.io/mental-age-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you calculate mental age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Multiply the person's IQ by their actual age and divide by 100. A 10-year-old with an IQ of 120 has a mental age of 12, because 120 ÷ 100 × 10 = 12."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does mental age mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mental age describes the age at which an average child performs the same way as the person tested. A mental age of 12 means the person performs like a typical 12-year-old on that test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is mental age the same as how mature I am?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Mental age here is a test-performance idea from early intelligence testing. It says nothing about emotional maturity, personality or how old you act or feel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does mental age work for adults?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not well. The ratio formula was designed for children, whose abilities grow quickly with age. Adults do not keep gaining test performance every year, so the numbers stop making sense, and test manuals traditionally capped actual age at about 16."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do modern IQ tests not use mental age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Modern tests, such as the Wechsler scales, compare your score with people of your own age and report a deviation IQ with an average of 100. This works for all ages and is more consistent than the old ratio method."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+
+      <a class="logo" href="/" aria-label="Thinkora home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#03071e"/>
+          <path d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+                fill="none"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"/>
+        </svg>
+        Thinkora
+      </a>
+
+    <div class="header-actions">
+
+      <button
+              type="button"
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Switch to dark mode"
+              aria-pressed="false">
+
+              <span
+                class="theme-icon"
+                aria-hidden="true">☾</span>
+
+              <span class="theme-text">Dark</span>
+
+            </button>
+
+      <button class="nav-toggle"
+              aria-expanded="false"
+              aria-controls="site-nav">
+        Menu
+      </button>
+
+    </div>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+
+        <ul>
+
+          <li>
+            <a href="/iq-test/">IQ test</a>
+          </li>
+
+          <li class="has-sub">
+
+            <a href="/brain-games/">Brain games</a>
+
+            <button type="button"
+                    class="sub-toggle"
+                    aria-expanded="false"
+                    aria-label="Show brain games links">
+            </button>
+
+            <ul class="submenu">
+              <li><a href="/reaction-time-test/">Reaction time test</a></li>
+              <li><a href="/number-memory-test/">Number memory test</a></li>
+              <li><a href="/pattern-memory-game/">Pattern memory game</a></li>
+              <li><a href="/color-difference-test/">Color difference test</a></li>
+              <li><a href="/mental-math-test/">Mental math test</a></li>
+            <li>
+              <a href="/anagram-speed-test/">Anagram speed test</a>
+            </li>
+            <li>
+              <a href="/vocabulary-test/">Vocabulary test</a>
+            </li>
+<li>
+  <a href="/reading-speed-test/">Reading speed test</a>
+</li>
+              <li><a href="/brain-games/">All brain games</a></li>
+            </ul>
+
+          </li>
+
+          <li class="has-sub">
+
+            <a href="/iq-percentile-calculator/">
+              Calculator
+            </a>
+
+            <button type="button"
+                    class="sub-toggle"
+                    aria-expanded="false"
+                    aria-label="Show calculator links">
+            </button>
+
+            <ul class="submenu">
+
+              <li>
+                <a href="/iq-percentile-calculator/">
+                  IQ percentile calculator
+                </a>
+              </li>
+
+              <li>
+                <a href="/mental-age-calculator/" aria-current="page">
+                  Mental age calculator
+                </a>
+              </li>
+
+              <li>
+                <a href="/iq-scores/">
+                  IQ score guide
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <li class="has-sub">
+
+            <a href="/blog/">Articles</a>
+
+            <button type="button"
+                    class="sub-toggle"
+                    aria-expanded="false"
+                    aria-label="Show articles links">
+            </button>
+
+            <ul class="submenu">
+              <li>
+                <a href="/blog/">All articles</a>
+              </li>
+            </ul>
+
+          </li>
+
+          <li class="has-sub">
+
+            <a href="/about/">About</a>
+
+            <button type="button"
+                    class="sub-toggle"
+                    aria-expanded="false"
+                    aria-label="Show about links">
+            </button>
+
+            <ul class="submenu">
+
+              <li>
+                <a href="/about/">About Thinkora</a>
+              </li>
+
+              <li>
+                <a href="/methodology/">Methodology</a>
+              </li>
+
+              <li>
+                <a href="/contact/">Contact</a>
+              </li>
+
+              <li>
+                <a href="/privacy-policy/">Privacy policy</a>
+              </li>
+
+              <li>
+                <a href="/terms/">
+                  Terms of service
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <!-- Theme toggle -->
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+<section class="pg-hero">
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a> / Mental age calculator
+</nav>
+<h1>Mental Age Calculator</h1>
+<p class="lead">
+Find a mental age from an IQ score and actual age, or work out the classic ratio IQ from a mental age. Free, instant,
+and nothing is stored.
+</p>
+</div>
+</section>
+
+<section class="pg-body">
+<div class="wrap">
+
+<div class="calc-grid">
+
+<div class="calc-card">
+<h2>Mental age from IQ</h2>
+<p class="hint">Enter an actual age and an IQ score.</p>
+<form id="form-ma" novalidate>
+<div class="field-row">
+<div class="field">
+<label for="in-age">Actual age (years)</label>
+<input id="in-age" type="number" inputmode="decimal" min="2" max="100" step="any" value="10" required>
+</div>
+<div class="field">
+<label for="in-iq">IQ score</label>
+<input id="in-iq" type="number" inputmode="decimal" min="40" max="200" step="1" value="120" required>
+</div>
+</div>
+<p class="calc-error" id="err-ma" role="alert"></p>
+<button type="submit" class="btn btn-primary">Calculate mental age</button>
+</form>
+<div class="calc-result" id="out-ma" aria-live="polite" hidden>
+<p class="calc-big"><span id="res-ma">0</span> <small>years</small></p>
+<p class="calc-line" id="res-ma-ym"></p>
+<p class="calc-line" id="res-ma-formula"></p>
+<p class="calc-line" id="res-ma-cap" hidden></p>
+</div>
+<p class="hint" style="margin-top:16px">Do not know your IQ? Take our <a href="/iq-test/">free IQ test</a>.</p>
+</div>
+
+<div class="calc-card">
+<h2>Ratio IQ from mental age</h2>
+<p class="hint">Enter a mental age and an actual age.</p>
+<form id="form-ratio" novalidate>
+<div class="field-row">
+<div class="field">
+<label for="in-mental">Mental age (years)</label>
+<input id="in-mental" type="number" inputmode="decimal" min="0.1" max="100" step="any" value="12" required>
+</div>
+<div class="field">
+<label for="in-actual">Actual age (years)</label>
+<input id="in-actual" type="number" inputmode="decimal" min="2" max="100" step="any" value="10" required>
+</div>
+</div>
+<p class="calc-error" id="err-ratio" role="alert"></p>
+<button type="submit" class="btn btn-primary">Calculate ratio IQ</button>
+</form>
+<div class="calc-result" id="out-ratio" aria-live="polite" hidden>
+<p class="calc-big"><span id="res-iq">0</span> <small>ratio IQ</small></p>
+<p class="calc-line" id="res-iq-formula"></p>
+</div>
+</div>
+
+</div>
+
+<div class="prose" style="margin-top:44px">
+
+<h2>What is mental age?</h2>
+<p>
+Mental age is the age at which an average child performs the same as the person being tested. Alfred Binet and
+Théodore Simon used the idea in their early intelligence scale in 1905: a child who solved the tasks that a typical
+eight-year-old could solve was said to have a mental age of eight, whatever their actual age was.
+</p>
+
+<h2>The mental age formula</h2>
+<p>
+The ratio between mental age and actual age was turned into the first IQ score. William Stern proposed it in 1912, and
+Lewis Terman popularized it in the Stanford&ndash;Binet test. The two formulas are the same relationship written in
+different ways:
+</p>
+<ul>
+<li><strong>IQ = mental age &divide; actual age &times; 100</strong></li>
+<li><strong>Mental age = IQ &divide; 100 &times; actual age</strong></li>
+</ul>
+
+<h2>Examples</h2>
+<div class="table-scroll">
+<table>
+<thead><tr><th>Actual age</th><th>IQ</th><th>Mental age</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>100</td><td>6.0</td></tr>
+<tr><td>8</td><td>125</td><td>10.0</td></tr>
+<tr><td>10</td><td>120</td><td>12.0</td></tr>
+<tr><td>12</td><td>90</td><td>10.8</td></tr>
+<tr><td>14</td><td>110</td><td>15.4</td></tr>
+</tbody>
+</table>
+</div>
+<p>An IQ of 100 always gives a mental age equal to actual age, because that is the average.</p>
+
+<h2>Why mental age does not work for adults</h2>
+<p>
+The formula assumes ability grows steadily with age, which is true for children but not for adults. If it were applied
+to a 40-year-old with an IQ of 120, it would give a mental age of 48, which does not describe anything real. Test
+publishers handled this by capping actual age at around 16 when using the ratio method, which is why the calculator
+also shows a capped result for anyone older. In practice, mental age stops being useful after adolescence.
+</p>
+
+<h2>Why modern IQ tests dropped it</h2>
+<p>
+Current tests compare your result with people of your own age and report a deviation IQ, with an average of 100. That
+method works the same way at every age and avoids the problems of the ratio formula. The mental age idea survives
+mostly in discussions of child development and in some disability assessments, where it is used as a rough description
+rather than a score.
+</p>
+
+<h2>Mental age is not how mature you are</h2>
+<p>
+People often search for a &ldquo;mental age test&rdquo; to find out how old they act. That is a different, informal
+idea. This calculator only converts between IQ, actual age and the classic test-based mental age. It is for information
+and learning, not for any clinical decision. For a formal assessment, see a licensed psychologist.
+</p>
+
+<h2>Related tools</h2>
+<p>
+Use the <a href="/iq-percentile-calculator/">IQ percentile calculator</a> to see what a score means compared with
+others, check the <a href="/iq-scores/">IQ score guide</a>, or take the <a href="/iq-test/">free IQ test</a>.
+</p>
+
+<h2>Common questions</h2>
+<div class="faq">
+<details><summary>How do you calculate mental age?</summary><p>Multiply the person's IQ by their actual age and divide by 100. A 10-year-old with an IQ of 120 has a mental age of 12, because 120 ÷ 100 × 10 = 12.</p></details>
+<details><summary>What does mental age mean?</summary><p>Mental age describes the age at which an average child performs the same way as the person tested. A mental age of 12 means the person performs like a typical 12-year-old on that test.</p></details>
+<details><summary>Is mental age the same as how mature I am?</summary><p>No. Mental age here is a test-performance idea from early intelligence testing. It says nothing about emotional maturity, personality or how old you act or feel.</p></details>
+<details><summary>Does mental age work for adults?</summary><p>Not well. The ratio formula was designed for children, whose abilities grow quickly with age. Adults do not keep gaining test performance every year, so the numbers stop making sense, and test manuals traditionally capped actual age at about 16.</p></details>
+<details><summary>Why do modern IQ tests not use mental age?</summary><p>Modern tests, such as the Wechsler scales, compare your score with people of your own age and report a deviation IQ with an average of 100. This works for all ages and is more consistent than the old ratio method.</p></details>
+</div>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="site-footer">
+
+    <div class="wrap">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <a class="logo" href="/">
+
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="9" fill="#03071e"/>
+              <path
+                d="M4 25 C11 25 11 7 16 7 S21 25 28 25"
+                fill="none"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"/>
+            </svg>
+
+            Thinkora
+
+          </a>
+
+          <p style="margin-top:12px">
+            Free IQ test, brain games and calculators.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3>Test</h3>
+
+          <ul>
+
+            <li>
+              <a href="/iq-test/">
+                IQ test
+              </a>
+            </li>
+
+            <li>
+              <a href="/iq-percentile-calculator/">
+                Percentile calculator
+              </a>
+            </li>
+<li>
+  <a href="/mental-age-calculator/">Mental age calculator</a>
+</li>
+
+            <li>
+              <a href="/iq-scores/">
+                IQ score guide
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>Play</h3>
+
+          <ul>
+
+            <li>
+              <a href="/reaction-time-test/">
+                Reaction time
+              </a>
+            </li>
+
+            <li>
+              <a href="/number-memory-test/">
+                Number memory
+              </a>
+            </li>
+
+            <li>
+              <a href="/pattern-memory-game/">
+                Pattern memory
+              </a>
+            </li>
+
+            <li>
+              <a href="/color-difference-test/">
+                Color difference
+              </a>
+            </li>
+
+            <li>
+              <a href="/mental-math-test/">
+                Mental math
+              </a>
+            </li>
+            <li>
+              <a href="/anagram-speed-test/">Anagram speed test</a>
+            </li>
+            <li>
+              <a href="/vocabulary-test/">Vocabulary test</a>
+            </li>
+<li>
+  <a href="/reading-speed-test/">Reading speed test</a>
+</li>
+
+            <li>
+              <a href="/brain-games/">
+                All games
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>Company</h3>
+
+          <ul>
+
+            <li>
+              <a href="/about/">
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="/methodology/">
+                Methodology
+              </a>
+            </li>
+
+            <li>
+              <a href="/contact/">
+                Contact
+              </a>
+            </li>
+
+            <li>
+              <a href="/privacy-policy/">
+                Privacy policy
+              </a>
+            </li>
+
+            <li>
+              <a href="/terms/">
+                Terms of service
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <p class="disclaimer">
+
+        <strong>Disclaimer:</strong>
+
+        Thinkora provides estimated IQ scores for information and entertainment.
+        Results are not clinically validated and should not be used for medical,
+        educational or professional decisions.
+
+        &copy; 2026 Thinkora.
+
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/mental-age.js" defer></script>
+<script src="/js/consent.js" defer></script>
+
+</body>
+</html>

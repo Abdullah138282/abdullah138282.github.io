@@ -75,3 +75,21 @@
 .opt.is-wrong { border-color: #d00000; background: rgba(208, 0, 0, 0.1); }
 .v-missed { text-align: left; max-width: 34em; margin: 12px auto 0; padding-left: 20px; }
 .v-missed li { margin-bottom: 6px; }
+
+/* Reading speed test */
+.rs-passage {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 22px 22px 8px;
+  margin: 0 auto 22px;
+  max-width: 68ch;
+  text-align: left;
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+.rs-passage p { margin: 0 0 1.1em; color: var(--ink); max-width: none; }
+.rs-title { font: 800 1.35rem var(--font-display); margin: 0 0 14px; text-align: center; }
+.rs-hint { text-align: center; color: var(--ink-soft); margin: 0 0 14px; }
+.rs-actions { text-align: center; }
+@media (min-width: 700px) { .rs-passage { padding: 30px 34px 14px; font-size: 1.18rem; } }
