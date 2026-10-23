@@ -93,3 +93,13 @@
 .rs-hint { text-align: center; color: var(--ink-soft); margin: 0 0 14px; }
 .rs-actions { text-align: center; }
 @media (min-width: 700px) { .rs-passage { padding: 30px 34px 14px; font-size: 1.18rem; } }
+
+/* ---------- Glass ---------- */
+
+.rs-passage {
+  background: var(--glass-strong);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-hi), var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}

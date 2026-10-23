@@ -77,7 +77,7 @@
   var text = toggle.querySelector(".theme-text");
 
 
-  function setTheme(theme) {
+  function setTheme(theme, persist) {
 
     var isDark = theme === "dark";
 
@@ -98,10 +98,12 @@
       text.textContent = isDark ? "Light" : "Dark";
     }
 
-    try {
-      localStorage.setItem("thinkora-theme", theme);
-    } catch (error) {
-      /* Ignore storage errors */
+    if (persist) {
+      try {
+        localStorage.setItem("thinkora-theme-choice", theme);
+      } catch (error) {
+        /* Ignore storage errors */
+      }
     }
 
   }
@@ -110,25 +112,13 @@
   var savedTheme = null;
 
   try {
-    savedTheme = localStorage.getItem("thinkora-theme");
+    savedTheme = localStorage.getItem("thinkora-theme-choice");
   } catch (error) {
     savedTheme = null;
   }
 
-
-  if (savedTheme === "dark" || savedTheme === "light") {
-
-    setTheme(savedTheme);
-
-  } else {
-
-    var prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    setTheme(prefersDark ? "dark" : "light");
-
-  }
+  /* Light is the default. Dark is used only if the visitor chose it. */
+  setTheme(savedTheme === "dark" ? "dark" : "light", false);
 
 
   toggle.addEventListener("click", function () {
@@ -136,7 +126,7 @@
     var currentTheme =
       document.documentElement.getAttribute("data-theme");
 
-    setTheme(currentTheme === "dark" ? "light" : "dark");
+    setTheme(currentTheme === "dark" ? "light" : "dark", true);
 
   });
 

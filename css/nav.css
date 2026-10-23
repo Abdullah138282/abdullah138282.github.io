@@ -359,3 +359,28 @@
   }
 
 }
+
+/* ---------- Glass menus ---------- */
+
+@media (max-width: 1023px) {
+  .site-nav {
+    background: var(--glass-menu);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 24px 40px -24px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-nav .submenu {
+    background: var(--glass-menu);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-hi), 0 24px 48px -20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.theme-toggle {
+  background: var(--glass-soft);
+  border-color: var(--glass-border);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}

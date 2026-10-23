@@ -143,3 +143,35 @@
   .calc-grid { grid-template-columns: 1fr 1fr; align-items: start; }
   .calc-grid .calc-wide { grid-column: 1 / -1; }
 }
+
+/* ---------- Glass ---------- */
+
+.callout,
+.calc-card,
+.table-scroll {
+  background: var(--glass);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-hi), var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.field input,
+.field select,
+.field textarea {
+  background: var(--glass-soft);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.calc-result,
+.cta-band {
+  background: rgba(255, 186, 8, 0.24);
+  border-color: rgba(255, 186, 8, 0.5);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+html[data-theme="dark"] .calc-result,
+html[data-theme="dark"] .cta-band {
+  background: rgba(255, 186, 8, 0.12);
+}

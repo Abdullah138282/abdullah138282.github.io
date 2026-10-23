@@ -261,3 +261,28 @@ tr:last-child td { border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   .t-progress span, .bar > span { transition: none; }
 }
+
+/* ---------- Glass ---------- */
+
+.t-panel {
+  background: var(--glass-strong);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-hi), var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.t-fact,
+.t-visual,
+.r-card,
+.opt {
+  background: var(--glass-soft);
+}
+
+.opt.selected { background: var(--brand-tint); }
+
+.t-nav {
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
